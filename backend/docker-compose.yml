@@ -13,11 +13,11 @@ services:
     env_file:
       - .env
     networks:
-      - one-stop-2021_default
+      - chairman_hab_default
 
 volumes:
   welfare_board_images:
 
 networks:
-  one-stop-2021_default:
+  chairman_hab_default:
     external: true

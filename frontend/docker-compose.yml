@@ -9,4 +9,12 @@ services:
         context: .
     ports:
       - "9834:3000"
-    command: sh -c "cd /app/frontend && serve -s build"
+    env_file:
+    - ".env.frontend"
+    command: sh -c "cd /usr/src/app/frontend && serve -s build"
+    networks:
+      - frontend_default
+
+networks:
+  frontend_default:
+    external: true
