@@ -3,7 +3,8 @@ import { FaLinkedinIn } from "react-icons/fa6";
 import { IoLogoInstagram } from "react-icons/io5";
 import { BsYoutube } from "react-icons/bs";
 import { FaTwitter } from "react-icons/fa";
-
+import swbLogo from "../assets/swb_logo.png";
+import swcLogo from "../assets/swc_logo.jpg;
 function Footer() {
   const socialUrls = {
     linkedin: "https://www.linkedin.com/company/students-welfare-board/",
@@ -18,8 +19,8 @@ function Footer() {
       <div className="sm:hidden w-full h-full flex flex-col gap-10 items-center justify-between px-2">
         <div className="flex items-start justify-center md:items-center gap-3 md:gap-4">
           <img
-            src="/swb_logo.png"
-            alt="Students Gymkhana Council"
+            src={swbLogo}
+            alt="Students Welfare Board"
             className="h-[80px]"
           />
           <div className="leading-3 md:leading-4 lg:leading-5 flex flex-col md:gap-3">
@@ -66,7 +67,7 @@ function Footer() {
             <div className="flex gap-2 sm:gap-3">
               <img
                 className="h-[30px]"
-                src="/swc_logo.jpg"
+                src={swcLogo}
                 alt="Students Web Committee"
               />
               <p>
@@ -85,7 +86,7 @@ function Footer() {
       <div className="hidden w-full h-full sm:flex flex-col gap-10 sm:flex-row items-center justify-between">
         <div className="flex items-start md:items-center gap-3 md:gap-4">
           <img
-            src="/swb_logo.png"
+            src={swbLogo}
             alt="Student's Welfare Board"
             className="h-[80px] md:h-[125px]"
           />
@@ -132,7 +133,7 @@ function Footer() {
           <div className="flex gap-2 sm:gap-3">
             <img
               className="h-[45px] md:h-[74px]"
-              src="/swc_logo.jpg"
+              src={swcLogo}
               alt="Students Web Committee"
             />
             <p>
