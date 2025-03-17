@@ -9,10 +9,27 @@ import Footer from "../components/Footer";
 import RoundedDiv from "../components/RoundedDiv";
 import { FaRegFilePdf } from "react-icons/fa6";
 
+import groupImg from "../assets/group.jpeg";
+import muskanImg from "../assets/images/events/muskan.jpeg";
+import muskanImg2 from "../assets/images/events/muskan2.jpeg";
+import roobarooImg from "../assets/images/events/roobaroo.jpeg";
+import roobarooImg2 from "../assets/images/events/roobaroo2.jpeg";
+import roobarooImg3 from "../assets/images/events/roobaroo3.jpeg";
+import roobarooPdf from "../assets/pdfs/roobaroo.pdf";
+import foodOutletImg from "../assets/images/events/foodOutlet.jpeg";
+import foodOutletImg2 from "../assets/images/events/foodOutlet2.jpeg";
+import foodOutletImg3 from "../assets/images/events/foodOutlet3.jpeg";
+import prayatnaImg from "../assets/images/events/prayatna.jpeg";
+import prayatnaImg2 from "../assets/images/events/prayatna2.jpeg";
+import prayatnaImg3 from "../assets/images/events/prayatna3.jpeg";
+import sahyogImg from "../assets/images/events/sahyog.jpeg";
+import sahyogImg2 from "../assets/images/events/sahyog2.png";
+
+
 const clubData = {
   name: "Welfare Board",
   topSection: {
-    img: "/group.jpeg",
+    img: groupImg,
   },
   muskan:{
    text:`The Muskaan event by the Student Welfare Board at IIT Guwahati made this Diwali unforgettable for over 120 orphan children from orphanages across Guwahati. The day was a whirlwind of energy and joy, starting with a lively dance session where kids danced their hearts out. They then poured their creativity onto paper during a drawing session, followed by fun games that had everyone laughing and cheering.
@@ -20,31 +37,31 @@ const clubData = {
 The excitement peaked with a spellbinding magic show that left the children awestruck, their faces lit up with wonder. A delicious lunch brought everyone together, and the day ended with the distribution of exciting gifts, sparking pure delight.
 
 It was a celebration filled with laughter, magic, and heartfelt smiles—an experience etched in everyone's memories!`,
-   img:"/images/events/muskan.jpeg",
-   img2:"/images/events/muskan2.jpeg"
+   img:muskanImg,
+   img2:muskanImg2
   },
 
   roobaroo:{
     text:`Roobaroo is the official campus magazine of IIT Guwahati, launched by the Student Welfare Board (SWB) to keep students informed and connected. The first issue, titled "Flicker," features campus updates, future plans, insights into student rights, and stories celebrating community achievements. It aims to foster a sense of community and awareness among students. The magazine is available both digitally through links shared by SWB and in print at hostel magazine stands and key campus locations.`,
-    img:"/images/events/roobaroo.jpeg",
-    img2:"/images/events/roobaroo2.jpeg",
-    img3:"/images/events/roobaroo3.jpeg",
-    pdf:"/pdfs/roobaroo.pdf"
+    img:roobarooImg,
+    img2:roobarooImg2,
+    img3:roobarooImg3,
+    pdf:roobarooPdf
   }
 ,
   foodOutlet: {
     text: `During this tenure, we successfully onboarded several prominent food outlets to enhance the dining experience at our food court. Notable additions include well-known brands like *Domino’s, La Pinoz, Nescafé, Urban Tadka, and Fat Belly*. This diverse lineup offers a wide range of culinary options, from popular pizzas and comforting beverages to authentic Indian cuisine and indulgent treats, catering to varied tastes and preferences.`,
-    img: "/images/events/foodOutlet.jpeg",
-    img2:"/images/events/foodOutlet2.jpeg",
-    img3:"/images/events/foodOutlet3.jpeg"
+    img: foodOutletImg,
+    img2:foodOutletImg2,
+    img3:foodOutletImg3
   },
   prayatna: {
     text: `Prayatna 2025 is the 5th edition of the annual socio-welfare fest of IIT Guwahati, organized by the Students' Welfare Board.
 
 With the vision of promoting social harmony and helping raise awareness about socio-economic issues and their solutions, Prayatna strives to create a meaningful and lasting impact on the lives of the people in the community. `,
-    img: "/images/events/prayatna.jpeg",
-    img2:"/images/events/prayatna2.jpeg",
-    img3:"/images/events/prayatna3.jpeg"
+    img: prayatnaImg,
+    img2:prayatnaImg2,
+    img3:prayatnaImg3
   },
   sahyog:{
     text:`Sahyog, Inter hostel socio-welfare competition is aimed at helping the IITG students develop a sense of compassion and empowerment by exploring their competitive spirit. Sahyog will allow hostels to explore a new side of themselves while competing as a team.
@@ -52,8 +69,8 @@ With the vision of promoting social harmony and helping raise awareness about so
 Through this competition, participants can engage in meaningful conversations, brainstorm innovative solutions, and develop strategies to create a more just and equitable world.
 
 Every hostel borderer is encouraged to come forward and take part.`,
-img:"/images/events/sahyog.jpeg",
-img2:"/images/events/sahyog2.png"
+img:sahyogImg,
+img2:sahyogImg2
   }
 };
 
