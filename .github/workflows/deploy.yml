@@ -1,49 +1,49 @@
-name: Deploy to Production
+# name: Deploy to Production
 
-on:
-  push:
-    branches:
-      - "main"
+# on:
+#   push:
+#     branches:
+#       - "main"
 
-jobs:
-  build-frontend:
-    name: Building Frontend
-    runs-on: ubuntu-latest
-    steps:
-      - name: Establish ssh connection
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          key: ${{ secrets.SSH_KEY }}
-          passphrase: ${{ secrets.SSH_PASSPHRASE }}
-          port: ${{ secrets.SSH_PORT }}
-          username: ${{ secrets.SSH_USERNAME }}
-          script: |
-            cd /webapps/Welfare_Board_Portal/frontend
-            sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
-            sudo chmod g+rwx "$HOME/.docker" -R
-            git checkout main
-            git fetch
-            git pull
-            docker compose -f docker-compose.yml up -d --build
+# jobs:
+#   build-frontend:
+#     name: Building Frontend
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Establish ssh connection
+#         uses: appleboy/ssh-action@master
+#         with:
+#           host: ${{ secrets.SSH_HOST }}
+#           key: ${{ secrets.SSH_KEY }}
+#           passphrase: ${{ secrets.SSH_PASSPHRASE }}
+#           port: ${{ secrets.SSH_PORT }}
+#           username: ${{ secrets.SSH_USERNAME }}
+#           script: |
+#             cd /webapps/Welfare_Board_Portal/frontend
+#             sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
+#             sudo chmod g+rwx "$HOME/.docker" -R
+#             git checkout main
+#             git fetch
+#             git pull
+#             docker compose -f docker-compose.yml up -d --build
 
-  build-backend:
-    name: Building Backend
-    runs-on: ubuntu-latest
-    steps:
-      - name: Establish ssh connection
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          key: ${{ secrets.SSH_KEY }}
-          passphrase: ${{ secrets.SSH_PASSPHRASE }}
-          port: ${{ secrets.SSH_PORT }}
-          username: ${{ secrets.SSH_USERNAME }}
-          script: |
-            cd /webapps/Welfare_Board_Portal/backend
-            sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
-            sudo chmod g+rwx "$HOME/.docker" -R
-            git checkout main
-            git fetch
-            git pull
-            docker compose -f docker-compose.yml up -d --build
+#   build-backend:
+#     name: Building Backend
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Establish ssh connection
+#         uses: appleboy/ssh-action@master
+#         with:
+#           host: ${{ secrets.SSH_HOST }}
+#           key: ${{ secrets.SSH_KEY }}
+#           passphrase: ${{ secrets.SSH_PASSPHRASE }}
+#           port: ${{ secrets.SSH_PORT }}
+#           username: ${{ secrets.SSH_USERNAME }}
+#           script: |
+#             cd /webapps/Welfare_Board_Portal/backend
+#             sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
+#             sudo chmod g+rwx "$HOME/.docker" -R
+#             git checkout main
+#             git fetch
+#             git pull
+#             docker compose -f docker-compose.yml up -d --build
