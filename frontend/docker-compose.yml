@@ -11,7 +11,7 @@ services:
       - "9834:3000"
     env_file:
     - ".env.frontend"
-    command: sh -c "cd /usr/src/app/frontend && serve -s build"
+    command: sh -c "cd /app && serve -s build"
     networks:
       - frontend_default
 
