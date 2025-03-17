@@ -1,0 +1,30 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+// Import Pages
+import HomePage from "./pages/HomePage";
+import ContactsPage from "./pages/ContactsPage";
+import AllClubsPage from "./pages/AllClubsPage";
+import EachClubPage from "./pages/ClubPage";
+import AllEventsPage from "./pages/AllEventsPage";
+import EachEventPage from "./pages/EventPage";
+import SWB from "./pages/SWB";
+const BASEURL = process.env.REACT_APP_BASEURL;
+
+function App() {
+  return (
+    <BrowserRouter basename={`/${BASEURL}`} >
+      <Routes>
+        <Route path="/">
+          <Route index element={<HomePage />} />
+          <Route path="/contacts" element={<ContactsPage />} />
+          <Route path="/clubs" element={<AllClubsPage />} />
+          <Route path="/club/:name" element={<EachClubPage />} />
+          <Route path="/events" element={<EachEventPage />} />
+          <Route path="/event/:id" element={<EachEventPage />} />
+          <Route path="/swb" element={<SWB/>}/>
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;
