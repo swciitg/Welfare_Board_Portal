@@ -1,0 +1,23 @@
+version: "3.3"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - welfare_board_images:/usr/src/app/backend/images
+    ports:
+      - "8069:3001"
+    env_file:
+      - .env
+    networks:
+      - one-stop-2021_default
+
+volumes:
+  welfare_board_images:
+
+networks:
+  one-stop-2021_default:
+    external: true
