@@ -10,7 +10,7 @@ function HeroSection() {
   // if (loading) return <div>Loading...</div>; // Display loading state
   if (error) return <div>Error fetching homepage data.</div>; // Handle errors
 
-  const teamMember = data;
+  const teamMember = data?data.teamMember:[];
 
 
   return (
@@ -70,7 +70,7 @@ function HeroSection() {
         {/* Image Section */}
         <div className="md:d mt-20 mb-[10rem] w-[825px] h-[690px] grid-cols-3 grid-rows-2 gap-4 overflow-hidden lg:w-[825px] lg:h-[690px] lg:grid lg:grid-cols-3 lg:grid-rows-2 lg:gap-4 hidden md:grid">
           {/* For Laptop */}
-          {teamMember.map((member, index) => (
+          {teamMember&&teamMember.map((member, index) => (
             <div key={index} className="w-[240px] h-[330px]">
               <img
                 src={member.image}
@@ -83,7 +83,7 @@ function HeroSection() {
 
         {/* For Mobile Phones */}
         <div className="mt-20 mb-[10rem] w-full h-[330px] gap-4 flex overflow-x-scroll scrollbar-thin lg:hidden">
-          {teamMember.map((member, index) => (
+          {teamMember&&teamMember.map((member, index) => (
             <div key={index} className="w-[240px] h-[330px] flex-shrink-0">
               <img
                 src={member.image}
