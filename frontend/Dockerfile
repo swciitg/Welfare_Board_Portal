@@ -6,7 +6,7 @@ RUN npm install
 COPY . .
 RUN npm run build
 RUN mkdir -p ./build/welfare_board
-RUN mv ./build/static ./build/welfare_board/static
+RUN mv ./build/static/* ./build/welfare_board/static/
 RUN mv ./build/*.json ./build/welfare_board/ \
     && mv ./build/*.png ./build/welfare_board/ \
     && mv ./build/*.txt ./build/welfare_board/ \

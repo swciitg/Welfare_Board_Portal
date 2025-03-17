@@ -4,7 +4,7 @@ import { IoLogoInstagram } from "react-icons/io5";
 import { BsYoutube } from "react-icons/bs";
 import { FaTwitter } from "react-icons/fa";
 import swbLogo from "../assets/swb_logo.png";
-import swcLogo from "../assets/swc_logo.jpg;
+import swcLogo from "../assets/swc_logo.jpg";
 function Footer() {
   const socialUrls = {
     linkedin: "https://www.linkedin.com/company/students-welfare-board/",

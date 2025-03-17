@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
-import swbLogo from "../assets/swb_logo.png;
+import swbLogo from "../assets/swb_logo.png";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
