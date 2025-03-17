@@ -1,6 +1,8 @@
 import useRoundedStyle from "../hooks/useRoundedStyle";
 import { useHomePageData } from "../hooks/useHomePageData";
 import Event from "./Event";
+import aboutUsImg from "../assets/images/homepage/aboutus.png";
+import widepng from "../assets/images/clubs/wide.png";
 
 function HeroSection() {
   const roundedStyle = useRoundedStyle();
@@ -32,7 +34,7 @@ function HeroSection() {
           {/* Image Section */}
           <div className="w-[460px] h-[470px] basis-1/2">
             <img
-              src="/images/homepage/aboutus.png"
+              src={aboutUsImg}
               alt="Sports activity"
               className="w-[460px] h-[470px] object-cover"
             />
@@ -115,7 +117,7 @@ function HeroSection() {
           {/* Image Section */}
           <div className="z-10 w-full md:w-[50%] flex items-center justify-center">
             <img
-              src="images/clubs/wide.png"
+              src={widepng}
               alt="Chairman"
               className="w-[461px] h-[438px] object-cover"
             />
@@ -181,7 +183,7 @@ function HeroSection() {
           {/* Image Section */}
           <div className="z-10 w-full md:w-[50%] flex items-center justify-center">
             <img
-              src="images/clubs/wide.png"
+              src={widepng}
               alt="Chairman"
               className="w-[461px] h-[438px] object-cover"
             />
