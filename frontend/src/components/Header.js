@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
+import swbLogo from "../assets/swb_logo.png;
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,7 +13,7 @@ function Header() {
         <div className="w-full h-full flex items-center justify-between px-5 md:px-10 lg:px-20 xl:px-40">
           <div className="flex items-center gap-2 md:gap-3 cursor-pointer">
             <img
-              src="/swb_logo.png"
+              src={swbLogo}
               alt="Student's Welfare Board"
               className="w-[61px] h-[66px] md:w-[86px] md:h-[92px] object-contain"
             />
