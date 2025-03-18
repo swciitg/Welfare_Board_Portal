@@ -46,10 +46,10 @@ function Header() {
               Events
             </Link>
             <Link
-              to="/swb"
+              to="/resources"
               className="hover:text-[#7BB9C4] hover:underline underline-offset-[5px] duration-100"
             >
-              SWB
+              Resources
             </Link>
             <Link
               to="/contacts"
@@ -92,10 +92,10 @@ function Header() {
         </Link>
         <hr />
         <Link
-          to="/swb"
+          to="/resources"
           className="cursor-pointer text-gray-200 hover:text-gray-300 duration-100"
         >
-          SWB
+          Resources
         </Link>
         <hr />
         <Link
