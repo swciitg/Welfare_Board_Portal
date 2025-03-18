@@ -21,8 +21,6 @@ jobs:
             sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
             sudo chmod g+rwx "$HOME/.docker" -R
             git checkout main
-            git fetch
-            git stash              
-            git pull               
-            git stash pop    
+            git fetch        
+            git pull         
             docker compose -f docker-compose.yml up -d --build
