@@ -7,7 +7,7 @@ import EachClubPage from "./pages/ClubPage";
 import AllEventsPage from "./pages/AllEventsPage";
 import EachEventPage from "./pages/EventPage";
 import SWB from "./pages/SWB";
-const BASEURL = process.env.REACT_APP_BASEURL;
+const BASEURL = process.env.REACT_APP_BASEURL||"/welfare-board";
 
 function App() {
   return (
