@@ -3,6 +3,7 @@ import { useHomePageData } from "../hooks/useHomePageData";
 import Event from "./Event";
 import aboutUsImg from "../assets/images/homepage/aboutus.png";
 import widepng from "../assets/images/clubs/wide.png";
+import homepage from "../assets/images/homepage/homepage.png";
 
 function HeroSection() {
   const roundedStyle = useRoundedStyle();
@@ -19,7 +20,7 @@ function HeroSection() {
     <div className="w-full overflow-x-hidden font-poppins flex flex-col items-center">
       <div
         className="w-full h-[865px] bg-top bg-cover bg-no-repeat flex flex-col items-center justify-center gap-5 text-gray-200 sticky top-0 z-0"
-        style={{ backgroundImage: "url('/images/homepage/homepage.png')" }}
+        style={{ backgroundImage: {homepage}}
       >
         <p className="text-4xl md:text-7xl font-semibold tracking-tight text-center">
           Student's Welfare Board
