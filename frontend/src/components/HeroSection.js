@@ -13,14 +13,14 @@ function HeroSection() {
   // if (loading) return <div>Loading...</div>; // Display loading state
   if (error) return <div>Error fetching homepage data.</div>; // Handle errors
 
-  const teamMember = data?data.teamMember:[];
+  const teamMember = data ? data.teamMember : [];
 
 
   return (
     <div className="w-full overflow-x-hidden font-poppins flex flex-col items-center">
       <div
         className="w-full h-[865px] bg-top bg-cover bg-no-repeat flex flex-col items-center justify-center gap-5 text-gray-200 sticky top-0 z-0"
-        style={{ backgroundImage: `url(${homepage})`}}
+        style={{ backgroundImage: `url(${homepage})` }}
       >
         <p className="text-4xl md:text-7xl font-semibold tracking-tight text-center">
           Student's Welfare Board
@@ -52,13 +52,13 @@ function HeroSection() {
             <p className="text-[#565656] text-[15px] leading-relaxed font-[Familjen Grotesk]">
               {/* {aboutData[0].description} */}
               The Students Welfare Board broadly addresses the overall well being of the students of the institute. Its scope of activities includes among various welfare activities such as faculty-student interactions, senior-junior interactions, organizing yoga and meditation camps, serving the society through Social Service Club, group discussions, coffee house sessions, counselling services to students and a lot of other activities which are aimed at keeping the mind, body and soul of the IITians sound.
-    Well, what do they have for you? Here at IITG, the Students Welfare Board is committed to ensure that you have no issues adapting to the new home you are about to live in. They will give you a warm welcome by organizing the Fresher's Week, which will have events aiming at helping you in adapting to your new home. Another major question which you all might be having is about Ragging. Well friends, we assure you all that there is no such thing in the campus and you are about to enter a friendly environment and home away from home. Do contact us at any time regarding any problem that you might be facing during your stay in the campus.
+              Well, what do they have for you? Here at IITG, the Students Welfare Board is committed to ensure that you have no issues adapting to the new home you are about to live in. They will give you a warm welcome by organizing the Fresher's Week, which will have events aiming at helping you in adapting to your new home. Another major question which you all might be having is about Ragging. Well friends, we assure you all that there is no such thing in the campus and you are about to enter a friendly environment and home away from home. Do contact us at any time regarding any problem that you might be facing during your stay in the campus.
             </p>
           </div>
         </div>
       </div>
- 
-      
+
+
       <div
         className="top-[-20rem] bg-[#7BB9C4] w-full flex flex-col md:flex-row md:justify-between md:items-start px-10 md:px-20 pb-[115vw] xs:pb-[80vw] sm:pb-[57vw] md:pb-[40vw] lg:pb-[30vw] xl:pb-[22vw]"
         style={roundedStyle}
@@ -73,7 +73,7 @@ function HeroSection() {
         {/* Image Section */}
         <div className="md:d mt-20 mb-[10rem] w-[825px] h-[690px] grid-cols-3 grid-rows-2 gap-4 overflow-hidden lg:w-[825px] lg:h-[690px] lg:grid lg:grid-cols-3 lg:grid-rows-2 lg:gap-4 hidden md:grid">
           {/* For Laptop */}
-          {teamMember&&teamMember.map((member, index) => (
+          {teamMember && teamMember.map((member, index) => (
             <div key={index} className="w-[240px] h-[330px]">
               <img
                 src={member.image}
@@ -86,7 +86,7 @@ function HeroSection() {
 
         {/* For Mobile Phones */}
         <div className="mt-20 mb-[10rem] w-full h-[330px] gap-4 flex overflow-x-scroll scrollbar-thin lg:hidden">
-          {teamMember&&teamMember.map((member, index) => (
+          {teamMember && teamMember.map((member, index) => (
             <div key={index} className="w-[240px] h-[330px] flex-shrink-0">
               <img
                 src={member.image}
