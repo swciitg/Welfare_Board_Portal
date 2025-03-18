@@ -9,15 +9,15 @@ services:
     volumes:
       - welfare_board_images:/usr/src/app/backend/images
     ports:
-      - "8069:3001"
+      - "8070:3001"
     env_file:
       - .env
     networks:
-      - chairman_hab_default
+      - backend_welfare-board-strapi
 
 volumes:
   welfare_board_images:
 
 networks:
-  chairman_hab_default:
+  backend_welfare-board-strapi:
     external: true
