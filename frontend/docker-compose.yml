@@ -2,13 +2,13 @@ version: "3.3"
 
 services:
   web:
-    image: welfare_board_frontend
+    image: welfare_board_frontendp
     container_name: welfare_board_frontend
     restart: always
     build:
         context: .
     ports:
-      - "9834:3000"
+      - "9835:3000"
     env_file:
     - ".env.frontend"
     command: sh -c "cd /app && serve -s build"
