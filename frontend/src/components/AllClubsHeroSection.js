@@ -29,7 +29,7 @@ function AllClubsHeroSection() {
     <div className="overflow-x-hidden font-poppins flex flex-col text-gray-200 bg-[#F5F5F5]">
       <div
         className="w-full h-[865px] bg-top bg-cover bg-no-repeat flex flex-col items-center justify-center gap-5 text-gray-200 z-1"
-        style={{ backgroundImage:`url(${clubImg})`}
+        style={{ backgroundImage:`url(${clubImg})`}}
       >
         <p className="text-4xl md:text-7xl font-semibold tracking-tight text-center">
           LOREM IPSUM
