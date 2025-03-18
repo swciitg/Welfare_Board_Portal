@@ -4,7 +4,7 @@ import ZigZagLine from "./ZigZagLine";
 import ClubCard from "./ClubCard";
 import ScrollAnimation from "react-animate-on-scroll";
 import RoundedDiv from "./RoundedDiv";
-
+import clubImg from "../assets/images/clubs/wide.png";
 function AllClubsHeroSection() {
   const BACKEND_BASE_URL=process.env.BACKEND_BASE_URL;
   const [clubsData, setClubsData] = useState([]);
@@ -29,7 +29,7 @@ function AllClubsHeroSection() {
     <div className="overflow-x-hidden font-poppins flex flex-col text-gray-200 bg-[#F5F5F5]">
       <div
         className="w-full h-[865px] bg-top bg-cover bg-no-repeat flex flex-col items-center justify-center gap-5 text-gray-200 z-1"
-        style={{ backgroundImage: "url('/images/allclubspage/first.png')" }}
+        style={{ backgroundImage:{clubImg }}
       >
         <p className="text-4xl md:text-7xl font-semibold tracking-tight text-center">
           LOREM IPSUM
