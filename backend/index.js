@@ -2,16 +2,16 @@ import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
 import router from "./routes/user.routes.js";
-import { adminRouter } from "./admin_panel/admin-config.js"; // Removed unnecessary import
+import { admin,adminRouter } from "./admin_panel/admin-config.js"; // Removed unnecessary import
 import cors from "cors";
 import bodyParser from "body-parser"; // Explicitly import body-parser
 
 // Initialize dotenv to load environment variables
 dotenv.config();
 
+const ADMINPANELROOT = "/welfare-board/api/admin";
 const PORT = process.env.PORT || 8000;
 const url = process.env.MONGO_URI;
-
 console.log(url);
 
 // Connect to MongoDB
@@ -39,7 +39,7 @@ app.use(cors(corsOptions));
 
 // Use express.json() and regular router
 app.use(express.json());
-app.use('/admin', adminRouter);
+app.use(ADMINPANELROOT, adminRouter);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', router);
