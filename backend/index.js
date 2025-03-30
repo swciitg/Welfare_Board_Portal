@@ -24,7 +24,7 @@ db.once("open", () => {
 });
 
 const app = express();
-
+app.use(ADMINPANELROOT, adminRouter);
 const corsOptions = {
   origin: process.env.CORS_ORIGIN,
   optionsSuccessStatus: 200, // Legacy browsers
@@ -39,7 +39,6 @@ app.use(cors(corsOptions));
 
 // Use express.json() and regular router
 app.use(express.json());
-app.use(ADMINPANELROOT, adminRouter);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', router);
