@@ -1,14 +1,10 @@
 import useRoundedStyle from "../hooks/useRoundedStyle";
 import { useHomePageData } from "../hooks/useHomePageData";
-import Event from "./Event";
-import aboutUsImg from "../assets/images/homepage/aboutus.png";
-import widepng from "../assets/images/clubs/wide.png";
-import homepage from "../assets/images/homepage/homepage.png";
 
 function HeroSection() {
   const roundedStyle = useRoundedStyle();
   const { data, error } = useHomePageData();
-
+// console.log("data", data);
 
   // if (loading) return <div>Loading...</div>; // Display loading state
   if (error) return <div>Error fetching homepage data.</div>; // Handle errors
@@ -20,7 +16,7 @@ function HeroSection() {
     <div className="w-full overflow-x-hidden font-poppins flex flex-col items-center">
       <div
         className="w-full h-[865px] bg-top bg-cover bg-no-repeat flex flex-col items-center justify-center gap-5 text-gray-200 sticky top-0 z-0"
-        style={{ backgroundImage: `url(${homepage})` }}
+        style={{ backgroundImage: `url(${data?.homepage[0]?.heroimage})` }}
       >
         <p className="text-4xl md:text-7xl font-semibold tracking-tight text-center">
           Student's Welfare Board
@@ -35,7 +31,7 @@ function HeroSection() {
           {/* Image Section */}
           <div className="w-[460px] h-[470px] basis-1/2">
             <img
-              src={aboutUsImg}
+              src={data?.aboutData[0]?.image}
               alt="Sports activity"
               className="w-[460px] h-[470px] object-cover"
             />
@@ -45,15 +41,13 @@ function HeroSection() {
           <div className="text-left basis-1/2">
             {/* Title */}
             <h1 className="text-[#0C0D0D] font-semibold text-[96px] leading-none font-[Fira Sans Extra Condensed]">
-              ABOUT US.
+              ABOUT US<span className="text-[#7BB9C4]">.</span>
             </h1>
 
             {/* Paragraph */}
             <p className="text-[#565656] text-[15px] leading-relaxed font-[Familjen Grotesk]">
-              {/* {aboutData[0].description} */}
-              The Students Welfare Board broadly addresses the overall well being of the students of the institute. Its scope of activities includes among various welfare activities such as faculty-student interactions, senior-junior interactions, organizing yoga and meditation camps, serving the society through Social Service Club, group discussions, coffee house sessions, counselling services to students and a lot of other activities which are aimed at keeping the mind, body and soul of the IITians sound.
-              Well, what do they have for you? Here at IITG, the Students Welfare Board is committed to ensure that you have no issues adapting to the new home you are about to live in. They will give you a warm welcome by organizing the Fresher's Week, which will have events aiming at helping you in adapting to your new home. Another major question which you all might be having is about Ragging. Well friends, we assure you all that there is no such thing in the campus and you are about to enter a friendly environment and home away from home. Do contact us at any time regarding any problem that you might be facing during your stay in the campus.
-            </p>
+            {data?.aboutData[0]?.description}
+               </p>
           </div>
         </div>
       </div>
@@ -66,7 +60,7 @@ function HeroSection() {
         {/* Text Section */}
         <div className="md:ml-10 mt-20 w-full md:w-[30%] text-center md:text-left flex flex-col items-center md:items-start space-y-1">
           <h1 className="mb-10 text-[6vw] leading-none font-semibold text-[#0C0D0D] font-[Fira Sans Extra Condensed]">
-            Team Members
+            Team Members<span className="text-[#fff]">.</span>
           </h1>
         </div>
 
@@ -118,7 +112,7 @@ function HeroSection() {
           {/* Image Section */}
           <div className="z-10 w-full md:w-[50%] flex items-center justify-center">
             <img
-              src={widepng}
+              src={data?.homepage[0]?.chairmanimgurl}
               alt="Chairman"
               className="w-[461px] h-[438px] object-cover"
             />
@@ -128,21 +122,19 @@ function HeroSection() {
           <div className="w-full md:w-[50%] text-center md:text-left flex flex-col items-center md:items-start justify-start space-y-1">
             {/* Title */}
             <h1 className="text-[6vw] leading-none font-semibold text-[#0C0D0D] font-[Fira Sans Extra Condensed]">
-              CHAIRMAN.
+              CHAIRMAN<span className="text-[#7BB9C4]">.</span>
             </h1>
             <p className="text-[3vw] md:text-[2vw] leading-relaxed text-[#565656] font-[Familjen Grotesk]">
-              Professor Deepak Sharma
+              {data?.homepage[0]?.chairmanname}
             </p>
             <p className="text-[3vw] md:text-[2vw] leading-relaxed text-[#565656] font-[Familjen Grotesk]">
-              Department of Mechanical Engineering
+              {data?.homepage[0]?.chairmandescription}
             </p>
             <h2 className="text-[4vw] leading-none font-semibold text-[#565656] font-[Familjen Grotesk] mt-4">
               Message from the Chairman-
             </h2>
             <p className="text-[3vw] md:text-[2vw] leading-relaxed text-[#565656] font-[Familjen Grotesk]">
-              You are here for an overall development of your personality, so to
-              keep you healthy and fit, we have all the facilities for sports,
-              both indoor and outdoor.
+              {data?.homepage[0]?.aboutchairman}
             </p>
           </div>
         </div>
@@ -152,21 +144,19 @@ function HeroSection() {
           <div className="w-full md:w-[50%] text-center md:text-left flex flex-col items-center md:items-start justify-start space-y-1">
             {/* Title */}
             <h1 className="text-[6vw] leading-none font-semibold text-[#0C0D0D] font-[Fira Sans Extra Condensed]">
-              GENERAL SECRETARY.
+              GENERAL SECRETARY<span className="text-[#7BB9C4]">.</span>
             </h1>
             <p className="text-[3vw] md:text-[2vw] leading-relaxed text-[#565656] font-[Familjen Grotesk]">
-              Professor Deepak Sharma
+              {data?.homepage[0]?.gensecname}
             </p>
             <p className="text-[3vw] md:text-[2vw] leading-relaxed text-[#565656] font-[Familjen Grotesk]">
-              Department of Mechanical Engineering
+              {data?.homepage[0]?.gensecdescription}
             </p>
             <h2 className="text-[4vw] leading-none font-semibold text-[#565656] font-[Familjen Grotesk] mt-4">
               Message from the Chairman-
             </h2>
             <p className="text-[3vw] md:text-[2vw] leading-relaxed text-[#565656] font-[Familjen Grotesk]">
-              You are here for an overall development of your personality, so to
-              keep you healthy and fit, we have all the facilities for sports,
-              both indoor and outdoor.
+              {data?.homepage[0]?.aboutgensec}
             </p>
           </div>
 
@@ -184,7 +174,7 @@ function HeroSection() {
           {/* Image Section */}
           <div className="z-10 w-full md:w-[50%] flex items-center justify-center">
             <img
-              src={widepng}
+              src={data?.homepage[0]?.gensecimg}
               alt="Chairman"
               className="w-[461px] h-[438px] object-cover"
             />

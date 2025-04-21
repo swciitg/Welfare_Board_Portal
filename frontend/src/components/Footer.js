@@ -5,13 +5,14 @@ import { BsYoutube } from "react-icons/bs";
 import { FaTwitter } from "react-icons/fa";
 import swbLogo from "../assets/swb_logo.png";
 import swcLogo from "../assets/swc_logo.jpg";
+import { useHomePageData } from "../hooks/useHomePageData";
 function Footer() {
   const socialUrls = {
     linkedin: "https://www.linkedin.com/company/students-welfare-board/",
     instagram: "https://www.instagram.com/swb_iitg?igsh=aTdoenF5MXFxdmM5",
     youtube: "https://youtube.com/@swbiitg?si=ubAv3kXDC9l72m_g",
   };
-
+  const { data, error } = useHomePageData();
   return (
     <div className="w-full min-h-[400px] px-5 md:px-10 lg:px-20 xl:px-36 py-5 md:py-16 flex items-center bg-gray-400 font-poppins">
       {/* Repeated elements to match the responsiveness of given figma */}
@@ -19,7 +20,7 @@ function Footer() {
       <div className="sm:hidden w-full h-full flex flex-col gap-10 items-center justify-between px-2">
         <div className="flex items-start justify-center md:items-center gap-3 md:gap-4">
           <img
-            src={swbLogo}
+            src={data?.homepage[0]?.logoimgurl}
             alt="Students Welfare Board"
             className="h-[80px]"
           />

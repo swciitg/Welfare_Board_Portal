@@ -6,18 +6,20 @@ import { FaPhone } from "react-icons/fa6";
 import { MdMail } from "react-icons/md";
 import { IoLogoLinkedin } from "react-icons/io5";
 import axios from "axios"; // To make API calls
+import { useHomePageData } from "../hooks/useHomePageData";
 
 function ContactsPage() {
   const [contacts, setContacts] = useState([]); // Store contacts data
   const [loading, setLoading] = useState(true); // Track loading state
   const [error, setError] = useState(null); // Track errors if any
-
+  const {data } = useHomePageData();
+  const imgdata = data?.homepage[0]?.contactpageimgurl || []; 
   // Fetch contacts from backend API on component mount
   useEffect(() => {
     const fetchContacts = async () => {
       try {
-        const response = await axios.get(`${process.env.API_BASE_URL}/contacts`);
-        setContacts(response.data);
+        const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/contacts`);
+        setContacts(response.data.contacts);
         setLoading(false);
       } catch (err) {
         setError("Failed to load contacts.");
@@ -38,7 +40,7 @@ function ContactsPage() {
       <div className="overflow-hidden opa font-poppins flex flex-col">
         <div
           className="w-full h-[865px] bg-top bg-cover bg-no-repeat flex flex-col items-center justify-center gap-5 text-gray-200"
-          style={{ backgroundImage: "url('/images/contact/main.png')" }}
+          style={{ backgroundImage: `url(${imgdata})` }}
         >
           <p className="text-4xl md:text-7xl font-semibold tracking-tight text-center">
             GET IN TOUCH
@@ -49,7 +51,7 @@ function ContactsPage() {
         </div>
 
         {/* Render Contacts Dynamically */}
-        {contacts.map((contact, index) => (
+        {contacts?.map((contact, index) => (
           <RoundedDiv
             key={index}
             Element={() => (

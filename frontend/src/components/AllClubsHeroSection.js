@@ -10,13 +10,16 @@ function AllClubsHeroSection() {
   const [clubsData, setClubsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const [heroimg , setheroimg] = useState(null)
   useEffect(() => {
+    console.log(process.env.REACT_APP_API_BASE_URL)
     axios
-      .get(`${process.env.API_BASE_URL}/allclubs`) // Replace with your actual API route
+      .get(`${process.env.REACT_APP_API_BASE_URL}/allclubs`) // Replace with your actual API route
       .then((response) => {
-        setClubsData(response.data); // Ensure API response structure matches expected format
+        setClubsData(response.data.club);
+        setheroimg(response.data.homepage[0].clubheroimg) // Ensure API response structure matches expected format
         setLoading(false);
+        console.log(response.data.club);
       })
       .catch((error) => {
         console.error("Error fetching clubs data:", error);
@@ -29,7 +32,7 @@ function AllClubsHeroSection() {
     <div className="overflow-x-hidden font-poppins flex flex-col text-gray-200 bg-[#F5F5F5]">
       <div
         className="w-full h-[865px] bg-top bg-cover bg-no-repeat flex flex-col items-center justify-center gap-5 text-gray-200 z-1"
-        style={{ backgroundImage:`url(${clubImg})`}}
+        style={{ backgroundImage:`url(${heroimg})`}}
       >
         <p className="text-4xl md:text-7xl font-semibold tracking-tight text-center">
           LOREM IPSUM

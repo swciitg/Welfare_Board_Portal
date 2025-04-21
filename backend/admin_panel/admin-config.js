@@ -6,12 +6,12 @@ import express from "express";
 import dotenv from "dotenv";
 dotenv.config();
 import AboutUs from "../models/aboutUs.js";
-import Club from "../models/club.js";
 import Contacts from "../models/contact.js";
 import Event from "../models/event.js";
 import Facilities from "../models/facilities.js";
 import TeamMember from "../models/teamMember.js";
 import clubMain from "../models/clubMain.js";
+import homepage from "../models/general.js";
 
 const ADMINPANELROOT = "/welfare-board/api/admin";
 
@@ -33,7 +33,7 @@ const authenticate = async (email, password) => {
 };
 
 const adminOptions = {
-  resources: [AboutUs, Club, Contacts, Event, Facilities, TeamMember, clubMain],
+  resources: [AboutUs, Contacts, Event, Facilities, TeamMember, clubMain,homepage],
   rootPath: ADMINPANELROOT,
   loginPath: ADMINPANELROOT + "/login",
   logoutPath: ADMINPANELROOT + "/logout",

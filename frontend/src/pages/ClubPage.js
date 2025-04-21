@@ -9,6 +9,7 @@ import RoundedDiv from "../components/RoundedDiv";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
+
 function EachClubPage() {
   const scrollDirection = useScrollDirection();
   const { name } = useParams(); // Get the dynamic club name from the URL
@@ -17,17 +18,21 @@ function EachClubPage() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    console.log(clubData); // Scroll to top on component mount
+  }, [clubData]);
+
+  useEffect(() => {
     const fetchClubData = async () => {
       try {
-        const response = await axios.get(`${process.env.API_BASE_URL}/club/${name}`); 
+        const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/club/${name}`); 
         setClubData(response.data); 
+        // console.log(response.data); // Ensure API response structure matches expected format
       } catch (err) {
         setError("Failed to load club data.");
       } finally {
         setLoading(false);
       }
     };
-
     fetchClubData(); 
   }, [name]);
 
@@ -63,7 +68,7 @@ function EachClubPage() {
               }
             >
               <img
-                src={clubData.aboutUsSection.img}
+                src={clubData?.aboutusimg}
                 alt="Sports activity"
                 className="w-[70%] object-cover"
               />
@@ -77,7 +82,7 @@ function EachClubPage() {
 
               {/* Paragraph */}
               <p className="text-[3vw] md:text-[2vw] leading-relaxed text-[#565656] font-[Familjen Grotesk] list-disc">
-                {clubData.aboutUsSection.text}
+                {clubData?.aboutDesc}
               </p>
             </div>
           </div>
@@ -114,7 +119,7 @@ const RulesAndGuidelinesSection = ({clubData}) => {
 
         {/* Paragraph */}
         <p className="text-[3vw] md:text-[2vw] leading-relaxed text-[#565656] font-[Familjen Grotesk] list-disc">
-          {clubData.rulesSection.text}
+          {clubData?.rules}
         </p>
       </div>
       {/* Image Section */}
@@ -124,7 +129,7 @@ const RulesAndGuidelinesSection = ({clubData}) => {
         animateOut={scrollDirection === "up" ? "slideOutDown" : "slideOutUp"}
       >
         <img
-          src={clubData.aboutUsSection.img}
+          src={clubData?.rulesimg}
           alt="Sports activity"
           className="w-[70%] object-cover"
         />
@@ -157,7 +162,7 @@ const PastEventsAndAcheivementsSection = ({clubData}) => {
           animateOut={scrollDirection === "up" ? "slideOutDown" : "slideOutUp"}
         >
           <img
-            src={clubData.aboutUsSection.img}
+            src={clubData?.pastEventsImg}
             alt="Sports activity"
             className="w-[70%] object-cover"
           />
@@ -172,7 +177,7 @@ const PastEventsAndAcheivementsSection = ({clubData}) => {
           animateOut={scrollDirection === "up" ? "slideOutDown" : "slideOutUp"}
         >
           <img
-            src={clubData.aboutUsSection.img}
+            src={clubData?.achievementsImg}
             alt="Sports activity"
             className="w-[70%] object-cover"
           />
@@ -222,7 +227,15 @@ const GallerySection = ({clubData}) => {
           stopOnHover={true}
           transitionTime={1000}
         >
-          <img src={clubData.aboutUsSection.img} alt="Sports activity" />
+          {clubData?.leaderImages.map((image, index) => (
+            <img
+              key={index}
+              src={image}
+              alt={`Sports activity ${index + 1}`}
+              className="w-[70%] h-[500px] object-cover"
+            />
+          ))}
+          {/* <img src={clubData.aboutUsSection.img} alt="Sports activity" />
           <img
             src={clubData.aboutUsSection.img}
             alt="Sports activity"
@@ -232,7 +245,7 @@ const GallerySection = ({clubData}) => {
             src={clubData.aboutUsSection.img}
             alt="Sports activity"
             className="w-[70%] object-cover"
-          />
+          /> */}
         </Carousel>
       </div>
     </div>
@@ -266,7 +279,15 @@ const TeamLeadersSection = ({clubData}) => {
           stopOnHover={true}
           transitionTime={1000}
         >
-          <img src={clubData.aboutUsSection.img} alt="Sports activity" />
+          {clubData?.leaderImages.map((image, index) => (
+            <img
+              key={index}
+              src={image}
+              alt={`Sports activity ${index + 1}`}
+              className="w-[70%] h-[500px] object-cover"
+            />
+          ))}
+          {/* <img src={clubData.aboutUsSection.img} alt="Sports activity" />
           <img
             src={clubData.aboutUsSection.img}
             alt="Sports activity"
@@ -276,7 +297,7 @@ const TeamLeadersSection = ({clubData}) => {
             src={clubData.aboutUsSection.img}
             alt="Sports activity"
             className="w-[70%] object-cover"
-          />
+          /> */}
         </Carousel>
       </div>
     </div>
