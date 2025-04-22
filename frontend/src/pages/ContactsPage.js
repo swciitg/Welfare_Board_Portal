@@ -9,12 +9,11 @@ import axios from "axios"; // To make API calls
 import { useHomePageData } from "../hooks/useHomePageData";
 
 function ContactsPage() {
-  const [contacts, setContacts] = useState([]); // Store contacts data
-  const [loading, setLoading] = useState(true); // Track loading state
-  const [error, setError] = useState(null); // Track errors if any
+  const [contacts, setContacts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const {data } = useHomePageData();
-  const imgdata = data?.homepage[0]?.contactpageimgurl || []; 
-  // Fetch contacts from backend API on component mount
+  const imgdata = data?.homepage[0]?.contactpageimgurl || [];
   useEffect(() => {
     const fetchContacts = async () => {
       try {
@@ -31,12 +30,11 @@ function ContactsPage() {
   }, []);
 
   if (loading) return <p className="text-center">Loading...</p>;
-  // if (error) return <p className="text-center text-red-500">{error}</p>;
+  if (error) return <p className="text-center text-red-500">{error}</p>;
 
   return (
     <div>
       <Header />
-      {/* Hero Section */}
       <div className="overflow-hidden opa font-poppins flex flex-col">
         <div
           className="w-full h-[865px] bg-top bg-cover bg-no-repeat flex flex-col items-center justify-center gap-5 text-gray-200"
@@ -50,13 +48,11 @@ function ContactsPage() {
           </p>
         </div>
 
-        {/* Render Contacts Dynamically */}
         {contacts?.map((contact, index) => (
           <RoundedDiv
             key={index}
             Element={() => (
               <div className="w-full flex flex-col-reverse gap-5 md:flex-row md:justify-between md:items-start px-10 md:px-20 pb-[15vw] pt-[10vw]">
-                {/* Text Section */}
                 <div className="w-full md:w-[50%] text-center md:text-left flex flex-col items-center md:items-start justify-start space-y-1">
                   <h1 className="text-[5vw] leading-none font-semibold text-[#0C0D0D] font-[Fira Sans Extra Condensed]">
                     {contact.designation.toUpperCase()}
@@ -90,7 +86,6 @@ function ContactsPage() {
                   </div>
                 </div>
 
-                {/* Image Section */}
                 <div className="w-full md:w-[50%] flex items-center justify-center">
                   <img
                     src={contact.image}
@@ -100,7 +95,7 @@ function ContactsPage() {
                 </div>
               </div>
             )}
-            bg={index % 2 === 0 ? "#F5F5F5" : "#7BB9C4"} // Alternate background colors
+            bg={index % 2 === 0 ? "#F5F5F5" : "#7BB9C4"}
             top="-200px"
           />
         ))}
