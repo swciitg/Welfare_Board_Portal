@@ -3,17 +3,19 @@ import { Link } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
 import swbLogo from "../assets/swb_logo.png";
+import { useHomePageData } from "../hooks/useHomePageData";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const { data, error } = useHomePageData();
+// console.log("data", data);
   return (
     <div className="z-50 absolute w-full h-auto font-poppins  bg-transparent ">
       <div className="w-full h-[132px] p-1 md:p-3">
         <div className="w-full h-full flex items-center justify-between px-5 md:px-10 lg:px-20 xl:px-40">
           <div className="flex items-center gap-2 md:gap-3 cursor-pointer">
             <img
-              src={swbLogo}
+              src={data?.homepage[0]?.logoimgurl}
               alt="Student's Welfare Board"
               className="w-[61px] h-[66px] md:w-[86px] md:h-[92px] object-contain"
             />

@@ -1,10 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-// Import Pages
 import HomePage from "./pages/HomePage";
 import ContactsPage from "./pages/ContactsPage";
 import AllClubsPage from "./pages/AllClubsPage";
 import EachClubPage from "./pages/ClubPage";
-import AllEventsPage from "./pages/AllEventsPage";
 import EachEventPage from "./pages/EventPage";
 import SWB from "./pages/SWB";
 const BASEURL = process.env.REACT_APP_BASEURL||"/welfare-board";
