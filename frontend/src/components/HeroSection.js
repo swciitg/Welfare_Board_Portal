@@ -7,7 +7,7 @@ function HeroSection() {
 // console.log("data", data);
 
   // if (loading) return <div>Loading...</div>; // Display loading state
-  if (error) return <div>Error fetching homepage data.</div>; // Handle errors
+  // if (error) return <div>Error fetching homepage data.</div>; // Handle errors
 
   const teamMember = data ? data.teamMember : [];
 

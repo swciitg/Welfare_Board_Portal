@@ -72,14 +72,14 @@ function Footer() {
                 alt="Students Web Committee"
               />
               <p>
-                Maintained by Student's &nbsp;
+                Maintained by Students' &nbsp;
                 <br className="hidden sm:inline" />
                 Web Committee &nbsp;
                 <br className="hidden sm:inline" />
                 &nbsp; IITG
               </p>
             </div>
-            <p>&copy; Student's Welfare Board, IIT Guwahati</p>
+            <p>&copy; Students' Welfare Board, IIT Guwahati</p>
           </div>
         </div>
       </div>
@@ -93,7 +93,7 @@ function Footer() {
           />
           <div className="leading-3 md:leading-4 lg:leading-5 flex flex-col md:gap-3">
             <p className="font-extrabold text-lg md:text-2xl lg:text-3xl">
-              STUDENT'S WELFARE <br />
+              STUDENTS' WELFARE <br />
               BOARD
             </p>
             <p className="font-extralight md:font-normal text-xs md:text-base mb-1">
@@ -138,14 +138,14 @@ function Footer() {
               alt="Students Web Committee"
             />
             <p>
-              Maintained by Student's &nbsp;
+              Maintained by Students' &nbsp;
               <br className="hidden sm:inline" />
               Web Committee &nbsp;
               <br className="hidden sm:inline" />
               &nbsp; IITG
             </p>
           </div>
-          <p>&copy; Student's Welfare Board, IIT Guwahati</p>
+          <p>&copy; Students' Welfare Board, IIT Guwahati</p>
         </div>
       </div>
     </div>

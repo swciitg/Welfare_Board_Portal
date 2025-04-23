@@ -18,7 +18,7 @@ function App() {
           <Route path="/club/:name" element={<EachClubPage />} />
           <Route path="/events" element={<EachEventPage />} />
           <Route path="/event/:id" element={<EachEventPage />} />
-          <Route path="/swb" element={<SWB/>}/>
+          <Route path="/resources" element={<SWB/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

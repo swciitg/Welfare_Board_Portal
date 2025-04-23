@@ -16,12 +16,12 @@ function Header() {
           <div className="flex items-center gap-2 md:gap-3 cursor-pointer">
             <img
               src={data?.homepage[0]?.logoimgurl}
-              alt="Student's Welfare Board"
+              alt="Students' Welfare Board"
               className="w-[61px] h-[66px] md:w-[86px] md:h-[92px] object-contain"
             />
             <div className="leading-4 md:leading-6 text-xs md:text-base">
               <p className="font-semibold">
-                STUDENT'S
+                STUDENTS'
                 <br /> WELFARE <br />
                 BOARD
               </p>

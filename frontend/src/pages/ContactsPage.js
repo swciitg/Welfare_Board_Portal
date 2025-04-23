@@ -29,8 +29,8 @@ function ContactsPage() {
     fetchContacts();
   }, []);
 
-  if (loading) return <p className="text-center">Loading...</p>;
-  if (error) return <p className="text-center text-red-500">{error}</p>;
+  // if (loading) return <p className="text-center">Loading...</p>;
+  // if (error) return <p className="text-center text-red-500">{error}</p>;
 
   return (
     <div>
