@@ -34,6 +34,11 @@ const authenticate = async (email, password) => {
 
 const adminOptions = {
   resources: [AboutUs, Contacts, Event, Facilities, TeamMember, clubMain,homepage],
+  branding: {
+      companyName: "SWB IITG",
+      logo: false,
+      withMadeWithLove: false,
+  },
   rootPath: ADMINPANELROOT,
   loginPath: ADMINPANELROOT + "/login",
   logoutPath: ADMINPANELROOT + "/logout",
