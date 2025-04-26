@@ -1,8 +1,8 @@
 version: "3.3"
 
 services:
-  web:
-    image: welfare_board_frontendp
+  welfare_web:
+    image: welfare_board_frontend
     container_name: welfare_board_frontend
     restart: always
     build:

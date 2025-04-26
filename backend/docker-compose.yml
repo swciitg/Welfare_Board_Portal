@@ -1,6 +1,8 @@
 version: "3.3"
 services:
-  app:
+  welfare_app:
+    image: welfare_board_backend
+    container_name: welfare_board_backend
     build:
       context: .
       dockerfile: Dockerfile
