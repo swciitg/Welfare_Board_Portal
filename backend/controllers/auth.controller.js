@@ -24,7 +24,7 @@ export const login = (req, res) => {
 
 export const logout = (req, res) => {
   req.session.destroy(() => {
-    res.redirect('/image/login');
+    res.redirect('/welfare-board/api/image/login');
   });
 };
 
@@ -32,8 +32,8 @@ export const isAuthenticated = (req, res, next) => {
   if (req.session.user) {
     next();
   } else {
-next();
-//    res.redirect('/image/login');
+// next();
+   res.redirect('/welfare-board/api/image/login');
   }
 };
 
