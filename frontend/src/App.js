@@ -5,6 +5,8 @@ import AllClubsPage from "./pages/AllClubsPage";
 import EachClubPage from "./pages/ClubPage";
 import EachEventPage from "./pages/EventPage";
 import SWB from "./pages/SWB";
+import Counsellors from "./pages/Counsellors";
+import FoodCourt from "./pages/FoodCourt";
 const BASEURL = process.env.REACT_APP_BASEURL||"/welfare-board";
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
           <Route path="/events" element={<EachEventPage />} />
           <Route path="/event/:id" element={<EachEventPage />} />
           <Route path="/resources" element={<SWB/>}/>
+          <Route path="/counsellors" element={<Counsellors/>}/>
+          <Route path="/foodcourt" element={<FoodCourt/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
