@@ -9,13 +9,12 @@ import yourDost from "../assets/YourDost.jpeg";
 import resourceBg from "../assets/resource.jpg";
 
 // Importing PDFs
-import welfareFund from "../assets/pdfs/swb-funds.pdf";
+import welfareFund from "../assets/pdfs/WelfareFunds.pdf";
 import codeOfConduct from "../assets/pdfs/code_of_conduct.pdf";
-import processDocumentation from "../assets/pdfs/Welfare_Board_documentation.pdf";
 
 const sections = [
   {
-    title: "Welfare Fund",
+    title: "Welfare Funds",
     description:
       "IIT Guwahati offers various scholarships and financial assistance programs to support deserving and meritorious students.",
     mediaType: "pdf",
@@ -34,13 +33,6 @@ const sections = [
       "The document details IIT Guwahati's student conduct rules, addressing policy breaches, harassment, safety risks, unauthorized access, and misconduct in residential areas.",
     mediaType: "pdf",
     mediaSrc: codeOfConduct,
-  },
-  {
-    title: "Process Documentation",
-    description:
-      "A guide for club secretaries detailing procedures for event approvals, venue bookings, finances, and administrative tasks with required templates and processes.",
-    mediaType: "pdf",
-    mediaSrc: processDocumentation,
   },
   {
     title: "YourDOST",

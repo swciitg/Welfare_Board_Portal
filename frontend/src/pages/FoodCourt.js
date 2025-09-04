@@ -8,139 +8,116 @@ const FoodCourt = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
 
   const foodOutlets = [
-    {
-      id: 1,
-      name: "La Pino'z Pizza",
-      category: "pizza",
-      image: "/api/placeholder/400/300",
-      description: "Say hello to La Pino'z, the newest addition to the IITG food Court! Big pizzas, bigger cravings – whether you're chilling with friends or pulling an all-nighter, this spot has your back with cheesy, delicious comfort.",
-      specialties: ["Big Pizzas", "Cheese Lovers", "Late Night Snacks"],
-      delivery: true,
-      rating: 4.5,
-      priceRange: "₹₹"
-    },
-    {
-      id: 2,
-      name: "SUBHUB",
-      category: "healthy",
-      image: "/api/placeholder/400/300",
-      description: "Fuel up the smart way at SubHub! With fresh subs, crisp veggies, and flavorful fillings, it's your go-to spot on campus. Perfect for when you want something quick, tasty, and just a little bit healthy.",
-      specialties: ["Fresh Subs", "Crisp Veggies", "Quick Bites"],
-      delivery: false,
-      rating: 4.3,
-      priceRange: "₹₹"
-    },
-    {
-      id: 3,
-      name: "Urban Tadka",
-      category: "indian",
-      image: "/api/placeholder/400/300",
-      description: "Craving bold desi flavours with a modern twist? Urban Tadka serves up your favourite North Indian dishes with a punch of spice and soul. From buttery naans to spicy curries – it's comfort food, campus-style!",
-      specialties: ["North Indian", "Buttery Naans", "Spicy Curries"],
-      delivery: true,
-      rating: 4.6,
-      priceRange: "₹₹"
-    },
-    {
-      id: 4,
-      name: "Baskin Robbins",
-      category: "dessert",
-      image: "/api/placeholder/400/300",
-      description: "Baskin Robbins is more than just ice cream - it's a place of celebration where moments of joy are celebrated with a scoop or two. Get ready to satisfy your sweet tooth and awaken your sense of wonder. They offer the standard 31 flavours and the standard discount on the 31st of a month.",
-      specialties: ["31 Flavours", "Ice Cream", "Monthly Discounts"],
-      delivery: false,
-      rating: 4.4,
-      priceRange: "₹₹"
-    },
-    {
-      id: 5,
-      name: "Fat Belly",
-      category: "momos",
-      image: "/api/placeholder/400/300",
-      description: "Fat Belly, famous all over Guwahati, now brings its legendary flavours to IITG. From classic steamed and crispy fried to rich Afghani and smoky tandoori – there's a momo for every mood. Fat Belly is where your momo cravings meet their match!",
-      specialties: ["Steamed Momos", "Afghani", "Tandoori"],
-      delivery: true,
-      rating: 4.7,
-      priceRange: "₹"
-    },
-    {
-      id: 6,
-      name: "Purabi",
-      category: "dairy",
-      image: "/api/placeholder/400/300",
-      description: "Your daily dose of dairy delight! Purabi brings farm fresh milk, creamy curd, lassis, ice creams, and more– right to the heart of the campus. Whether it's a chilled treat on a sunny day or a wholesome glass of milk to recharge, Purabi keeps it pure and tasty.",
-      specialties: ["Fresh Milk", "Lassis", "Dairy Products"],
-      delivery: false,
-      rating: 4.2,
-      priceRange: "₹"
-    },
-    {
-      id: 7,
-      name: "Big Byte Bakery",
-      category: "bakery",
-      image: "/api/placeholder/400/300",
-      description: "Where sweetness meets satisfaction! Big Byte Bakery is your campus stop for freshly baked cakes, cookies, pastries, and more. Perfect for birthdays, late night cravings, or just a sweet pick-me-up between lectures. Freshly baked, every byte counts!",
-      specialties: ["Fresh Cakes", "Cookies", "Pastries"],
-      delivery: false,
-      rating: 4.3,
-      priceRange: "₹₹"
-    },
-    {
-      id: 8,
-      name: "Nescafé",
-      category: "cafe",
-      image: "/api/placeholder/400/300",
-      description: "The campus classic you'll keep coming back to! Nescafé serves up hot coffees, cold choco shakes, and it's not just coffee – enjoy hot Maggi, Pazzta, all in one stop. Whether it's a pre-class booster, a study break snack, or just a cozy food fix Nescafé is your everyday comfort corner.",
-      specialties: ["Hot Coffee", "Maggi", "Choco Shakes"],
-      delivery: false,
-      rating: 4.1,
-      priceRange: "₹"
-    },
-    {
-      id: 9,
-      name: "Domino's",
-      category: "pizza",
-      image: "/api/placeholder/400/300",
-      description: "Hot, cheesy, and straight from the oven – Domino's is now just a short walk away! Whether it's a solo slice or a full pizza party, their irresistible crusts and endless toppings are perfect for every mood. Directly order pizza from Domino's app",
-      specialties: ["Hot Pizza", "Endless Toppings", "App Ordering"],
-      delivery: true,
-      rating: 4.4,
-      priceRange: "₹₹₹"
-    },
-    {
-      id: 10,
-      name: "Cafe Coffee Day",
-      category: "cafe",
-      image: "/api/placeholder/400/300",
-      description: "Need a caffeine kick or just a chill spot to hang out? CCD has you covered with its rich brews, creamy frappes, and classic snacks. Perfect for casual chats, assignment marathons, or quiet me-time because a lot can happen over coffee!",
-      specialties: ["Rich Brews", "Creamy Frappes", "Classic Snacks"],
-      delivery: false,
-      rating: 4.2,
-      priceRange: "₹₹"
-    },
-    {
-      id: 11,
-      name: "Blue Line Restaurant",
-      category: "chicken",
-      image: "/api/placeholder/400/300",
-      description: "Craving a fabulous chicken feast? Blue Line Restaurant is your go-to destination for juicy, flavorful chicken dishes that hit the spot every time. From crispy bites to spicy curries head over without a second thought and let your taste buds celebrate!",
-      specialties: ["Juicy Chicken", "Crispy Bites", "Spicy Curries"],
-      delivery: false,
-      rating: 4.5,
-      priceRange: "₹₹"
-    },
-    {
-      id: 12,
-      name: "Hashtag Canteen",
-      category: "budget",
-      image: "/api/placeholder/400/300",
-      description: "Hungry and on a budget? Hashtag Canteen has you covered with a wide range of food options at prices that won't hurt your wallet. From filling meals to quick snacks it's the perfect everyday stop for tasty, affordable bites.",
-      specialties: ["Budget Friendly", "Filling Meals", "Quick Snacks"],
-      delivery: false,
-      rating: 4.0,
-      priceRange: "₹"
-    }
-  ];
+  {
+    id: 1,
+    name: "La Pino'z Pizza",
+    category: "pizza",
+    image: "https://swc.iitg.ac.in/welfare-board/api/la_pinoz.jpg",
+    description: "Say hello to La Pino'z, the newest addition to the IITG food Court! Big pizzas, bigger cravings – whether you're chilling with friends or pulling an all-nighter, this spot has your back with cheesy, delicious comfort.",
+    specialties: ["Big Pizzas", "Cheese Lovers", "Late Night Snacks"],
+    delivery: true
+  },
+  {
+    id: 2,
+    name: "SUBHUB",
+    category: "healthy",
+    image: "https://swc.iitg.ac.in/welfare-board/api/subhub.jpg",
+    description: "Fuel up the smart way at SubHub! With fresh subs, crisp veggies, and flavorful fillings, it's your go-to spot on campus. Perfect for when you want something quick, tasty, and just a little bit healthy.",
+    specialties: ["Fresh Subs", "Crisp Veggies", "Quick Bites"],
+    delivery: false
+  },
+  {
+    id: 3,
+    name: "Urban Tadka",
+    category: "indian",
+    image: "https://swc.iitg.ac.in/welfare-board/api/urban_tadka.jpg",
+    description: "Craving bold desi flavours with a modern twist? Urban Tadka serves up your favourite North Indian dishes with a punch of spice and soul. From buttery naans to spicy curries – it's comfort food, campus-style!",
+    specialties: ["North Indian", "Buttery Naans", "Spicy Curries"],
+    delivery: true
+  },
+  {
+    id: 4,
+    name: "Baskin Robbins",
+    category: "dessert",
+    image: "https://swc.iitg.ac.in/welfare-board/api/baskin_robbins_.JPG",
+    description: "Baskin Robbins is more than just ice cream - it's a place of celebration where moments of joy are celebrated with a scoop or two. Get ready to satisfy your sweet tooth and awaken your sense of wonder. They offer the standard 31 flavours and the standard discount on the 31st of a month.",
+    specialties: ["31 Flavours", "Ice Cream", "Monthly Discounts"],
+    delivery: false
+  },
+  {
+    id: 5,
+    name: "Fat Belly",
+    category: "momos",
+    image: "https://swc.iitg.ac.in/welfare-board/api/fat_belly_.JPG",
+    description: "Fat Belly, famous all over Guwahati, now brings its legendary flavours to IITG. From classic steamed and crispy fried to rich Afghani and smoky tandoori – there's a momo for every mood. Fat Belly is where your momo cravings meet their match!",
+    specialties: ["Steamed Momos", "Afghani", "Tandoori"],
+    delivery: true
+  },
+  {
+    id: 6,
+    name: "Dairy Delight",
+    category: "dairy",
+    image: "https://swc.iitg.ac.in/welfare-board/api/dairy_delight.JPG",
+    description: "Your daily dose of dairy delight! Dairy Delight brings farm fresh milk, creamy curd, lassis, ice creams, and more– right to the heart of the campus. Whether it's a chilled treat on a sunny day or a wholesome glass of milk to recharge, Dairy Delight keeps it pure and tasty.",
+    specialties: ["Fresh Milk", "Lassis", "Dairy Products"],
+    delivery: false
+  },
+  {
+    id: 7,
+    name: "Big Byte Bakery",
+    category: "bakery",
+    image: "https://swc.iitg.ac.in/welfare-board/api/big_byte_bakery_.JPG",
+    description: "Where sweetness meets satisfaction! Big Byte Bakery is your campus stop for freshly baked cakes, cookies, pastries, and more. Perfect for birthdays, late night cravings, or just a sweet pick-me-up between lectures. Freshly baked, every byte counts!",
+    specialties: ["Fresh Cakes", "Cookies", "Pastries"],
+    delivery: false
+  },
+  {
+    id: 8,
+    name: "Nescafé",
+    category: "cafe",
+    image: "https://swc.iitg.ac.in/welfare-board/api/nescafe.jpg",
+    description: "The campus classic you'll keep coming back to! Nescafé serves up hot coffees, cold choco shakes, and it's not just coffee – enjoy hot Maggi, Pazzta, all in one stop. Whether it's a pre-class booster, a study break snack, or just a cozy food fix Nescafé is your everyday comfort corner.",
+    specialties: ["Hot Coffee", "Maggi", "Choco Shakes"],
+    delivery: false
+  },
+  {
+    id: 9,
+    name: "Domino's",
+    category: "pizza",
+    image: "https://swc.iitg.ac.in/welfare-board/api/dominoes.JPG",
+    description: "Hot, cheesy, and straight from the oven – Domino's is now just a short walk away! Whether it's a solo slice or a full pizza party, their irresistible crusts and endless toppings are perfect for every mood. Directly order pizza from Domino's app",
+    specialties: ["Hot Pizza", "Endless Toppings", "App Ordering"],
+    delivery: true
+  },
+  {
+    id: 10,
+    name: "Cafe Coffee Day",
+    category: "cafe",
+    image: "https://swc.iitg.ac.in/welfare-board/api/ccd.jpg",
+    description: "Need a caffeine kick or just a chill spot to hang out? CCD has you covered with its rich brews, creamy frappes, and classic snacks. Perfect for casual chats, assignment marathons, or quiet me-time because a lot can happen over coffee!",
+    specialties: ["Rich Brews", "Creamy Frappes", "Classic Snacks"],
+    delivery: false
+  },
+  {
+    id: 11,
+    name: "Lauriat",
+    category: "chicken",
+    image: "https://swc.iitg.ac.in/welfare-board/api/lauriat.jpg",
+    description: "Craving a fabulous chicken feast? Lauriat is your go-to destination for juicy, flavorful chicken dishes that hit the spot every time. From crispy bites to spicy curries head over without a second thought and let your taste buds celebrate!",
+    specialties: ["Juicy Chicken", "Crispy Bites", "Spicy Curries"],
+    delivery: false
+  },
+  {
+    id: 12,
+    name: "Hashtag Canteen",
+    category: "budget",
+    image: "https://swc.iitg.ac.in/welfare-board/api/hashtag_.jpg",
+    description: "Hungry and on a budget? Hashtag Canteen has you covered with a wide range of food options at prices that won't hurt your wallet. From filling meals to quick snacks it's the perfect everyday stop for tasty, affordable bites.",
+    specialties: ["Budget Friendly", "Filling Meals", "Quick Snacks"],
+    delivery: false
+  }
+];
+
 
   const categories = [
     { id: 'all', name: 'All', icon: FaUtensils },
@@ -164,14 +141,14 @@ const FoodCourt = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-              IITG Food Court
+              IITG Food Outlets
             </h1>
             <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto mb-8">
               IITG food court is a bustling hub of culinary delights and social interaction for students, faculty, and staff on campus. One of the key highlights of the IITG food court is its diverse food options. From regional Indian cuisine to international dishes, the food court offers something for everyone.
             </p>
             <div className="flex items-center justify-center gap-2 text-[#7BB9C4] font-medium">
               <FaMapMarkerAlt />
-              <span>Located behind New SAC (Student Activity Centre)</span>
+              <span>FoodCourt Located behind New SAC (Student Activity Centre)</span>
             </div>
           </div>
         </div>
@@ -209,10 +186,7 @@ const FoodCourt = () => {
                   alt={outlet.name}
                   className="w-full h-48 object-cover"
                 />
-                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-1">
-                  <FaStar className="text-yellow-500 text-sm" />
-                  <span className="text-sm font-medium">{outlet.rating}</span>
-                </div>
+                
                 {outlet.delivery && (
                   <div className="absolute top-4 left-4 bg-[#7BB9C4] text-white rounded-full px-3 py-1 flex items-center gap-1">
                     <MdDeliveryDining className="text-sm" />
@@ -278,7 +252,7 @@ const FoodCourt = () => {
             <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-6 border border-blue-200">
               <h3 className="text-2xl font-bold text-blue-800 mb-4">More Options</h3>
               <p className="text-blue-700 mb-4">
-                Apart from these popular outlets on campus, there are plenty of other spots to satisfy your hunger – including hostel canteens, the Core Canteen, and the ever-loved Food Truck.
+                Apart from these popular outlets on campus, there are plenty of other spots to satisfy your hunger – including the Lohit Canteen, and the ever-loved Food Truck.
               </p>
               <p className="text-blue-600 font-medium">
                 No matter where you are, good food is always within reach at IITG!
@@ -287,17 +261,7 @@ const FoodCourt = () => {
           </div>
         </div>
 
-        {/* Delivery Notice */}
-        <div className="bg-[#7BB9C4]/10 border border-[#7BB9C4]/30 rounded-xl p-6 text-center">
-          <div className="flex items-center justify-center gap-2 mb-3">
-            <MdDeliveryDining className="text-[#7BB9C4] text-2xl" />
-            <h3 className="text-xl font-bold text-[#7BB9C4]">Hostel Delivery Available</h3>
-          </div>
-          <p className="text-gray-700">
-            Many of these outlets offer delivery services directly to your hostel room. 
-            Check with individual outlets for delivery availability and charges.
-          </p>
-        </div>
+        
       </div>
 
       <Footer />

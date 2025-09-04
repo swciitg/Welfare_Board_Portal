@@ -26,12 +26,12 @@ function Header() {
 
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "Clubs", path: "/clubs" },
     { name: "Events", path: "/events" },
-    { name: "Resources", path: "/resources" },
-    { name: "Contacts", path: "/contacts" },
+    { name: "Clubs", path: "/clubs" },
     { name: "Counsellors", path: "/counsellors" },
-    { name: "Food Court", path: "/foodcourt" },
+    { name: "Resources", path: "/resources" },
+    { name: "Food Outlets", path: "/foodcourt" },
+    { name: "Contacts", path: "/contacts" },  
   ];
 
   return (

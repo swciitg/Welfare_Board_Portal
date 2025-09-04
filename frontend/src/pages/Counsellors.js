@@ -12,60 +12,60 @@ const Counsellors = () => {
   const counsellors = [
     {
       id: 1,
-      name: "Dr. Priya Sharma",
-      photo: "/api/placeholder/300/300",
-      mobile: "+91 98765 43210",
-      email: "priya.sharma@iitg.ac.in",
+      name: "Ms. Pallabita Barooah Chowdhary",
+      photo: "https://swc.iitg.ac.in/welfare-board/api/pallabita.jpg",
+      mobile: "+91 9864154855",
+      email: "pallabita.b.c@iitg.ac.in",
       specialization: "Academic Stress & Anxiety",
-      experience: "8 years",
+      experience: "03612583989",
       schedule: {
         monday: "9:00 AM - 5:00 PM",
         tuesday: "9:00 AM - 5:00 PM",
-        wednesday: "9:00 AM - 1:00 PM",
+        wednesday: "9:00 AM - 5:00 PM",
         thursday: "9:00 AM - 5:00 PM",
-        friday: "9:00 AM - 4:00 PM",
-        saturday: "10:00 AM - 2:00 PM",
-        sunday: "Closed"
-      },
-      location: "Student Counselling Center, Room 101"
-    },
-    {
-      id: 2,
-      name: "Dr. Rajesh Kumar",
-      photo: "/api/placeholder/300/300",
-      mobile: "+91 87654 32109",
-      email: "rajesh.kumar@iitg.ac.in",
-      specialization: "Career Guidance & Life Skills",
-      experience: "12 years",
-      schedule: {
-        monday: "10:00 AM - 6:00 PM",
-        tuesday: "10:00 AM - 6:00 PM",
-        wednesday: "10:00 AM - 6:00 PM",
-        thursday: "10:00 AM - 2:00 PM",
-        friday: "10:00 AM - 6:00 PM",
+        friday: "9:00 AM - 5:00 PM",
         saturday: "Closed",
         sunday: "Closed"
       },
-      location: "Student Counselling Center, Room 102"
+      location: "New SAC Building, Ground Floor"
+    },
+    {
+      id: 2,
+      name: "Dr. Nesmita Das",
+      photo: "https://swc.iitg.ac.in/welfare-board/api/nesmita.jpg",
+      mobile: "+91 8011631110",
+      email: "nesmita.d@iitg.ac.in",
+      specialization: "Career Guidance & Life Skills",
+      experience: "03612583984",
+      schedule: {
+        monday: "12:00 PM - 8:00 PM",
+        tuesday: "12:00 PM - 8:00 PM",
+        wednesday: "12:00 PM - 8:00 PM",
+        thursday: "12:00 PM - 8:00 PM",
+        friday: "12:00 PM - 8:00 PM",
+        saturday: "Closed",
+        sunday: "Closed"
+      },
+      location: "New SAC Building, Ground Floor"
     },
     {
       id: 3,
-      name: "Dr. Anita Mehta",
-      photo: "/api/placeholder/300/300",
-      mobile: "+91 76543 21098",
-      email: "anita.mehta@iitg.ac.in",
+      name: "Mr. Rakesh Kakati",
+      photo: "https://swc.iitg.ac.in/welfare-board/api/rakesh.jpg",
+      mobile: "+91 9707222941",
+      email: "rkakati@iitg.ac.in",
       specialization: "Mental Health & Wellness",
-      experience: "10 years",
+      experience: "03612583988",
       schedule: {
-        monday: "9:00 AM - 4:00 PM",
-        tuesday: "9:00 AM - 4:00 PM",
-        wednesday: "9:00 AM - 4:00 PM",
-        thursday: "9:00 AM - 4:00 PM",
-        friday: "9:00 AM - 4:00 PM",
-        saturday: "9:00 AM - 1:00 PM",
+        monday: "9:30 AM - 5:30 PM",
+        tuesday: "9:30 AM - 5:30 PM",
+        wednesday: "9:30 AM - 5:30 PM",
+        thursday: "9:30 AM - 5:30 PM",
+        friday: "9:30 AM - 5:30 PM",
+        saturday: "Closed",
         sunday: "Closed"
       },
-      location: "Student Counselling Center, Room 103"
+      location: "New SAC Building, Ground Floor"
     }
   ];
 
@@ -82,7 +82,7 @@ const Counsellors = () => {
       <Header />
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 font-poppins">
         {/* Header Section */}
-        <div className="bg-white/80 backdrop-blur-md shadow-lg border-b border-gray-200/50 pt-20">
+        <div className="bg-[#7BB9C4] backdrop-blur-md shadow-lg border-b border-gray-200/50 pt-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <div className="text-center">
               <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
@@ -147,7 +147,6 @@ const Counsellors = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                     <div className="absolute bottom-4 left-4 text-white">
                       <h3 className="text-xl font-semibold">{counsellor.name}</h3>
-                      <p className="text-sm opacity-90">{counsellor.specialization}</p>
                     </div>
                   </div>
                   
@@ -163,7 +162,7 @@ const Counsellors = () => {
                       </div>
                       <div className="flex items-center gap-3 text-gray-600">
                         <FaUser className="text-[#7BB9C4]" />
-                        <span className="text-sm">{counsellor.experience} experience</span>
+                        <span className="text-sm">landline no. {counsellor.experience}</span>
                       </div>
                     </div>
                     
@@ -195,7 +194,6 @@ const Counsellors = () => {
                     />
                     <div>
                       <h3 className="text-2xl font-bold text-gray-800">{selectedCounsellor.name}</h3>
-                      <p className="text-[#7BB9C4] font-medium">{selectedCounsellor.specialization}</p>
                     </div>
                   </div>
                   <button
@@ -267,89 +265,16 @@ const Counsellors = () => {
           </div>
         )}
 
-        {/* 24x7 Online Counselling Banner */}
-        <div className="bg-gradient-to-r from-[#7BB9C4] to-[#5a9aa5] py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col lg:flex-row items-center gap-12">
-              {/* Left Content */}
-              <div className="flex-1 text-white">
-                <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                  24x7 Online Counselling Services
-                </h2>
-                <p className="text-lg md:text-xl mb-4 opacity-90">
-                  Need someone to talk to?
-                </p>
-                <p className="text-base md:text-lg mb-6 opacity-80">
-                  You can connect with a licensed therapist 24x7 anytime, day or night.
-                </p>
-                <div className="flex flex-wrap gap-4 mb-8">
-                  <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2">
-                    <FaComments className="text-white" />
-                    <span className="text-white font-medium">Reach out</span>
-                  </div>
-                  <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2">
-                    <BiSupport className="text-white" />
-                    <span className="text-white font-medium">Seek help</span>
-                  </div>
-                  <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2">
-                    <FaHeadset className="text-white" />
-                    <span className="text-white font-medium">Feel better</span>
-                  </div>
-                </div>
-                <button className="bg-white text-[#7BB9C4] font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors duration-200 flex items-center gap-2">
-                  <FaLaptop />
-                  KNOW MORE
-                </button>
-              </div>
-
-              {/* Right Illustration */}
-              <div className="flex-1 max-w-md">
-                <div className="relative bg-white/10 backdrop-blur-sm rounded-3xl p-8">
-                  <div className="bg-white rounded-2xl p-6 shadow-xl">
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="w-12 h-12 bg-[#7BB9C4] rounded-full flex items-center justify-center">
-                        <FaUser className="text-white" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="bg-gray-100 rounded-lg p-3 mb-2">
-                          <div className="flex items-center gap-2">
-                            <div className="w-2 h-2 bg-[#7BB9C4] rounded-full"></div>
-                            <div className="w-2 h-2 bg-[#7BB9C4] rounded-full"></div>
-                            <div className="w-2 h-2 bg-[#7BB9C4] rounded-full"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="space-y-3">
-                      <div className="bg-[#7BB9C4] text-white p-3 rounded-lg rounded-bl-none max-w-[80%]">
-                        <p className="text-sm">How are you feeling today?</p>
-                      </div>
-                      <div className="bg-gray-100 p-3 rounded-lg rounded-br-none max-w-[80%] ml-auto">
-                        <p className="text-sm">I'm feeling a bit overwhelmed with studies...</p>
-                      </div>
-                    </div>
-                    <div className="mt-6 flex items-center gap-3">
-                      <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
-                        <div className="w-2 h-2 bg-white rounded-full"></div>
-                      </div>
-                      <span className="text-sm text-gray-600">Counsellor is online</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* YourDOST Section */}
-        <div className="bg-white py-16">
+        <div className="bg-[#7BB9C4] py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left Content */}
               <div className="flex-1">
                 <div className="mb-8">
                   <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-                    YourDOST
+                    YourDOST-24x7 Online Counselling Services
                   </h2>
                   <p className="text-lg text-gray-600 leading-relaxed">
                     YourDOST is an online counseling and emotional support platform that fosters mental wellness. It is completely free for IIT Guwahati students.<br/>Reach out. Seek help. Feel better.
@@ -398,7 +323,7 @@ const Counsellors = () => {
 
                 <div className="mt-8">
                   <a href="https://yourdost.com" target="_blank" rel="noopener noreferrer">
-                    <button className="bg-[#7BB9C4] hover:bg-[#6ba8b3] text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center gap-2">
+                    <button className="bg-[#154699] hover:bg-[#6ba8b3] text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center gap-2">
                       <FaLaptop />
                       Access YourDOST
                     </button>
