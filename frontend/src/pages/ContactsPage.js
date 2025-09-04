@@ -14,299 +14,248 @@ function ContactsPage() {
     chairpersons: [
       {
         id: 1,
-        name: "Prof. Rajesh Kumar",
-        designation: "Chairman",
-        department: "Department of Computer Science",
-        email: "chairman@iitg.ac.in",
-        phone: "+91 98765 43210",
-        linkedin: "https://linkedin.com/in/rajeshkumar",
-        image: "/api/placeholder/300/300",
+        name: "Prof. Sayan Chakrabarti",
+        designation: "Chairperson 1",
+        department: "Department of Physics, IIT Guwahati",
+        email: "sayan.chakrabarti@iitg.ac.in",
+        phone: "0361-2583556",
+        image: "https://www.iitg.ac.in/phy/img/faculty_staff/sayan_chakrabarti.jpg",
         description: "Leading the Students' Welfare Board with dedication to student development and campus life enhancement."
       },
       {
         id: 2,
-        name: "Dr. Priya Sharma",
-        designation: "Vice Chairman",
-        department: "Department of Mechanical Engineering",
-        email: "vicechairman@iitg.ac.in",
-        phone: "+91 98765 43211",
-        linkedin: "https://linkedin.com/in/priyasharma",
-        image: "/api/placeholder/300/300",
+        name: "Prof. Bidisha Som",
+        designation: "Chairperson 2",
+        department: "Department of Humanities and Social Sciences, IIT Guwahati",
+        email: "bidisha@iitg.ac.in",
+        phone: "0361-2582568",
+        image: "https://swc.iitg.ac.in/welfare-board/api/bidisha_pic.jpg",
         description: "Supporting student welfare initiatives and fostering a positive campus environment."
       }
     ],
     coreTeam: [
       {
         id: 3,
-        name: "Arjun Patel",
+        name: "N Hemanth Kumar",
         designation: "General Secretary",
-        department: "B.Tech Computer Science, 3rd Year",
-        email: "gensec@iitg.ac.in",
-        phone: "+91 98765 43212",
-        linkedin: "https://linkedin.com/in/arjunpatel",
-        image: "/api/placeholder/300/300",
+        department: "B.Tech Computer Science, 4th Year",
+        email: "gensec_welfare@iitg.ac.in",
+        phone: "+91 73967 99357",
+        linkedin: "https://www.linkedin.com/in/hemanth-kumar-n-9bb12a263",
+        image: "https://swc.iitg.ac.in/welfare-board/api/gensec_wel.jpg",
         description: "Coordinating all student welfare activities and representing student interests."
       },
       {
         id: 4,
-        name: "Sneha Gupta",
+        name: "Mithil Sandhineni",
         designation: "Overall Coordinator",
-        department: "B.Tech Electrical Engineering, 3rd Year",
-        email: "coordinator@iitg.ac.in",
-        phone: "+91 98765 43213",
-        linkedin: "https://linkedin.com/in/snehagupta",
-        image: "/api/placeholder/300/300",
+        department: "B.Tech Mechanical Engineering, 3rd Year",
+        email: "m.sandhineni@iitg.ac.in",
+        phone: "+91 72071 85274",
+        linkedin: "https://www.linkedin.com/in/mithilsandhineni/",
+        image: "https://swc.iitg.ac.in/welfare-board/api/mithil_picture.jpg",
         description: "Managing overall coordination of student welfare programs and events."
       },
       {
         id: 5,
-        name: "Rahul Singh",
+        name: "Surbhit Gang",
         designation: "Events Head",
-        department: "B.Tech Mechanical Engineering, 3rd Year",
-        email: "events@iitg.ac.in",
-        phone: "+91 98765 43214",
-        linkedin: "https://linkedin.com/in/rahulsingh",
-        image: "/api/placeholder/300/300",
+        department: "B.Tech Civil Engineering, 3rd Year",
+        email: "surbhitkumar@iitg.ac.in",
+        phone: "+91 82005 37139",
+        linkedin: "NA",
+        image: "https://swc.iitg.ac.in/welfare-board/api/surbhit_pic.jpg",
         description: "Organizing and managing all student welfare events and activities."
       }
     ],
     departmentHeads: [
       {
         id: 6,
-        name: "Ananya Reddy",
-        designation: "Design Head",
-        department: "B.Tech Design, 2nd Year",
-        email: "design@iitg.ac.in",
-        phone: "+91 98765 43215",
-        linkedin: "https://linkedin.com/in/ananyareddy",
-        image: "/api/placeholder/300/300",
+        name: "Diya Agarwal",
+        designation: "Girl Representative",
+        email: "diya.agarwal@iitg.ac.in",
+        phone: "+91 88494 76475",
+        linkedin: "https://www.linkedin.com/in/diya-agarwal-609005262/",
+        image: "https://swc.iitg.ac.in/welfare-board/api/diya_pic.jpg",
         description: "Leading creative design initiatives for student welfare programs."
       },
       {
         id: 7,
-        name: "Vikram Joshi",
-        designation: "MBR Head",
-        department: "B.Tech Civil Engineering, 3rd Year",
-        email: "mbr@iitg.ac.in",
-        phone: "+91 98765 43216",
-        linkedin: "https://linkedin.com/in/vikramjoshi",
-        image: "/api/placeholder/300/300",
+        name: "Ayush Mishra",
+        designation: "Marketing Head",
+        email: "ayush.m@iitg.ac.in",
+        phone: "+91 89576 64590",
+        linkedin: "https://www.linkedin.com/in/ayush-mishra-602421281/",
+        image: "https://swc.iitg.ac.in/welfare-board/api/ayush_pic.jpeg",
         description: "Managing student welfare resources and facilities."
       },
       {
         id: 8,
-        name: "Pooja Agarwal",
-        designation: "Marketing Head",
-        department: "B.Tech Electronics, 2nd Year",
-        email: "marketing@iitg.ac.in",
-        phone: "+91 98765 43217",
-        linkedin: "https://linkedin.com/in/poojaagarwal",
-        image: "/api/placeholder/300/300",
+        name: "Riddha",
+        designation: "Design Coordinator",
+        email: "s.riddha@iitg.ac.in",
+        phone: "+91 6294 014 787",
+        linkedin: "https://www.linkedin.com/in/riddha-singh-a07103261/",
+        image: "https://swc.iitg.ac.in/welfare-board/api/riddha_pic.jpg",
         description: "Promoting student welfare initiatives and managing communications."
       },
       {
         id: 9,
-        name: "Riya Kapoor",
-        designation: "Girl Representative",
-        department: "B.Tech Chemical Engineering, 3rd Year",
-        email: "girlrep@iitg.ac.in",
-        phone: "+91 98765 43218",
-        linkedin: "https://linkedin.com/in/riyakapoor",
-        image: "/api/placeholder/300/300",
+        name: "Shlok Pratap Singh",
+        designation: "Media & Branding Head",
+        email: "shlok.singh@iitg.ac.in",
+        phone: "+91 99970 01125",
+        linkedin: "https://www.linkedin.com/in/shlok-pratap-singh-04a26a33a/",
+        image: " https://swc.iitg.ac.in/welfare-board/api/shlok_pic.jpg",
         description: "Representing and addressing concerns of female students on campus."
       }
     ],
     clubSecretaries: [
       {
         id: 10,
-        name: "Amit Kumar",
-        designation: "Sports Club Secretary",
-        department: "B.Tech Mechanical, 2nd Year",
-        email: "sports@iitg.ac.in",
-        phone: "+91 98765 43219",
-        image: "/api/placeholder/300/300"
+        name: "Pallabi Keot",
+        designation: "Saathi Secretary",
+        email: "k.pallabi@iitg.ac.in",
+        phone: "+91 97061 09569",
+        image: "https://swc.iitg.ac.in/welfare-board/api/pallabi_pic.jpg"
       },
       {
         id: 11,
-        name: "Neha Sharma",
-        designation: "Cultural Club Secretary",
-        department: "B.Tech CSE, 2nd Year",
-        email: "cultural@iitg.ac.in",
-        phone: "+91 98765 43220",
-        image: "/api/placeholder/300/300"
+        name: "Ravit Chatrath",
+        designation: "Academic Initiatives Club Secretary",
+        email: "c.ravit@iitg.ac.in",
+        phone: "+91 74540 63847",
+        image: "https://swc.iitg.ac.in/welfare-board/api/ravit_pic.jpeg"
       },
       {
         id: 12,
-        name: "Rohit Verma",
-        designation: "Technical Club Secretary",
-        department: "B.Tech EEE, 3rd Year",
-        email: "technical@iitg.ac.in",
-        phone: "+91 98765 43221",
-        image: "/api/placeholder/300/300"
+        name: "Uthkarsha Srivastava",
+        designation: "Awareness Secretary",
+        email: "u.shrivastava@iitg.ac.in",
+        phone: "+91 73892 47395",
+        image: "https://swc.iitg.ac.in/welfare-board/api/utkarsha.jpg"
       },
       {
         id: 13,
-        name: "Priya Singh",
-        designation: "Literary Club Secretary",
-        department: "B.Tech Civil, 2nd Year",
-        email: "literary@iitg.ac.in",
-        phone: "+91 98765 43222",
-        image: "/api/placeholder/300/300"
+        name: "Vaishnavi Agarwal ",
+        designation: "Tarangini Secretary",
+        email: "a.vaishnavi@iitg.ac.in",
+        phone: "+91 89537 62399",
+        image: " https://swc.iitg.ac.in/welfare-board/api/vaishnavi.jpg"
       },
       {
         id: 14,
-        name: "Karan Malhotra",
-        designation: "Photography Club Secretary",
-        department: "B.Tech Chemical, 3rd Year",
-        email: "photography@iitg.ac.in",
-        phone: "+91 98765 43223",
-        image: "/api/placeholder/300/300"
+        name: "Shibangi Paul",
+        designation: "Social Service Club Secretary",
+        email: "p.shibangi@iitg.ac.in",
+        phone: "+91 93653 21834",
+        image: "https://swc.iitg.ac.in/welfare-board/api/shibangi_pic.jpeg"
       },
       {
         id: 15,
-        name: "Sakshi Gupta",
-        designation: "Dance Club Secretary",
-        department: "B.Tech Design, 2nd Year",
-        email: "dance@iitg.ac.in",
-        phone: "+91 98765 43224",
-        image: "/api/placeholder/300/300"
+        name: "Sarvagya Tiwari",
+        designation: "Youth Empowerment Club Secretary",
+        email: "t.sarvagya@iitg.ac.in",
+        phone: "+91 82913 14066",
+        image: "https://swc.iitg.ac.in/welfare-board/api/sarvagya.jpg"
       },
       {
         id: 16,
-        name: "Aryan Jain",
-        designation: "Music Club Secretary",
-        department: "B.Tech Electronics, 3rd Year",
-        email: "music@iitg.ac.in",
-        phone: "+91 98765 43225",
-        image: "/api/placeholder/300/300"
+        name: "Priyanka Yadav",
+        designation: "Lambda Secretary",
+        email: " y.priyanka@iitg.ac.in",
+        phone: "+91 96257 01009",
+        image: " https://swc.iitg.ac.in/welfare-board/api/priyanka_yadav.jpg"
       },
-      {
-        id: 17,
-        name: "Divya Patel",
-        designation: "Art Club Secretary",
-        department: "B.Tech Mechanical, 2nd Year",
-        email: "art@iitg.ac.in",
-        phone: "+91 98765 43226",
-        image: "/api/placeholder/300/300"
-      }
     ],
     hostelSecretaries: [
       {
         id: 18,
-        name: "Aditya Sharma",
+        name: "Harsh Hemant Balgude",
         designation: "Kameng Hostel Secretary",
-        department: "B.Tech CSE, 3rd Year",
-        email: "kameng@iitg.ac.in",
-        phone: "+91 98765 43227",
-        image: "/api/placeholder/300/300"
+        email: "h.balgude@iitg.ac.in",
+        phone: "+91 82373 70601",
+        image: "https://swc.iitg.ac.in/welfare-board/api/kameng_welfy.jpg"
       },
       {
         id: 19,
-        name: "Manish Kumar",
+        name: "Eena Dodwani",
         designation: "Subansiri Hostel Secretary",
-        department: "B.Tech Mechanical, 2nd Year",
-        email: "subansiri@iitg.ac.in",
-        phone: "+91 98765 43228",
-        image: "/api/placeholder/300/300"
+        email: "eena.dodwani@iitg.ac.in",
+        phone: "+91 88271 18164",
+        image: "https://swc.iitg.ac.in/welfare-board/api/subansiri_welfy.jpg"
       },
       {
         id: 20,
-        name: "Rajesh Gupta",
+        name: "Virendra Ghunawat",
         designation: "Dihing Hostel Secretary",
-        department: "B.Tech EEE, 3rd Year",
-        email: "dihing@iitg.ac.in",
-        phone: "+91 98765 43229",
-        image: "/api/placeholder/300/300"
-      },
-      {
-        id: 21,
-        name: "Suresh Patel",
-        designation: "Dibang Hostel Secretary",
-        department: "B.Tech Civil, 2nd Year",
-        email: "dibang@iitg.ac.in",
-        phone: "+91 98765 43230",
-        image: "/api/placeholder/300/300"
+        email: "v.ghunawat@iitg.ac.in",
+        phone: "+91 95214 67460",
+        image: "https://swc.iitg.ac.in/welfare-board/api/dihing_welfy.jpeg"
       },
       {
         id: 22,
-        name: "Deepak Singh",
+        name: "Chirag Agarwal",
         designation: "Lohit Hostel Secretary",
-        department: "B.Tech Chemical, 3rd Year",
-        email: "lohit@iitg.ac.in",
-        phone: "+91 98765 43231",
-        image: "/api/placeholder/300/300"
+        email: "c.agarwal@iitg.ac.in",
+        phone: "+91 70149 62887",
+        image: "https://swc.iitg.ac.in/welfare-board/api/lohiit_welfy.jpg"
       },
       {
         id: 23,
-        name: "Vikash Joshi",
+        name: "Ansh Pal",
         designation: "Siang Hostel Secretary",
-        department: "B.Tech Design, 2nd Year",
-        email: "siang@iitg.ac.in",
-        phone: "+91 98765 43232",
-        image: "/api/placeholder/300/300"
+        email: "ansh.pal@iitg.ac.in",
+        phone: "+91 9696345530",
+        image: " https://swc.iitg.ac.in/welfare-board/api/siang_welfy_.jpg"
       },
       {
         id: 24,
-        name: "Ankit Verma",
+        name: "Paras Katiyar",
         designation: "Brahmaputra Hostel Secretary",
-        department: "B.Tech Electronics, 3rd Year",
-        email: "brahmaputra@iitg.ac.in",
-        phone: "+91 98765 43233",
-        image: "/api/placeholder/300/300"
+        email: "paras.katiyar@iitg.ac.in ",
+        phone: "+91 6387 843 598",
+        image: " https://swc.iitg.ac.in/welfare-board/api/bramha_welfy.jpg"
       },
       {
         id: 25,
-        name: "Ravi Kumar",
+        name: " Yogesh Bhanwaria",
         designation: "Manas Hostel Secretary",
-        department: "B.Tech Mechanical, 2nd Year",
-        email: "manas@iitg.ac.in",
-        phone: "+91 98765 43234",
-        image: "/api/placeholder/300/300"
-      },
-      {
-        id: 26,
-        name: "Priya Reddy",
-        designation: "Married Scholars Hostel Secretary",
-        department: "PhD Computer Science",
-        email: "msh@iitg.ac.in",
-        phone: "+91 98765 43235",
-        image: "/api/placeholder/300/300"
+        email: "y.bhanwaria@iitg.ac.in",
+        phone: "+91 73576 58751",
+        image: "https://swc.iitg.ac.in/welfare-board/api/manas_welfy.jpg"
       },
       {
         id: 27,
-        name: "Kavya Sharma",
+        name: "Devyani",
         designation: "Dhansiri Hostel Secretary",
-        department: "B.Tech CSE, 3rd Year",
-        email: "dhansiri@iitg.ac.in",
-        phone: "+91 98765 43236",
-        image: "/api/placeholder/300/300"
+        email: "devyani@iitg.ac.in",
+        phone: "+91  98962 43279",
+        image: " https://swc.iitg.ac.in/welfare-board/api/dhansiri_welfy_.jpeg"
       },
       {
         id: 28,
-        name: "Shreya Gupta",
+        name: "Deepak",
         designation: "Barak Hostel Secretary",
-        department: "B.Tech EEE, 2nd Year",
         email: "barak@iitg.ac.in",
-        phone: "+91 98765 43237",
-        image: "/api/placeholder/300/300"
+        phone: "+91 96436 53678",
+        image: "https://swc.iitg.ac.in/welfare-board/api/barak_welfy.jpg"
       },
       {
         id: 29,
-        name: "Anjali Patel",
+        name: "Sundaram Pandey",
         designation: "Umiam Hostel Secretary",
-        department: "B.Tech Civil, 3rd Year",
-        email: "umiam@iitg.ac.in",
-        phone: "+91 98765 43238",
-        image: "/api/placeholder/300/300"
+        email: "p.sundaram@iitg.ac.in",
+        phone: "+91 89494 90277",
+        image: "https://swc.iitg.ac.in/welfare-board/api/umiam_welfy_.jpeg"
       },
       {
         id: 30,
-        name: "Meera Singh",
+        name: "Sulabh Napit",
         designation: "Kapili Hostel Secretary",
-        department: "B.Tech Chemical, 2nd Year",
-        email: "kapili@iitg.ac.in",
-        phone: "+91 98765 43239",
-        image: "/api/placeholder/300/300"
+        email: "n.sulabh@iitg.ac.in",
+        phone: "+91 83198 55908",
+        image: "https://swc.iitg.ac.in/welfare-board/api/kapili_welfy.jpeg"
       }
     ]
   };
@@ -400,21 +349,21 @@ function ContactsPage() {
     <div>
       <Header />
       <div className="overflow-hidden font-poppins flex flex-col">
-        {/* Hero Section */}
-        <div
-          className="w-full h-[865px] bg-top bg-cover bg-no-repeat flex flex-col items-center justify-center gap-5 text-white relative"
-          style={{ backgroundImage: `url(${imgdata})` }}
-        >
-          <div className="absolute inset-0 bg-black/50"></div>
-          <div className="relative z-10 text-center">
-            <p className="text-4xl md:text-7xl font-bold tracking-tight text-center drop-shadow-2xl mb-4">
-              GET IN TOUCH
-            </p>
-            <p className="text-lg md:text-xl tracking-tight text-center opacity-90 max-w-2xl mx-auto">
-              In case you have any queries, don't hesitate to reach out to us. Our dedicated team is here to help you.
-            </p>
-          </div>
-        </div>
+  {/* Hero Section */}
+  <div
+    className="w-full h-[865px] bg-center bg-cover bg-no-repeat flex flex-col items-center justify-center gap-5 text-white relative"
+    style={{ backgroundImage: `url(${imgdata})` }}
+  >
+    <div className="absolute inset-0 bg-black/50"></div>
+    <div className="relative z-10 text-center">
+      <p className="text-4xl md:text-7xl font-bold tracking-tight text-center drop-shadow-2xl mb-4">
+        GET IN TOUCH
+      </p>
+      <p className="text-lg md:text-xl tracking-tight text-center opacity-90 max-w-2xl mx-auto">
+        In case you have any queries, don't hesitate to reach out to us. Our dedicated team is here to help you.
+      </p>
+    </div>
+  </div>
 
         {/* Main Content */}
         <div className="bg-gradient-to-br from-gray-50 to-blue-50 py-16">
@@ -423,7 +372,7 @@ function ContactsPage() {
             {/* Chairpersons Section - Side by Side */}
             <section className="mb-20">
               <SectionHeader 
-                title="Leadership" 
+                title="Chairpersons" 
                 icon={FaUsers}
                 description="Meet our distinguished chairpersons who guide the Students' Welfare Board"
               />
@@ -437,7 +386,7 @@ function ContactsPage() {
             {/* Core Team Section - GenSec elevated */}
             <section className="mb-20">
               <SectionHeader 
-                title="Core Team" 
+                title="Board Members" 
                 icon={FaUser}
                 description="The dedicated core team managing student welfare activities"
               />
@@ -459,11 +408,7 @@ function ContactsPage() {
 
             {/* Department Heads Section */}
             <section className="mb-20">
-              <SectionHeader 
-                title="Department Heads" 
-                icon={FaBuilding}
-                description="Specialized department heads managing various aspects of student welfare"
-              />
+              
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {contactData.departmentHeads.map((contact) => (
                   <ContactCard key={contact.id} contact={contact} />
@@ -511,7 +456,7 @@ function ContactsPage() {
                   className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center gap-2"
                 >
                   <FaPhone />
-                  Emergency Helpline: +91 98765 43210
+                  Emergency Helpline: +91 7396799357
                 </a>
                 <span className="text-red-600 font-medium">Available 24/7</span>
               </div>

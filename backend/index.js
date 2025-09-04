@@ -13,7 +13,7 @@ import authRoutes from "./routes/auth.routes.js";
 // Initialize dotenv to load environment variables
 dotenv.config();
 
-const ADMINPANELROOT = "/welfare-board/api/admin";
+const ADMINPANELROOT = "/admin";
 const PORT = process.env.PORT || 8000;
 const url = process.env.MONGO_URI;
 console.log(url);
@@ -68,3 +68,4 @@ app.use('/upload', uploadRoutes);
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+

@@ -34,11 +34,11 @@ function AllClubsHeroSection() {
         className="w-full h-[865px] bg-top bg-cover bg-no-repeat flex flex-col items-center justify-center gap-5 text-gray-200 z-1"
         style={{ backgroundImage:`url(${heroimg})`}}
       >
-        <p className="text-4xl md:text-7xl font-semibold tracking-tight text-center">
-          LOREM IPSUM
+        <p className="text-black text-4xl md:text-7xl font-semibold tracking-tight text-center">
+          Clubs
         </p>
-        <p className="text-sm sm:text-base md:text-lg tracking-tight text-center">
-          Empowering athletes something something content.
+        <p className="text-black text-sm sm:text-base md:text-lg tracking-tight text-center">
+          Together for Wellbeing, Together for Change.
         </p>
       </div>
 
