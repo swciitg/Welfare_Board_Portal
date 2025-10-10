@@ -15,7 +15,7 @@ const FoodCourt = () => {
     image: "https://swc.iitg.ac.in/welfare-board/api/la_pinoz.jpg",
     description: "Say hello to La Pino'z, the newest addition to the IITG food Court! Big pizzas, bigger cravings – whether you're chilling with friends or pulling an all-nighter, this spot has your back with cheesy, delicious comfort.",
     specialties: ["Big Pizzas", "Cheese Lovers", "Late Night Snacks"],
-    delivery: true
+    delivery: false
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ const FoodCourt = () => {
     image: "https://swc.iitg.ac.in/welfare-board/api/subhub.jpg",
     description: "Fuel up the smart way at SubHub! With fresh subs, crisp veggies, and flavorful fillings, it's your go-to spot on campus. Perfect for when you want something quick, tasty, and just a little bit healthy.",
     specialties: ["Fresh Subs", "Crisp Veggies", "Quick Bites"],
-    delivery: false
+    delivery: true
   },
   {
     id: 3,
@@ -69,7 +69,7 @@ const FoodCourt = () => {
     image: "https://swc.iitg.ac.in/welfare-board/api/big_byte_bakery_.JPG",
     description: "Where sweetness meets satisfaction! Big Byte Bakery is your campus stop for freshly baked cakes, cookies, pastries, and more. Perfect for birthdays, late night cravings, or just a sweet pick-me-up between lectures. Freshly baked, every byte counts!",
     specialties: ["Fresh Cakes", "Cookies", "Pastries"],
-    delivery: false
+    delivery: true
   },
   {
     id: 8,
