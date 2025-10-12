@@ -1,17 +1,9 @@
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import { FaRegFilePdf, FaArrowDown } from "react-icons/fa6";
+import { FaArrowDown } from "react-icons/fa6";
 
-import groupImg from "../assets/group.jpeg";
 import { useEventPageData } from "../hooks/useEventPageData";
-
-const clubData = {
-  name: "Welfare Board",
-  topSection: {
-    img: groupImg,
-  },
-};
 
 function EachEventPage() {
   const { data, error } = useEventPageData();
@@ -95,10 +87,6 @@ const EventSection = ({ data, index }) => {
       {/* Text Content */}
       <div className="w-full lg:w-1/2 space-y-8">
         <div className="space-y-6">
-          {/* Event Badge */}
-          <div className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full">
-            <span className="text-sm font-semibold text-gray-700">Event {index + 1}</span>
-          </div>
 
           {/* Event Title */}
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tight font-[Fira Sans Extra Condensed]">
@@ -114,21 +102,6 @@ const EventSection = ({ data, index }) => {
           <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-600 font-[Familjen Grotesk]">
             {data?.eventActivityDesc}
           </p>
-
-          {/* PDF Download Button */}
-          {data?.eventPdf && (
-            <div className="flex items-center gap-4">
-              <a
-                href={data.eventPdf}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-3 px-6 py-3 bg-[#7BB9C4] text-white font-semibold rounded-xl hover:bg-[#6BA8B3] transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-              >
-                <FaRegFilePdf size={20} />
-                <span>Download PDF</span>
-              </a>
-            </div>
-          )}
         </div>
       </div>
 
