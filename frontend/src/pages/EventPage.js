@@ -3,9 +3,6 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { FaRegFilePdf, FaArrowDown } from "react-icons/fa6";
 
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-
 import groupImg from "../assets/group.jpeg";
 import { useEventPageData } from "../hooks/useEventPageData";
 
@@ -25,7 +22,6 @@ function EachEventPage() {
   
   return (
     <div>
-      <Header />
       <div className="overflow-hidden font-poppins flex flex-col">
         {/* Enhanced Hero Section */}
         <div
@@ -65,7 +61,6 @@ function EachEventPage() {
           ))}
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

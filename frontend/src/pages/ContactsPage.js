@@ -1,6 +1,4 @@
 import React from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import { FaPhone, FaEnvelope, FaLinkedin, FaUser, FaUsers, FaBuilding } from "react-icons/fa";
 import { MdLocationOn, MdEmail } from "react-icons/md";
 import { useHomePageData } from "../hooks/useHomePageData";
@@ -347,7 +345,6 @@ function ContactsPage() {
 
   return (
     <div>
-      <Header />
       <div className="overflow-hidden font-poppins flex flex-col">
   {/* Hero Section */}
   <div
@@ -464,7 +461,6 @@ function ContactsPage() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

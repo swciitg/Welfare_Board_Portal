@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { FaMapMarkerAlt, FaClock, FaPhone, FaMotorcycle, FaStar, FaUtensils } from 'react-icons/fa';
 import { MdDeliveryDining, MdRestaurant } from 'react-icons/md';
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 
 const FoodCourt = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -134,7 +132,6 @@ const FoodCourt = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 font-poppins">
-      <Header />
       
       {/* Hero Section */}
       <div className="bg-white/80 backdrop-blur-md shadow-lg border-b border-gray-200/50 pt-20">
@@ -264,7 +261,6 @@ const FoodCourt = () => {
         
       </div>
 
-      <Footer />
     </div>
   );
 };

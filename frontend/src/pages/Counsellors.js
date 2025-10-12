@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { FaPhone, FaEnvelope, FaClock, FaCalendarAlt, FaUser, FaHeadset, FaLaptop, FaComments, FaShieldAlt } from 'react-icons/fa';
 import { MdLocationOn, MdChat, MdVideoCall, MdSecurity } from 'react-icons/md';
 import { BiSupport } from 'react-icons/bi';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 
 const Counsellors = () => {
   const [selectedCounsellor, setSelectedCounsellor] = useState(null);
@@ -79,7 +77,6 @@ const Counsellors = () => {
 
   return (
     <div>
-      <Header />
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 font-poppins">
         {/* Header Section */}
         <div className="bg-[#7BB9C4] backdrop-blur-md shadow-lg border-b border-gray-200/50 pt-20">
@@ -373,7 +370,6 @@ const Counsellors = () => {
 
 
       </div>
-      <Footer />
     </div>
   );
 };
