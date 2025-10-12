@@ -32,6 +32,16 @@ html {
   will-change: transform, opacity;
   backface-visibility: hidden;
   transform: translateZ(0);
+  cursor: pointer !important;
+}
+
+.club-card:hover {
+  cursor: pointer !important;
+}
+
+.club-card:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
 }
 
 /* Smooth hover transitions */

@@ -7,9 +7,25 @@ function ClubCard({ index, clubData }) {
   const [isVisible, setIsVisible] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
 
-  const handleNavigate = () => {
-    const urlSafeName = clubData.name.replace(/\s+/g, "-").toLowerCase();
-    navigate(`/club/${urlSafeName}`); 
+  const handleNavigate = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    // Ensure we have valid club data
+    if (!clubData || !clubData.name) {
+      console.error('Invalid club data:', clubData);
+      return;
+    }
+    
+    // Use safeName from API response, fallback to creating URL-safe name if not available
+    const urlSafeName = clubData.safeName || clubData.name.replace(/\s+/g, "-").toLowerCase();
+    console.log('Navigating to club:', urlSafeName, 'from club data:', clubData);
+    
+    try {
+      navigate(`/club/${urlSafeName}`); 
+    } catch (error) {
+      console.error('Navigation error:', error);
+    }
   };
 
   useEffect(() => {
@@ -40,7 +56,7 @@ function ClubCard({ index, clubData }) {
   return (
     <div
       ref={cardRef}
-      className={`club-card w-full max-w-sm mx-auto cursor-pointer group transform transition-all duration-500 ease-out ${
+      className={`club-card w-full max-w-sm mx-auto cursor-pointer group transform transition-all duration-500 ease-out relative ${
         isVisible 
           ? "opacity-100 translate-y-0 scale-100" 
           : "opacity-0 translate-y-8 scale-95"
@@ -48,6 +64,13 @@ function ClubCard({ index, clubData }) {
       onClick={handleNavigate}
       style={{
         transitionDelay: `${index * 100}ms`
+      }}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          handleNavigate(e);
+        }
       }}
     >
       {/* Image container */}

@@ -18,7 +18,8 @@ function AllClubsHeroSection() {
         setClubsData(response.data.club);
         setheroimg(response.data.homepage[0].clubheroimg) // Ensure API response structure matches expected format
         setLoading(false);
-        console.log(response.data.club);
+        console.log('Clubs data received:', response.data.club);
+        console.log('Sample club data:', response.data.club[0]);
       })
       .catch((error) => {
         console.error("Error fetching clubs data:", error);
