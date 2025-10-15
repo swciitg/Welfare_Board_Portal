@@ -1,5 +1,6 @@
 import useRoundedStyle from "../hooks/useRoundedStyle";
 import { useHomePageData } from "../hooks/useHomePageData";
+import { Link } from "react-router-dom";
 
 function HeroSection() {
   const roundedStyle = useRoundedStyle();
@@ -26,11 +27,38 @@ function HeroSection() {
           <div className="w-32 h-1 bg-[#7BB9C4] mx-auto mt-6 rounded-full"></div>
         </div>
       </div>
+      {/* Floating counsellor card between hero and about */}
+      <div className="w-full flex justify-center relative z-20 px-4 mt-8 md:mt-12 lg:mt-16">
+        <div className="max-w-[980px] w-full">
+          <div className="mx-auto bg-white/95 backdrop-blur-sm shadow-xl rounded-2xl border border-gray-100 p-4 sm:p-6 md:p-6">
+            <div className="flex flex-col sm:flex-row items-center gap-4">
+              <div className="flex-shrink-0">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-tr from-[#7BB9C4] to-[#6ba8b3] flex items-center justify-center text-white shadow-md">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 sm:w-8 sm:h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 8a6 6 0 11-12 0 6 6 0 0112 0zM6 20v-2a4 4 0 014-4h4a4 4 0 014 4v2" />
+                  </svg>
+                </div>
+              </div>
+
+              <div className="flex-1 text-left">
+                <p className="text-sm sm:text-base md:text-lg font-semibold text-[#0C0D0D]">Need help? Consult a counsellor</p>
+                <p className="text-xs sm:text-sm text-gray-500">Confidential support for students — available to all.</p>
+              </div>
+
+              <div className="flex-shrink-0">
+                <Link to="/counsellors" className="inline-flex items-center justify-center px-4 py-2 bg-[#7BB9C4] hover:bg-[#6aa9ad] text-white font-medium rounded-lg shadow-md transition-colors duration-200">
+                  Talk to Counsellor
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* About Section with Clean Design */}
       <div
         style={roundedStyle}
-        className="top-[-100px] w-full min-h-[975px] flex items-center justify-center bg-[#F5F5F5] text-center relative z-10"
+        className="md:top-[-100px] top-0 mt-8 md:mt-0 w-full min-h-[975px] flex items-center justify-center bg-[#F5F5F5] text-center relative z-10"
       >
         {/* Subtle decorative elements */}
         <div className="absolute top-10 left-10 w-20 h-20 bg-[#7BB9C4]/20 rounded-full"></div>
@@ -66,7 +94,7 @@ function HeroSection() {
       </div>
 
       {/* Leadership Section with Clean Cards - FIXED SPACING */}
-      <div className="relative bg-white w-full px-4 sm:px-6 md:px-10 lg:px-20 py-20 md:py-32 space-y-28 md:space-y-36 z-30 mt-[-200px] mb-24 overflow-hidden">
+  <div className="relative bg-white w-full px-4 sm:px-6 md:px-10 lg:px-20 py-20 md:py-32 space-y-28 md:space-y-36 z-30 md:mt-[-200px] mt-8 mb-24 overflow-hidden">
         {/* Subtle Background Elements */}
         <div className="absolute inset-0 opacity-3">
           <div className="absolute top-20 left-10 w-64 h-64 bg-[#7BB9C4] rounded-full blur-3xl"></div>
