@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ZigZagLine from "./ZigZagLine";
 import ClubCard from "./ClubCard";
-import ScrollAnimation from "react-animate-on-scroll";
 import RoundedDiv from "./RoundedDiv";
 import clubImg from "../assets/images/clubs/wide.png";
 function AllClubsHeroSection() {
@@ -19,7 +18,8 @@ function AllClubsHeroSection() {
         setClubsData(response.data.club);
         setheroimg(response.data.homepage[0].clubheroimg) // Ensure API response structure matches expected format
         setLoading(false);
-        console.log(response.data.club);
+        console.log('Clubs data received:', response.data.club);
+        console.log('Sample club data:', response.data.club[0]);
       })
       .catch((error) => {
         console.error("Error fetching clubs data:", error);
@@ -49,17 +49,17 @@ function AllClubsHeroSection() {
       ) : (
         <RoundedDiv
           Element={() => (
-            <div className="flex flex-col relative items-center">
-              {clubsData.map((clubData, index) => (
-                <ScrollAnimation
-                  key={index}
-                  animateIn="fadeInUp"
-                  animateOut="fadeOutUp"
-                  className="z-[1000]"
-                >
-                  <ClubCard index={index} clubData={clubData} />
-                </ScrollAnimation>
-              ))}
+            <div className="relative">
+              {/* Clubs Grid Container */}
+              <div className="clubs-grid px-4 sm:px-6 lg:px-8 py-12 max-w-7xl mx-auto">
+                {clubsData.map((clubData, index) => (
+                  <ClubCard 
+                    key={clubData._id || index} 
+                    index={index} 
+                    clubData={clubData} 
+                  />
+                ))}
+              </div>
               <ZigZagLine />
             </div>
           )}
