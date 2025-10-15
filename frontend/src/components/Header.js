@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
@@ -11,6 +11,11 @@ function Header() {
   const location = useLocation();
 
   // Handle scroll effect
+  useLayoutEffect(() => {
+    // Set initial state before paint to avoid flash
+    setScrolled(window.scrollY > 20);
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -37,7 +42,7 @@ function Header() {
   return (
     <>
       <header 
-        className={`fixed top-0 left-0 w-full z-50 font-poppins transition-all duration-300 ${
+        className={`fixed top-0 left-0 w-full z-50 font-poppins transition-colors duration-200 ${
           scrolled 
             ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/50" 
             : "bg-transparent"

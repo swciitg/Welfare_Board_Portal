@@ -1,6 +1,4 @@
 import React from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import { FaRegFilePdf } from "react-icons/fa6";
 import useRoundedStyle from "../hooks/useRoundedStyle";
 
@@ -96,7 +94,6 @@ const Section = ({ title, description, mediaType, mediaSrc, isReversed }) => (
 const SWBSections = () => {
   return (
     <div>
-      <Header />
       <div
         className="w-full min-h-[100vh] bg-top bg-cover bg-no-repeat flex flex-col items-center justify-center gap-5 text-gray-200 text-center px-4"
         style={{ backgroundImage: `url(${resourceBg})` }}
@@ -111,7 +108,6 @@ const SWBSections = () => {
           <Section key={index} {...section} isReversed={index % 2 !== 0} />
         ))}
       </div>
-      <Footer />
     </div>
   );
 };
