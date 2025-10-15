@@ -314,8 +314,8 @@ function HeroSection() {
                     {/* Gradient overlay - Always visible */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-xl opacity-100 transition-opacity duration-500 z-20"></div>
 
-                    {/* Member info overlay - Always visible */}
-                    <div className="absolute bottom-0 left-0 right-0 p-4 text-white z-30">
+                    {/* Member info overlay - visible on sm+; mobile uses separate block below */}
+                    <div className="absolute bottom-0 left-0 right-0 p-4 text-white z-30 hidden sm:block">
                       <h3 className="font-bold text-lg mb-1 drop-shadow-lg">
                         {member.name}
                       </h3>
