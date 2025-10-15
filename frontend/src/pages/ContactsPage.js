@@ -441,21 +441,52 @@ function ContactsPage() {
               </div>
             </section>
 
-            {/* Emergency Contact Section */}
-            <section className="bg-red-50 border border-red-200 rounded-xl p-8 text-center">
-              <h3 className="text-2xl font-bold text-red-800 mb-4">Emergency Contact</h3>
-              <p className="text-red-700 mb-4">
-                For urgent student welfare matters, please contact our emergency helpline:
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a 
-                  href="tel:+919876543210" 
-                  className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center gap-2"
-                >
-                  <FaPhone />
-                  Emergency Helpline: +91 7396799357
-                </a>
-                <span className="text-red-600 font-medium">Available 24/7</span>
+            {/* Emergency & Ragging Contact Section */}
+            <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Emergency Contact Section */}
+              <div className="bg-red-50 border border-red-200 rounded-xl p-8 text-center">
+                <h3 className="text-2xl font-bold text-red-800 mb-4">
+                  Emergency Contact
+                </h3>
+                <p className="text-red-700 mb-4">
+                  For urgent student welfare matters, please contact our
+                  emergency helpline:
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <a
+                    href="tel:+919876543210"
+                    className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center gap-2"
+                  >
+                    <FaPhone />
+                    Emergency Helpline: +91 7396799357
+                  </a>
+                  <span className="text-red-600 font-medium">
+                    Available 24/7
+                  </span>
+                </div>
+              </div>
+
+              {/* Anti-Ragging Contact Section */}
+              <div className="bg-blue-50 border border-blue-200 rounded-xl p-8 text-center">
+                <h3 className="text-2xl font-bold text-blue-800 mb-4">
+                  Anti-Ragging Helpline
+                </h3>
+                <p className="text-blue-700 mb-4">
+                  If you face or witness any ragging incident, please reach out
+                  immediately for confidential support:
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <a
+                    href="tel:+9118001805522"
+                    className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center gap-2"
+                  >
+                    <FaPhone />
+                    Helpline: 1800-180-5522
+                  </a>
+                  <span className="text-blue-600 font-medium">
+                    24/7 Confidential Support
+                  </span>
+                </div>
               </div>
             </section>
           </div>
