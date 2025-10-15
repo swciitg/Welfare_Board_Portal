@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaPhone, FaEnvelope, FaClock, FaCalendarAlt, FaUser, FaHeadset, FaLaptop, FaComments, FaShieldAlt } from 'react-icons/fa';
 import { MdLocationOn, MdChat, MdVideoCall, MdSecurity } from 'react-icons/md';
 import { BiSupport } from 'react-icons/bi';
+ import YourDostLogo from '../assets/YourDost.jpeg';
 
 const Counsellors = () => {
   const [selectedCounsellor, setSelectedCounsellor] = useState(null);
@@ -333,9 +334,18 @@ const Counsellors = () => {
                 <div className="relative">
                   <div className="bg-black rounded-2xl p-8 shadow-2xl">
                     <div className="flex items-center justify-center mb-6">
-                      <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center">
-                        <div className="w-16 h-20 bg-yellow-600 rounded-full relative">
-                          <img src='https://tse4.mm.bing.net/th/id/OIP.2tmsoMJQLKzo_7GRb6puAwAAAA?pid=Api&P=0&h=180' alt="YourDOST Logo" className="w-full h-full object-cover rounded-full" />
+                      <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center">
+                        <div className="w-16 h-16 bg-black rounded-full overflow-hidden relative">
+                          <img
+                            src={YourDostLogo}
+                            alt="YourDOST Logo"
+                            className="w-full h-full object-contain"
+                            loading="lazy"
+                            onError={(e) => {
+                              e.currentTarget.onerror = null;
+                              e.currentTarget.src = '/YourDost.jpeg';
+                            }}
+                          />
                         </div>
                       </div>
                     </div>
