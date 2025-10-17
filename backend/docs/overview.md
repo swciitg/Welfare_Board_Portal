@@ -1,0 +1,1 @@
+This backend is structured using Node.js with Express, applying the MVC (Model-View-Controller) design pattern. The codebase is organized with separate folders for controllers, models, admin configurations, routes, and views, aiming for modularity and maintainability.
