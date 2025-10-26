@@ -7,7 +7,7 @@ const user = {
 
 export const getLoginPage = (req, res) => {
   if(req.session.user) {
-    return res.redirect('/upload');
+    return res.redirect('/welfare-board/api/upload');
   }
   res.render('login', { error: null });
 };
@@ -16,7 +16,7 @@ export const login = (req, res) => {
   const { username, password } = req.body;
   if (username === user.username && bcrypt.compareSync(password, user.passwordHash)) {
     req.session.user = username;
-    res.redirect('/upload');
+    res.redirect('/welfare-board/api/upload');
   } else {
     res.render('login', { error: 'Invalid credentials' });
   }
@@ -24,7 +24,7 @@ export const login = (req, res) => {
 
 export const logout = (req, res) => {
   req.session.destroy(() => {
-    res.redirect('/image/login');
+    res.redirect('/welfare-board/api/image/login');
   });
 };
 
@@ -32,7 +32,8 @@ export const isAuthenticated = (req, res, next) => {
   if (req.session.user) {
     next();
   } else {
-    res.redirect('/image/login');
+// next();
+   res.redirect('/welfare-board/api/image/login');
   }
 };
 

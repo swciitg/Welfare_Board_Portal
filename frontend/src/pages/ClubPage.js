@@ -3,8 +3,6 @@ import ScrollAnimation from "react-animate-on-scroll";
 import useScrollDirection from "../hooks/useScrollDirection";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import RoundedDiv from "../components/RoundedDiv";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -34,55 +32,43 @@ function EachClubPage() {
   if (error) return <p>{error}</p>;
 
   return (
-    <div>
-      <Header />
-      <div className="overflow-hidden font-poppins flex flex-col">
-        <div
-          className="w-full h-[865px] bg-top bg-cover bg-no-repeat flex flex-col items-center justify-center gap-5 text-gray-200"
-          style={{ backgroundImage: `url(${clubData.topSection.img})` }}
-        >
-          <p className="text-4xl md:text-7xl font-semibold tracking-tight text-center">
-            {clubData.name} CLUB
-          </p>
-          <p className="text-sm sm:text-base md:text-lg tracking-tight text-center">
-            {clubData.topSection.text}
-          </p>
-        </div>
-        <div className="w-full flex items-center justify-center px-2 pt-[6vw] pb-[37vw] sm:pb-[20vw] md:[5vw] bg-[#F5F5F5] text-center">
-          <div className="w-full flex flex-col-reverse md:flex-row gap-2 md:justify-between md:items-start px-10 md:px-20">
-            <ScrollAnimation
-              className="w-full md:w-[50%] flex items-center justify-center"
-              animateIn={scrollDirection === "up" ? "slideInDown" : "slideInUp"}
-              animateOut={
-                scrollDirection === "up" ? "slideOutDown" : "slideOutUp"
-              }
-            >
-              <img
-                src={clubData?.aboutusimg}
-                alt="Sports activity"
-                className="w-[70%] object-cover"
-              />
-            </ScrollAnimation>
-            <div className="w-full md:w-[50%] text-center md:text-left flex flex-col items-center md:items-start justify-start space-y-1">
-              <h1 className="text-[6vw] leading-none font-semibold text-[#0C0D0D] font-[Fira Sans Extra Condensed]">
-                ABOUT US
-              </h1>
-              <p className="text-[3vw] md:text-[2vw] leading-relaxed text-[#565656] font-[Familjen Grotesk] list-disc">
-                {clubData?.aboutDesc}
-              </p>
-            </div>
+    <div className="overflow-hidden font-poppins flex flex-col">
+      <div
+        className="w-full h-[865px] bg-top bg-cover bg-no-repeat flex flex-col items-center justify-center gap-5 text-gray-200"
+        style={{ backgroundImage: `url(${clubData.topSection.img})` }}
+      >
+        <p className="text-4xl md:text-7xl font-semibold tracking-tight text-center">
+          {clubData.name} CLUB
+        </p>
+        <p className="text-sm sm:text-base md:text-lg tracking-tight text-center">
+          {clubData.topSection.text}
+        </p>
+      </div>
+
+      <div className="w-full flex items-center justify-center px-2 pt-[6vw] pb-[37vw] sm:pb-[20vw] md:pb-[5vw] bg-[#F5F5F5] text-center">
+        <div className="w-full flex flex-col-reverse md:flex-row gap-2 md:justify-between md:items-start px-10 md:px-20">
+          <ScrollAnimation
+            className="w-full md:w-[50%] flex items-center justify-center"
+            animateIn={scrollDirection === "up" ? "slideInDown" : "slideInUp"}
+            animateOut={scrollDirection === "up" ? "slideOutDown" : "slideOutUp"}
+          >
+            <img src={clubData?.aboutusimg} alt="Sports activity" className="w-[70%] object-cover" />
+          </ScrollAnimation>
+          <div className="w-full md:w-[50%] text-center md:text-left flex flex-col items-center md:items-start justify-start space-y-1">
+            <h1 className="text-[6vw] leading-none font-semibold text-[#0C0D0D] font-[Fira Sans Extra Condensed]">
+              ABOUT US
+            </h1>
+            <p className="text-[3vw] md:text-[2vw] leading-relaxed text-[#565656] font-[Familjen Grotesk] list-disc">
+              {clubData?.aboutDesc}
+            </p>
           </div>
         </div>
-        <RoundedDiv Element={() => <RulesAndGuidelinesSection clubData={clubData} />} bg="#7BB9C4" />
-        <RoundedDiv
-          Element={() => <PastEventsAndAcheivementsSection clubData={clubData} />}
-          bg="#F5F5F5"
-          top="-200px"
-        />
-        <RoundedDiv Element={() => <GallerySection clubData={clubData} />} bg="#7BB9C4" top="-300px" />
-        <RoundedDiv Element={() => <TeamLeadersSection clubData={clubData} />} bg="#F5F5F5" top="-400px" />
       </div>
-      <Footer />
+
+      <RoundedDiv Element={() => <RulesAndGuidelinesSection clubData={clubData} />} bg="#7BB9C4" />
+      <RoundedDiv Element={() => <PastEventsAndAcheivementsSection clubData={clubData} />} bg="#F5F5F5" top="-200px" />
+      <RoundedDiv Element={() => <GallerySection clubData={clubData} />} bg="#7BB9C4" top="-300px" />
+      <RoundedDiv Element={() => <TeamLeadersSection clubData={clubData} />} bg="#F5F5F5" top="-400px" />
     </div>
   );
 }

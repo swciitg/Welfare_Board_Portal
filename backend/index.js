@@ -13,7 +13,7 @@ import authRoutes from "./routes/auth.routes.js";
 // Initialize dotenv to load environment variables
 dotenv.config();
 
-const ADMINPANELROOT = "/welfare-board/api/admin";
+const ADMINPANELROOT = "/admin";
 const PORT = process.env.PORT || 8000;
 const url = process.env.MONGO_URI;
 console.log(url);
@@ -34,7 +34,7 @@ const __dirname = path.dirname(__filename);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-app.use(express.static('uploads'));
+app.use(express.static(path.join(__dirname, 'uploads')));
 app.use(express.urlencoded({ extended: true }));
 app.use(session({
   secret: 'supersecretkey',
@@ -57,6 +57,9 @@ app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use("/test", (req, res) => {
+  res.send("Server is running fine");
+});
 app.use('/', router);
 app.use('/image', authRoutes);
 app.use('/upload', uploadRoutes);
@@ -65,3 +68,4 @@ app.use('/upload', uploadRoutes);
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
