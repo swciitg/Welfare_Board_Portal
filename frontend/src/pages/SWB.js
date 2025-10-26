@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { FaRegFilePdf } from "react-icons/fa6";
+import ModernPdfIcon from "../components/ModernPdfIcon";
 import useRoundedStyle from "../hooks/useRoundedStyle";
 
 // Importing images
@@ -78,7 +78,7 @@ const Section = ({ title, description, mediaType, mediaSrc, isReversed }) => (
       <div className="relative z-10 flex justify-center items-center">
         {mediaType === "pdf" ? (
           <a href={mediaSrc} target="_blank" rel="noreferrer">
-            <FaRegFilePdf size={200} className="text-gray-700" />
+            <ModernPdfIcon size="large" />
           </a>
         ) : mediaType === "iframe" ? (
           <iframe

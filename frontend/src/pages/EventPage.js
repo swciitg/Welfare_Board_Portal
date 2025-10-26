@@ -1,7 +1,7 @@
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import { FaRegFilePdf } from "react-icons/fa6";
+import ModernPdfIcon from "../components/ModernPdfIcon";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -82,9 +82,9 @@ const EventSection = ({ data }) => {
             href={data.eventPdf}
             target="_blank"
             rel="noreferrer"
-            className="mt-2"
+            className="mt-4 inline-block"
           >
-            <FaRegFilePdf size={40} className="text-gray-700 sm:size-50" />
+            <ModernPdfIcon size="small" />
           </a>
         )}
       </div>
