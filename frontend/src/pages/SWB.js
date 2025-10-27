@@ -1,5 +1,7 @@
 import React from "react";
-import { FaRegFilePdf } from "react-icons/fa6";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import ModernPdfIcon from "../components/ModernPdfIcon";
 import useRoundedStyle from "../hooks/useRoundedStyle";
 
 // Importing images
@@ -7,12 +9,13 @@ import yourDost from "../assets/YourDost.jpeg";
 import resourceBg from "../assets/resource.jpg";
 
 // Importing PDFs
-import welfareFund from "../assets/pdfs/WelfareFunds.pdf";
+import welfareFund from "../assets/pdfs/swb-funds.pdf";
 import codeOfConduct from "../assets/pdfs/code_of_conduct.pdf";
+import processDocumentation from "../assets/pdfs/Welfare_Board_documentation.pdf";
 
 const sections = [
   {
-    title: "Welfare Funds",
+    title: "Welfare Fund",
     description:
       "IIT Guwahati offers various scholarships and financial assistance programs to support deserving and meritorious students.",
     mediaType: "pdf",
@@ -31,6 +34,13 @@ const sections = [
       "The document details IIT Guwahati's student conduct rules, addressing policy breaches, harassment, safety risks, unauthorized access, and misconduct in residential areas.",
     mediaType: "pdf",
     mediaSrc: codeOfConduct,
+  },
+  {
+    title: "Process Documentation",
+    description:
+      "A guide for club secretaries detailing procedures for event approvals, venue bookings, finances, and administrative tasks with required templates and processes.",
+    mediaType: "pdf",
+    mediaSrc: processDocumentation,
   },
   {
     title: "YourDOST",
@@ -68,7 +78,7 @@ const Section = ({ title, description, mediaType, mediaSrc, isReversed }) => (
       <div className="relative z-10 flex justify-center items-center">
         {mediaType === "pdf" ? (
           <a href={mediaSrc} target="_blank" rel="noreferrer">
-            <FaRegFilePdf size={200} className="text-gray-700" />
+            <ModernPdfIcon size="large" />
           </a>
         ) : mediaType === "iframe" ? (
           <iframe
@@ -94,6 +104,7 @@ const Section = ({ title, description, mediaType, mediaSrc, isReversed }) => (
 const SWBSections = () => {
   return (
     <div>
+      <Header />
       <div
         className="w-full min-h-[100vh] bg-top bg-cover bg-no-repeat flex flex-col items-center justify-center gap-5 text-gray-200 text-center px-4"
         style={{ backgroundImage: `url(${resourceBg})` }}
@@ -108,6 +119,7 @@ const SWBSections = () => {
           <Section key={index} {...section} isReversed={index % 2 !== 0} />
         ))}
       </div>
+      <Footer />
     </div>
   );
 };
