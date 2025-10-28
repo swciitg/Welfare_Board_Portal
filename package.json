@@ -1,0 +1,39 @@
+{
+  "name": "welfare-board-portal",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Welfare Board Portal - Full stack application with React frontend and Node.js backend",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:frontend": "npm run start --workspace=frontend",
+    "dev:backend": "npm run start --workspace=backend",
+    "build:frontend": "npm run build --workspace=frontend",
+    "install:all": "npm install",
+    "clean": "npm run clean:frontend && npm run clean:backend",
+    "clean:frontend": "rm -rf frontend/node_modules frontend/build",
+    "clean:backend": "rm -rf backend/node_modules",
+    "test": "npm run test --workspaces --if-present",
+    "start:frontend": "npm run start --workspace=frontend",
+    "start:backend": "npm run start --workspace=backend"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "keywords": [
+    "welfare-board",
+    "react",
+    "node.js",
+    "express",
+    "mongodb"
+  ],
+  "author": "",
+  "license": "ISC"
+}

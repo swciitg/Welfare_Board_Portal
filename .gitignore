@@ -5,7 +5,9 @@ frontend/.env
 
 # Dependencies
 node_modules/
-package-lock.json
+# Ignore package-lock.json in workspaces, but keep the root one
+frontend/package-lock.json
+backend/package-lock.json
 
 # Build outputs
 frontend/build/
