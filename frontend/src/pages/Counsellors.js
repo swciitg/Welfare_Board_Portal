@@ -2,71 +2,12 @@ import React, { useState } from 'react';
 import { FaPhone, FaEnvelope, FaClock, FaCalendarAlt, FaUser, FaHeadset, FaLaptop, FaComments, FaShieldAlt } from 'react-icons/fa';
 import { MdLocationOn, MdChat, MdVideoCall, MdSecurity } from 'react-icons/md';
 import { BiSupport } from 'react-icons/bi';
- import YourDostLogo from '../assets/YourDost.jpeg';
+import YourDostLogo from '../assets/YourDost.jpeg';
+import { useCounselorsData } from '../hooks/useCounselorsData';
 
 const Counsellors = () => {
   const [selectedCounsellor, setSelectedCounsellor] = useState(null);
-
-  // Sample counsellor data - replace with your actual data
-  const counsellors = [
-    {
-      id: 1,
-      name: "Ms. Pallabita Barooah Chowdhary",
-      photo: "https://swc.iitg.ac.in/welfare-board/api/pallabita.jpg",
-      mobile: "+91 9864154855",
-      email: "pallabita.b.c@iitg.ac.in",
-      specialization: "Academic Stress & Anxiety",
-      experience: "03612583989",
-      schedule: {
-        monday: "9:00 AM - 5:00 PM",
-        tuesday: "9:00 AM - 5:00 PM",
-        wednesday: "9:00 AM - 5:00 PM",
-        thursday: "9:00 AM - 5:00 PM",
-        friday: "9:00 AM - 5:00 PM",
-        saturday: "Closed",
-        sunday: "Closed"
-      },
-      location: "New SAC Building, Ground Floor"
-    },
-    {
-      id: 2,
-      name: "Dr. Nesmita Das",
-      photo: "https://swc.iitg.ac.in/welfare-board/api/nesmita.jpg",
-      mobile: "+91 8011631110",
-      email: "nesmita.d@iitg.ac.in",
-      specialization: "Career Guidance & Life Skills",
-      experience: "03612583984",
-      schedule: {
-        monday: "12:00 PM - 8:00 PM",
-        tuesday: "12:00 PM - 8:00 PM",
-        wednesday: "12:00 PM - 8:00 PM",
-        thursday: "12:00 PM - 8:00 PM",
-        friday: "12:00 PM - 8:00 PM",
-        saturday: "Closed",
-        sunday: "Closed"
-      },
-      location: "New SAC Building, Ground Floor"
-    },
-    {
-      id: 3,
-      name: "Mr. Rakesh Kakati",
-      photo: "https://swc.iitg.ac.in/welfare-board/api/rakesh.jpg",
-      mobile: "+91 9707222941",
-      email: "rkakati@iitg.ac.in",
-      specialization: "Mental Health & Wellness",
-      experience: "03612583988",
-      schedule: {
-        monday: "9:30 AM - 5:30 PM",
-        tuesday: "9:30 AM - 5:30 PM",
-        wednesday: "9:30 AM - 5:30 PM",
-        thursday: "9:30 AM - 5:30 PM",
-        friday: "9:30 AM - 5:30 PM",
-        saturday: "Closed",
-        sunday: "Closed"
-      },
-      location: "New SAC Building, Ground Floor"
-    }
-  ];
+  const { data: counsellors, loading, error } = useCounselorsData();
 
   const openModal = (counsellor) => {
     setSelectedCounsellor(counsellor);
@@ -75,6 +16,35 @@ const Counsellors = () => {
   const closeModal = () => {
     setSelectedCounsellor(null);
   };
+
+  // Show loading state
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-blue-50">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-[#7BB9C4] mx-auto mb-4"></div>
+          <p className="text-gray-600 text-lg">Loading counselors...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Show error state
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-blue-50">
+        <div className="text-center">
+          <p className="text-red-600 text-lg mb-4">Error loading counselors: {error}</p>
+          <button 
+            onClick={() => window.location.reload()} 
+            className="bg-[#7BB9C4] hover:bg-[#6ba8b3] text-white px-6 py-2 rounded-lg"
+          >
+            Retry
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -130,51 +100,59 @@ const Counsellors = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div>
             <h2 className="text-3xl font-bold text-gray-800 text-center mb-12">Meet Our Counsellors</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {counsellors.map((counsellor) => (
-                <div 
-                  key={counsellor.id}
-                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
-                >
-                  <div className="relative">
-                    <img 
-                      src={counsellor.photo} 
-                      alt={counsellor.name}
-                      className="w-full h-64 object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4 text-white">
-                      <h3 className="text-xl font-semibold">{counsellor.name}</h3>
-                    </div>
-                  </div>
-                  
-                  <div className="p-6">
-                    <div className="space-y-3 mb-6">
-                      <div className="flex items-center gap-3 text-gray-600">
-                        <FaPhone className="text-[#7BB9C4]" />
-                        <span className="text-sm">{counsellor.mobile}</span>
-                      </div>
-                      <div className="flex items-center gap-3 text-gray-600">
-                        <FaEnvelope className="text-[#7BB9C4]" />
-                        <span className="text-sm">{counsellor.email}</span>
-                      </div>
-                      <div className="flex items-center gap-3 text-gray-600">
-                        <FaUser className="text-[#7BB9C4]" />
-                        <span className="text-sm">landline no. {counsellor.experience}</span>
+            {counsellors && counsellors.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {counsellors.map((counsellor) => (
+                  <div 
+                    key={counsellor.id}
+                    className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+                  >
+                    <div className="relative">
+                      <img 
+                        src={counsellor.photo} 
+                        alt={counsellor.name}
+                        className="w-full h-64 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                      <div className="absolute bottom-4 left-4 text-white">
+                        <h3 className="text-xl font-semibold">{counsellor.name}</h3>
                       </div>
                     </div>
                     
-                    <button
-                      onClick={() => openModal(counsellor)}
-                      className="w-full bg-[#7BB9C4] hover:bg-[#6ba8b3] text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
-                    >
-                      <FaCalendarAlt />
-                      View Schedule & Details
-                    </button>
+                    <div className="p-6">
+                      <div className="space-y-3 mb-6">
+                        <div className="flex items-center gap-3 text-gray-600">
+                          <FaPhone className="text-[#7BB9C4]" />
+                          <span className="text-sm">{counsellor.mobile}</span>
+                        </div>
+                        <div className="flex items-center gap-3 text-gray-600">
+                          <FaEnvelope className="text-[#7BB9C4]" />
+                          <span className="text-sm">{counsellor.email}</span>
+                        </div>
+                        {counsellor.experience && (
+                          <div className="flex items-center gap-3 text-gray-600">
+                            <FaUser className="text-[#7BB9C4]" />
+                            <span className="text-sm">Landline: {counsellor.experience}</span>
+                          </div>
+                        )}
+                      </div>
+                      
+                      <button
+                        onClick={() => openModal(counsellor)}
+                        className="w-full bg-[#7BB9C4] hover:bg-[#6ba8b3] text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
+                      >
+                        <FaCalendarAlt />
+                        View Schedule & Details
+                      </button>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-12">
+                <p className="text-gray-600 text-lg">No counselors available at the moment.</p>
+              </div>
+            )}
           </div>
         </div>
 

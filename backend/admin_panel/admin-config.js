@@ -7,6 +7,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import AboutUs from "../models/aboutUs.js";
 import Contacts from "../models/contact.js";
+import Counselor from "../models/counselor.js";
 import Event from "../models/event.js";
 import Facilities from "../models/facilities.js";
 import TeamMember from "../models/teamMember.js";
@@ -72,6 +73,92 @@ const adminOptions = {
         filterProperties: ['category', 'name', 'designation'],
         editProperties: ['name', 'designation', 'department', 'description', 'category', 'priority', 'image', 'socialLinks.phoneNo', 'socialLinks.mailId', 'socialLinks.linkedin'],
         showProperties: ['name', 'designation', 'department', 'description', 'category', 'priority', 'image', 'socialLinks.phoneNo', 'socialLinks.mailId', 'socialLinks.linkedin', 'createdAt'],
+      },
+    },
+    {
+      resource: Counselor,
+      options: {
+        properties: {
+          name: {
+            type: 'string',
+            isTitle: true,
+          },
+          priority: {
+            type: 'number',
+            description: 'Higher numbers appear first. Use to control display order.',
+          },
+          isActive: {
+            type: 'boolean',
+            description: 'Only active counselors are shown on the website',
+          },
+          'schedule.monday': {
+            type: 'string',
+            description: 'e.g., "9:00 AM - 5:00 PM" or "Closed"',
+          },
+          'schedule.tuesday': {
+            type: 'string',
+            description: 'e.g., "9:00 AM - 5:00 PM" or "Closed"',
+          },
+          'schedule.wednesday': {
+            type: 'string',
+            description: 'e.g., "9:00 AM - 5:00 PM" or "Closed"',
+          },
+          'schedule.thursday': {
+            type: 'string',
+            description: 'e.g., "9:00 AM - 5:00 PM" or "Closed"',
+          },
+          'schedule.friday': {
+            type: 'string',
+            description: 'e.g., "9:00 AM - 5:00 PM" or "Closed"',
+          },
+          'schedule.saturday': {
+            type: 'string',
+            description: 'e.g., "9:00 AM - 5:00 PM" or "Closed"',
+          },
+          'schedule.sunday': {
+            type: 'string',
+            description: 'e.g., "9:00 AM - 5:00 PM" or "Closed"',
+          },
+        },
+        listProperties: ['name', 'specialization', 'mobile', 'isActive', 'priority'],
+        filterProperties: ['name', 'specialization', 'isActive'],
+        editProperties: [
+          'name', 
+          'photo', 
+          'mobile', 
+          'email', 
+          'landline', 
+          'specialization', 
+          'location', 
+          'priority',
+          'isActive',
+          'schedule.monday',
+          'schedule.tuesday',
+          'schedule.wednesday',
+          'schedule.thursday',
+          'schedule.friday',
+          'schedule.saturday',
+          'schedule.sunday',
+        ],
+        showProperties: [
+          'name', 
+          'photo', 
+          'mobile', 
+          'email', 
+          'landline', 
+          'specialization', 
+          'location', 
+          'priority',
+          'isActive',
+          'schedule.monday',
+          'schedule.tuesday',
+          'schedule.wednesday',
+          'schedule.thursday',
+          'schedule.friday',
+          'schedule.saturday',
+          'schedule.sunday',
+          'createdAt'
+        ],
       },
     },
     Event, 
