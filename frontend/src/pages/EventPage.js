@@ -44,7 +44,7 @@ function EachEventPage() {
           </RoundedDiv>
         ))}
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
