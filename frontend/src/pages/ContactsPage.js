@@ -2,6 +2,7 @@ import React from "react";
 import { FaPhone, FaEnvelope, FaLinkedin, FaUser, FaUsers, FaBuilding } from "react-icons/fa";
 import { MdLocationOn, MdEmail } from "react-icons/md";
 import { useContactsData } from "../hooks/useContactsData";
+import CounselorCTA from "../components/CounselorCTA";
 
 function ContactsPage() {
   const { data: contactData, loading, error } = useContactsData();
@@ -138,6 +139,11 @@ function ContactsPage() {
         <div className="bg-gradient-to-br from-gray-50 to-blue-50 py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
+            {/* Counselor CTA (above Chairpersons) */}
+            <div className="mb-8">
+              <CounselorCTA />
+            </div>
+
             {/* Chairpersons Section - Side by Side */}
             {contactData?.chairpersons && contactData.chairpersons.length > 0 && (
               <section className="mb-20">
