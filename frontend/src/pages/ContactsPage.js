@@ -1,35 +1,262 @@
 import React from "react";
 import { FaPhone, FaEnvelope, FaLinkedin, FaUser, FaUsers, FaBuilding } from "react-icons/fa";
 import { MdLocationOn, MdEmail } from "react-icons/md";
-import { useContactsData } from "../hooks/useContactsData";
-import CounselorCTA from "../components/CounselorCTA";
+import { useHomePageData } from "../hooks/useHomePageData";
 
 function ContactsPage() {
-  const { data: contactData, loading, error } = useContactsData();
-  const imgdata = contactData?.homepage?.[0]?.contactpageimgurl || "";
+  const { data } = useHomePageData();
+  const imgdata = data?.homepage[0]?.contactpageimgurl || "";
 
-  // Show loading state
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-[#7BB9C4] mx-auto mb-4"></div>
-          <p className="text-gray-600 text-lg">Loading contacts...</p>
-        </div>
-      </div>
-    );
-  }
-
-  // Show error state
-  if (error) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <p className="text-red-600 text-lg">Error loading contacts: {error}</p>
-        </div>
-      </div>
-    );
-  }
+  // Hardcoded contact data organized by hierarchy
+  const contactData = {
+    chairpersons: [
+      {
+        id: 1,
+        name: "Prof. Sayan Chakrabarti",
+        designation: "Chairperson 1",
+        department: "Department of Physics, IIT Guwahati",
+        email: "sayan.chakrabarti@iitg.ac.in",
+        phone: "0361-2583556",
+        image: "https://www.iitg.ac.in/phy/img/faculty_staff/sayan_chakrabarti.jpg",
+        description: "Leading the Students' Welfare Board with dedication to student development and campus life enhancement."
+      },
+      {
+        id: 2,
+        name: "Prof. Bidisha Som",
+        designation: "Chairperson 2",
+        department: "Department of Humanities and Social Sciences, IIT Guwahati",
+        email: "bidisha@iitg.ac.in",
+        phone: "0361-2582568",
+        image: "https://swc.iitg.ac.in/welfare-board/api/bidisha_pic.jpg",
+        description: "Supporting student welfare initiatives and fostering a positive campus environment."
+      }
+    ],
+    coreTeam: [
+      {
+        id: 3,
+        name: "N Hemanth Kumar",
+        designation: "General Secretary",
+        department: "B.Tech Computer Science, 4th Year",
+        email: "gensec_welfare@iitg.ac.in",
+        phone: "+91 73967 99357",
+        linkedin: "https://www.linkedin.com/in/hemanth-kumar-n-9bb12a263",
+        image: "https://swc.iitg.ac.in/welfare-board/api/gensec_wel.jpg",
+        description: "Coordinating all student welfare activities and representing student interests."
+      },
+      {
+        id: 4,
+        name: "Mithil Sandhineni",
+        designation: "Overall Coordinator",
+        department: "B.Tech Mechanical Engineering, 3rd Year",
+        email: "m.sandhineni@iitg.ac.in",
+        phone: "+91 72071 85274",
+        linkedin: "https://www.linkedin.com/in/mithilsandhineni/",
+        image: "https://swc.iitg.ac.in/welfare-board/api/mithil_picture.jpg",
+        description: "Managing overall coordination of student welfare programs and events."
+      },
+      {
+        id: 5,
+        name: "Surbhit Gang",
+        designation: "Events Head",
+        department: "B.Tech Civil Engineering, 3rd Year",
+        email: "surbhitkumar@iitg.ac.in",
+        phone: "+91 82005 37139",
+        linkedin: "NA",
+        image: "https://swc.iitg.ac.in/welfare-board/api/surbhit_pic.jpg",
+        description: "Organizing and managing all student welfare events and activities."
+      }
+    ],
+    departmentHeads: [
+      {
+        id: 6,
+        name: "Diya Agarwal",
+        designation: "Girl Representative",
+        email: "diya.agarwal@iitg.ac.in",
+        phone: "+91 88494 76475",
+        linkedin: "https://www.linkedin.com/in/diya-agarwal-609005262/",
+        image: "https://swc.iitg.ac.in/welfare-board/api/diya_pic.jpg",
+        description: "Leading creative design initiatives for student welfare programs."
+      },
+      {
+        id: 7,
+        name: "Ayush Mishra",
+        designation: "Marketing Head",
+        email: "ayush.m@iitg.ac.in",
+        phone: "+91 89576 64590",
+        linkedin: "https://www.linkedin.com/in/ayush-mishra-602421281/",
+        image: "https://swc.iitg.ac.in/welfare-board/api/ayush_pic.jpeg",
+        description: "Managing student welfare resources and facilities."
+      },
+      {
+        id: 8,
+        name: "Riddha",
+        designation: "Design Coordinator",
+        email: "s.riddha@iitg.ac.in",
+        phone: "+91 6294 014 787",
+        linkedin: "https://www.linkedin.com/in/riddha-singh-a07103261/",
+        image: "https://swc.iitg.ac.in/welfare-board/api/riddha_pic.jpg",
+        description: "Promoting student welfare initiatives and managing communications."
+      },
+      {
+        id: 9,
+        name: "Shlok Pratap Singh",
+        designation: "Media & Branding Head",
+        email: "shlok.singh@iitg.ac.in",
+        phone: "+91 99970 01125",
+        linkedin: "https://www.linkedin.com/in/shlok-pratap-singh-04a26a33a/",
+        image: " https://swc.iitg.ac.in/welfare-board/api/shlok_pic.jpg",
+        description: "Representing and addressing concerns of female students on campus."
+      }
+    ],
+    clubSecretaries: [
+      {
+        id: 10,
+        name: "Pallabi Keot",
+        designation: "Saathi Secretary",
+        email: "k.pallabi@iitg.ac.in",
+        phone: "+91 97061 09569",
+        image: "https://swc.iitg.ac.in/welfare-board/api/pallabi_pic.jpg"
+      },
+      {
+        id: 11,
+        name: "Ravit Chatrath",
+        designation: "Academic Initiatives Club Secretary",
+        email: "c.ravit@iitg.ac.in",
+        phone: "+91 74540 63847",
+        image: "https://swc.iitg.ac.in/welfare-board/api/ravit_pic.jpeg"
+      },
+      {
+        id: 12,
+        name: "Uthkarsha Srivastava",
+        designation: "Awareness Secretary",
+        email: "u.shrivastava@iitg.ac.in",
+        phone: "+91 73892 47395",
+        image: "https://swc.iitg.ac.in/welfare-board/api/utkarsha.jpg"
+      },
+      {
+        id: 13,
+        name: "Vaishnavi Agarwal ",
+        designation: "Tarangini Secretary",
+        email: "a.vaishnavi@iitg.ac.in",
+        phone: "+91 89537 62399",
+        image: " https://swc.iitg.ac.in/welfare-board/api/vaishnavi.jpg"
+      },
+      {
+        id: 14,
+        name: "Shibangi Paul",
+        designation: "Social Service Club Secretary",
+        email: "p.shibangi@iitg.ac.in",
+        phone: "+91 93653 21834",
+        image: "https://swc.iitg.ac.in/welfare-board/api/shibangi_pic.jpeg"
+      },
+      {
+        id: 15,
+        name: "Sarvagya Tiwari",
+        designation: "Youth Empowerment Club Secretary",
+        email: "t.sarvagya@iitg.ac.in",
+        phone: "+91 82913 14066",
+        image: "https://swc.iitg.ac.in/welfare-board/api/sarvagya.jpg"
+      },
+      {
+        id: 16,
+        name: "Priyanka Yadav",
+        designation: "Lambda Secretary",
+        email: " y.priyanka@iitg.ac.in",
+        phone: "+91 96257 01009",
+        image: " https://swc.iitg.ac.in/welfare-board/api/priyanka_yadav.jpg"
+      },
+    ],
+    hostelSecretaries: [
+      {
+        id: 18,
+        name: "Harsh Hemant Balgude",
+        designation: "Kameng Hostel Secretary",
+        email: "h.balgude@iitg.ac.in",
+        phone: "+91 82373 70601",
+        image: "https://swc.iitg.ac.in/welfare-board/api/kameng_welfy.jpg"
+      },
+      {
+        id: 19,
+        name: "Eena Dodwani",
+        designation: "Subansiri Hostel Secretary",
+        email: "eena.dodwani@iitg.ac.in",
+        phone: "+91 88271 18164",
+        image: "https://swc.iitg.ac.in/welfare-board/api/subansiri_welfy.jpg"
+      },
+      {
+        id: 20,
+        name: "Virendra Ghunawat",
+        designation: "Dihing Hostel Secretary",
+        email: "v.ghunawat@iitg.ac.in",
+        phone: "+91 95214 67460",
+        image: "https://swc.iitg.ac.in/welfare-board/api/dihing_welfy.jpeg"
+      },
+      {
+        id: 22,
+        name: "Chirag Agarwal",
+        designation: "Lohit Hostel Secretary",
+        email: "c.agarwal@iitg.ac.in",
+        phone: "+91 70149 62887",
+        image: "https://swc.iitg.ac.in/welfare-board/api/lohiit_welfy.jpg"
+      },
+      {
+        id: 23,
+        name: "Ansh Pal",
+        designation: "Siang Hostel Secretary",
+        email: "ansh.pal@iitg.ac.in",
+        phone: "+91 9696345530",
+        image: " https://swc.iitg.ac.in/welfare-board/api/siang_welfy_.jpg"
+      },
+      {
+        id: 24,
+        name: "Paras Katiyar",
+        designation: "Brahmaputra Hostel Secretary",
+        email: "paras.katiyar@iitg.ac.in ",
+        phone: "+91 6387 843 598",
+        image: " https://swc.iitg.ac.in/welfare-board/api/bramha_welfy.jpg"
+      },
+      {
+        id: 25,
+        name: " Yogesh Bhanwaria",
+        designation: "Manas Hostel Secretary",
+        email: "y.bhanwaria@iitg.ac.in",
+        phone: "+91 73576 58751",
+        image: "https://swc.iitg.ac.in/welfare-board/api/manas_welfy.jpg"
+      },
+      {
+        id: 27,
+        name: "Devyani",
+        designation: "Dhansiri Hostel Secretary",
+        email: "devyani@iitg.ac.in",
+        phone: "+91  98962 43279",
+        image: " https://swc.iitg.ac.in/welfare-board/api/dhansiri_welfy_.jpeg"
+      },
+      {
+        id: 28,
+        name: "Deepak",
+        designation: "Barak Hostel Secretary",
+        email: "barak@iitg.ac.in",
+        phone: "+91 96436 53678",
+        image: "https://swc.iitg.ac.in/welfare-board/api/barak_welfy.jpg"
+      },
+      {
+        id: 29,
+        name: "Sundaram Pandey",
+        designation: "Umiam Hostel Secretary",
+        email: "p.sundaram@iitg.ac.in",
+        phone: "+91 89494 90277",
+        image: "https://swc.iitg.ac.in/welfare-board/api/umiam_welfy_.jpeg"
+      },
+      {
+        id: 30,
+        name: "Sulabh Napit",
+        designation: "Kapili Hostel Secretary",
+        email: "n.sulabh@iitg.ac.in",
+        phone: "+91 83198 55908",
+        image: "https://swc.iitg.ac.in/welfare-board/api/kapili_welfy.jpeg"
+      }
+    ]
+  };
 
   const ContactCard = ({ contact, isLarge = false }) => (
     <div className={`bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2`}>
@@ -139,99 +366,80 @@ function ContactsPage() {
         <div className="bg-gradient-to-br from-gray-50 to-blue-50 py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            {/* Counselor CTA (above Chairpersons) */}
-            <div className="mb-8">
-              <CounselorCTA />
-            </div>
-
             {/* Chairpersons Section - Side by Side */}
-            {contactData?.chairpersons && contactData.chairpersons.length > 0 && (
-              <section className="mb-20">
-                <SectionHeader 
-                  title="Chairpersons" 
-                  icon={FaUsers}
-                  description="Meet our distinguished chairpersons who guide the Students' Welfare Board"
-                />
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                  {contactData.chairpersons.map((contact) => (
-                    <ContactCard key={contact.id} contact={contact} isLarge={true} />
-                  ))}
-                </div>
-              </section>
-            )}
+            <section className="mb-20">
+              <SectionHeader 
+                title="Chairpersons" 
+                icon={FaUsers}
+                description="Meet our distinguished chairpersons who guide the Students' Welfare Board"
+              />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                {contactData.chairpersons.map((contact) => (
+                  <ContactCard key={contact.id} contact={contact} isLarge={true} />
+                ))}
+              </div>
+            </section>
 
             {/* Core Team Section - GenSec elevated */}
-            {contactData?.coreTeam && contactData.coreTeam.length > 0 && (
-              <section className="mb-20">
-                <SectionHeader 
-                  title="Board Members" 
-                  icon={FaUser}
-                  description="The dedicated core team managing student welfare activities"
-                />
-                <div className="relative max-w-5xl mx-auto">
-                  {/* General Secretary - Elevated Position */}
-                  {contactData.coreTeam[0] && (
-                    <div className="flex justify-center mb-8">
-                      <div className="w-full max-w-sm transform -translate-y-4">
-                        <ContactCard contact={contactData.coreTeam[0]} />
-                      </div>
-                    </div>
-                  )}
-                  
-                  {/* Overall Coordinator and Events Head - Side by Side Below */}
-                  {contactData.coreTeam.length > 1 && (
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-                      {contactData.coreTeam.slice(1).map((contact) => (
-                        <ContactCard key={contact.id} contact={contact} />
-                      ))}
-                    </div>
-                  )}
+            <section className="mb-20">
+              <SectionHeader 
+                title="Board Members" 
+                icon={FaUser}
+                description="The dedicated core team managing student welfare activities"
+              />
+              <div className="relative max-w-5xl mx-auto">
+                {/* General Secretary - Elevated Position */}
+                <div className="flex justify-center mb-8">
+                  <div className="w-full max-w-sm transform -translate-y-4">
+                    <ContactCard contact={contactData.coreTeam[0]} />
+                  </div>
                 </div>
-              </section>
-            )}
+                
+                {/* Overall Coordinator and Events Head - Side by Side Below */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                  <ContactCard contact={contactData.coreTeam[1]} />
+                  <ContactCard contact={contactData.coreTeam[2]} />
+                </div>
+              </div>
+            </section>
 
             {/* Department Heads Section */}
-            {contactData?.departmentHeads && contactData.departmentHeads.length > 0 && (
-              <section className="mb-20">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                  {contactData.departmentHeads.map((contact) => (
-                    <ContactCard key={contact.id} contact={contact} />
-                  ))}
-                </div>
-              </section>
-            )}
+            <section className="mb-20">
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {contactData.departmentHeads.map((contact) => (
+                  <ContactCard key={contact.id} contact={contact} />
+                ))}
+              </div>
+            </section>
 
             {/* Club Secretaries Section */}
-            {contactData?.clubSecretaries && contactData.clubSecretaries.length > 0 && (
-              <section className="mb-20">
-                <SectionHeader 
-                  title="Club Secretaries" 
-                  icon={FaUsers}
-                  description="Secretaries managing various student clubs and activities"
-                />
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                  {contactData.clubSecretaries.map((contact) => (
-                    <ContactCard key={contact.id} contact={contact} />
-                  ))}
-                </div>
-              </section>
-            )}
+            <section className="mb-20">
+              <SectionHeader 
+                title="Club Secretaries" 
+                icon={FaUsers}
+                description="Secretaries managing various student clubs and activities"
+              />
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {contactData.clubSecretaries.map((contact) => (
+                  <ContactCard key={contact.id} contact={contact} />
+                ))}
+              </div>
+            </section>
 
             {/* Hostel Welfare Secretaries Section */}
-            {contactData?.hostelSecretaries && contactData.hostelSecretaries.length > 0 && (
-              <section className="mb-20">
-                <SectionHeader 
-                  title="Hostel Welfare Secretaries" 
-                  icon={FaBuilding}
-                  description="Dedicated secretaries ensuring welfare in all hostel accommodations"
-                />
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                  {contactData.hostelSecretaries.map((contact) => (
-                    <ContactCard key={contact.id} contact={contact} />
-                  ))}
-                </div>
-              </section>
-            )}
+            <section className="mb-20">
+              <SectionHeader 
+                title="Hostel Welfare Secretaries" 
+                icon={FaBuilding}
+                description="Dedicated secretaries ensuring welfare in all hostel accommodations"
+              />
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                {contactData.hostelSecretaries.map((contact) => (
+                  <ContactCard key={contact.id} contact={contact} />
+                ))}
+              </div>
+            </section>
 
             {/* Emergency & Ragging Contact Section */}
             <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -244,50 +452,31 @@ function ContactsPage() {
                   For urgent student welfare matters, please contact our
                   emergency helpline:
                 </p>
-                <div className="flex flex-col gap-4">
-                  {contactData?.emergency && contactData.emergency.length > 0 ? (
-                    contactData.emergency.map((contact) => (
-                      <div key={contact.id} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        <a
-                          href={`tel:${contact.phone}`}
-                          className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center gap-2"
-                        >
-                          <FaPhone />
-                          {contact.name}: {contact.phone}
-                        </a>
-                        <span className="text-red-600 font-medium">
-                          Available 24/7
-                        </span>
-                      </div>
-                    ))
-                  ) : (
-                    <div className="flex flex-col gap-4 justify-center items-center">
-                      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        <a
-                          href="tel:+917396799357"
-                          className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center gap-2"
-                        >
-                          <FaPhone />
-                          Emergency Helpline: +91 7396799357
-                        </a>
-                        {/* <span className="text-red-600 font-medium">
-                          Available 24/7
-                        </span> */}
-                      </div>
-                      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        <a
-                          href="tel:+917396799357"
-                          className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center gap-2"
-                        >
-                          <FaPhone />
-                          Security Controll Room: 0361-258-2140
-                        </a>
-                        <span className="text-red-600 font-medium">
-                          Available 24/7
-                        </span>
-                      </div>
-                    </div>
-                  )}
+                <div className="flex flex-col gap-4 justify-center items-center">
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a
+                      href="tel:+917396799357"
+                      className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center gap-2"
+                    >
+                      <FaPhone />
+                      Emergency Helpline: +91 7396799357
+                    </a>
+                    {/* <span className="text-red-600 font-medium">
+                      Available 24/7
+                    </span> */}
+                  </div>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a
+                      href="tel:+917396799357"
+                      className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center gap-2"
+                    >
+                      <FaPhone />
+                      Security Controll Room: 0361-258-2140
+                    </a>
+                    <span className="text-red-600 font-medium">
+                      Available 24/7
+                    </span>
+                  </div>
                 </div>
               </div>
 
@@ -300,36 +489,17 @@ function ContactsPage() {
                   If you face or witness any ragging incident, please reach out
                   immediately for confidential support:
                 </p>
-                <div className="flex flex-col gap-4">
-                  {contactData?.antiRagging && contactData.antiRagging.length > 0 ? (
-                    contactData.antiRagging.map((contact) => (
-                      <div key={contact.id} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        <a
-                          href={`tel:${contact.phone}`}
-                          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center gap-2"
-                        >
-                          <FaPhone />
-                          {contact.name}: {contact.phone}
-                        </a>
-                        <span className="text-blue-600 font-medium">
-                          24/7 Confidential Support
-                        </span>
-                      </div>
-                    ))
-                  ) : (
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                      <a
-                        href="tel:+918001805522"
-                        className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center gap-2"
-                      >
-                        <FaPhone />
-                        Helpline: 1800-180-5522
-                      </a>
-                      <span className="text-blue-600 font-medium">
-                        24/7 Confidential Support
-                      </span>
-                    </div>
-                  )}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <a
+                    href="tel:+9118001805522"
+                    className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center gap-2"
+                  >
+                    <FaPhone />
+                    Helpline: 1800-180-5522
+                  </a>
+                  <span className="text-blue-600 font-medium">
+                    24/7 Confidential Support
+                  </span>
                 </div>
               </div>
             </section>
