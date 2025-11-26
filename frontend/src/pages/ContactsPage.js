@@ -261,17 +261,31 @@ function ContactsPage() {
                       </div>
                     ))
                   ) : (
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                      <a
-                        href="tel:+917396799357"
-                        className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center gap-2"
-                      >
-                        <FaPhone />
-                        Emergency Helpline: +91 7396799357
-                      </a>
-                      <span className="text-red-600 font-medium">
-                        Available 24/7
-                      </span>
+                    <div className="flex flex-col gap-4 justify-center items-center">
+                      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <a
+                          href="tel:+917396799357"
+                          className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center gap-2"
+                        >
+                          <FaPhone />
+                          Emergency Helpline: +91 7396799357
+                        </a>
+                        {/* <span className="text-red-600 font-medium">
+                          Available 24/7
+                        </span> */}
+                      </div>
+                      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <a
+                          href="tel:+917396799357"
+                          className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center gap-2"
+                        >
+                          <FaPhone />
+                          Main Security: +91 7396799399
+                        </a>
+                        <span className="text-red-600 font-medium">
+                          Available 24/7
+                        </span>
+                      </div>
                     </div>
                   )}
                 </div>
