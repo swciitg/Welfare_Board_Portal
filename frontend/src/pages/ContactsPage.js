@@ -280,7 +280,7 @@ function ContactsPage() {
                           className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center gap-2"
                         >
                           <FaPhone />
-                          Main Security: +91 7396799399
+                          Security Controll Room: 0361-258-2140
                         </a>
                         <span className="text-red-600 font-medium">
                           Available 24/7

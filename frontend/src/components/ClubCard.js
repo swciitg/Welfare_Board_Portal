@@ -56,7 +56,7 @@ function ClubCard({ index, clubData }) {
   return (
     <div
       ref={cardRef}
-      className={`club-card w-full max-w-sm mx-auto cursor-pointer group transform transition-all duration-500 ease-out relative ${
+      className={`w-full max-w-sm mx-auto cursor-pointer group transform transition-all duration-500 ease-out relative focus:outline-none focus-visible:ring-4 focus-visible:ring-[#7BB9C4]/25 ${
         isVisible 
           ? "opacity-100 translate-y-0 scale-100" 
           : "opacity-0 translate-y-8 scale-95"
@@ -73,25 +73,33 @@ function ClubCard({ index, clubData }) {
         }
       }}
     >
-      {/* Image container */}
-      <div className="club-card-hover relative overflow-hidden rounded-xl shadow-lg group-hover:scale-105 group-hover:shadow-2xl">
-        <img
-          src={clubData.img}
-          alt={`${clubData.name} Club`}
-          className="w-full h-64 md:h-72 object-cover transition-transform duration-300 group-hover:scale-110"
-          loading="lazy"
-        />
-        
-        {/* Gradient overlay for better text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
-      </div>
-      
-      {/* Club name positioned at bottom */}
-      <div className="absolute bottom-4 left-4 right-4">
-        <div className="bg-white/90 backdrop-blur-sm rounded-lg px-4 py-3 transform translate-y-1 group-hover:translate-y-0 transition-all duration-300 group-hover:bg-white/95">
-          <p className="font-semibold text-lg md:text-xl text-gray-800 leading-tight text-center">
-            {clubData.name}
-          </p>
+      {/* Card visual */}
+      <div className="relative overflow-hidden rounded-2xl bg-gray-50 border border-transparent hover:border-white/10 shadow-lg hover:shadow-2xl transition-all duration-300">
+        {/* Image */}
+        <div className="relative w-full h-64 md:h-72 overflow-hidden">
+          <img
+            src={clubData?.img}
+            alt={clubData?.name ? `${clubData.name} Club` : 'Club image'}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
+
+          {/* Soft gradient overlay for legibility */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent opacity-90 group-hover:opacity-95 transition-opacity duration-300"></div>
+        </div>
+
+        {/* Bottom info panel overlapping the image */}
+        <div className="absolute left-4 right-4 bottom-4">
+          <div className="backdrop-blur-sm bg-white/10 rounded-xl p-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+            <div className="flex-1 text-left">
+              <p className="text-white text-lg md:text-xl font-semibold leading-tight">{clubData?.name}</p>
+              {clubData?.description && (
+                <p className="text-white/90 text-sm mt-1 line-clamp-2 max-w-md">
+                  {clubData.description.length > 120 ? `${clubData.description.slice(0, 120)}...` : clubData.description}
+                </p>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>

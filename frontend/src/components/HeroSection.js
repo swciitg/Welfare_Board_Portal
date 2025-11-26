@@ -29,7 +29,7 @@ function HeroSection() {
       </div>
       {/* Floating counsellor card between hero and about */}
       <div className="w-full flex justify-center relative z-20 px-4 mt-8 md:mt-12 lg:mt-16">
-        <div className="max-w-[980px] w-full">
+        <div className="w-full">
           <div className="mx-auto bg-white/95 backdrop-blur-sm shadow-xl rounded-2xl border border-gray-100 p-4 sm:p-6 md:p-6">
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <div className="flex-shrink-0">
@@ -148,7 +148,7 @@ function HeroSection() {
                   Message from the Chairman—
                 </h2>
                 <p className="text-base md:text-lg xl:text-xl leading-relaxed text-[#565656] font-[Familjen Grotesk] italic">
-                  {data?.homepage[0]?.aboutchairman}
+                  {"Warm greetings from the Students’ Welfare Board, IIT Guwahati. As Chairperson, I wish to remind the student community that our campus thrives on the spirit of collaboration, empathy, and mutual respect. The Board is committed to ensuring your well-being—academic, emotional, and social—by providing a supportive environment where every student feels heard and valued. I encourage you to participate actively in the various welfare initiatives, engage with your peers, and reach out whenever you need assistance. Together, let us continue to build a compassionate and inclusive IITG community."}
                 </p>
               </div>
             </div>
@@ -203,7 +203,7 @@ function HeroSection() {
                 </h2>
                 <p className="text-base md:text-lg xl:text-xl leading-relaxed text-[#565656] font-[Familjen Grotesk] italic">
                   {data?.homepage[0]?.aboutvicechairman ||
-                    "As Chairperson , I am committed to working alongside our team to ensure every student has access to the resources and support they need to thrive academically and personally. Together, we strive to create an inclusive and nurturing environment for all."}
+                    "In the role of Chairperson, SWB, its my duty and privilege to help the welfare team working for the well being of all students on campus. Together we pledge to ensure that each and every student has a friend to share their problems with and to help them navigate challenges on the path of self discovery. My team is dedicated to create an inclusive and nurturing environment where every student is precious and part of large family called IIT Guwahati."}
                 </p>
               </div>
             </div>
@@ -257,7 +257,7 @@ function HeroSection() {
                   Message from the General Secretary—
                 </h2>
                 <p className="text-base md:text-lg xl:text-xl leading-relaxed text-[#565656] font-[Familjen Grotesk] italic">
-                  {data?.homepage[0]?.aboutgensec}
+                  {"At IIT Guwahati, life can be intense and inspiring in equal measure. Through our efforts at the Board, we aim to make that journey a little smoother and a lot more fulfilling, whether it's through wellness programs, initiatives, outreach activities, or everyday support systems that make campus life better.This website is meant to be a single space where you can stay updated about our initiatives, access resources, and connect with us whenever you need. It reflects our commitment to transparency, accessibility, and continuous engagement with the student community.I encourage you to explore, participate, and reach out. Your ideas and feedback are what keep the Students’ Welfare Board alive and evolving."}
                 </p>
               </div>
             </div>
@@ -290,61 +290,18 @@ function HeroSection() {
             Meet the dedicated individuals who drive our mission forward with
             passion and excellence.
           </p>
+          <div className="flex justify-center mt-10 relative z-10">
+            <Link
+              to="/contacts"
+              aria-label="Meet the team"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#0C0D0D] font-semibold rounded-full shadow-2xl hover:scale-105 transform transition-all duration-200 border border-white/20"
+            >
+              Meet the team
+            </Link>
+          </div>
         </div>
 
-        {/* Responsive Grid Layout with even spacing */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 max-w-7xl mx-auto relative z-10">
-          {teamMember &&
-            teamMember.map((member, index) => (
-              <div key={index} className="group relative">
-                {/* Card Container */}
-                <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-1 hover:bg-white/20 transition-all duration-500 transform hover:-translate-y-2">
-                  {/* Image Container */}
-                  <div className="relative overflow-hidden rounded-xl mb-4">
-                    {/* Background accent */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#FFD700] to-[#FFA500] rounded-xl transform rotate-1 group-hover:rotate-2 transition-transform duration-500 z-0"></div>
-
-                    {/* Main image */}
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="relative w-full h-64 sm:h-72 md:h-80 object-cover rounded-xl shadow-2xl transform group-hover:scale-105 transition-all duration-500 z-10 border-2 border-white/20"
-                    />
-
-                    {/* Gradient overlay - Always visible */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-xl opacity-100 transition-opacity duration-500 z-20"></div>
-
-                    {/* Member info overlay - visible on sm+; mobile uses separate block below */}
-                    <div className="absolute bottom-0 left-0 right-0 p-4 text-white z-30 hidden sm:block">
-                      <h3 className="font-bold text-lg mb-1 drop-shadow-lg">
-                        {member.name}
-                      </h3>
-                      <p className="text-sm opacity-90 font-medium">
-                        {member.role}
-                      </p>
-                      <p className="text-xs opacity-75">{member.department}</p>
-                    </div>
-
-                    {/* Shine effect */}
-                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/10 to-transparent rounded-xl pointer-events-none z-5"></div>
-                  </div>
-
-                  {/* Card Content (Always visible on mobile) - Keep as is */}
-                  <div className="px-4 pb-4 sm:hidden">
-                    <h3 className="text-white font-bold text-lg mb-2 truncate">
-                      {member.name}
-                    </h3>
-                    <p className="text-white/80 text-sm mb-1 truncate">
-                      {member.role}
-                    </p>
-                    <p className="text-white/60 text-xs truncate">
-                      {member.department}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-        </div>
+        
       </div>
     </div>
   );

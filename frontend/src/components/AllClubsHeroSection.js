@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import ZigZagLine from "./ZigZagLine";
 import ClubCard from "./ClubCard";
 import RoundedDiv from "./RoundedDiv";
 import clubImg from "../assets/images/clubs/wide.png";
@@ -60,7 +59,6 @@ function AllClubsHeroSection() {
                   />
                 ))}
               </div>
-              <ZigZagLine />
             </div>
           )}
           top="-100px"
