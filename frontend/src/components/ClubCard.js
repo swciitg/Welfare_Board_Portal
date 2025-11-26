@@ -61,7 +61,7 @@ function ClubCard({ index, clubData }) {
           ? "opacity-100 translate-y-0 scale-100" 
           : "opacity-0 translate-y-8 scale-95"
       }`}
-      onClick={handleNavigate}
+      // onClick={handleNavigate}
       style={{
         transitionDelay: `${index * 100}ms`
       }}

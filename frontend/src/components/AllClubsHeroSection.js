@@ -50,7 +50,7 @@ function AllClubsHeroSection() {
           Element={() => (
             <div className="relative">
               {/* Clubs Grid Container */}
-              <div className="clubs-grid px-4 sm:px-6 lg:px-8 py-12 max-w-7xl mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 sm:px-6 lg:px-8 py-12 max-w-7xl mx-auto">
                 {clubsData.map((clubData, index) => (
                   <ClubCard 
                     key={clubData._id || index} 

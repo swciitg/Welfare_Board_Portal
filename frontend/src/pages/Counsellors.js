@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import { FaPhone, FaEnvelope, FaClock, FaCalendarAlt, FaUser, FaHeadset, FaLaptop, FaComments, FaShieldAlt } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaClock, FaCalendarAlt, FaUser, FaLaptop } from 'react-icons/fa';
 import { MdLocationOn, MdChat, MdVideoCall, MdSecurity } from 'react-icons/md';
-import { BiSupport } from 'react-icons/bi';
  import YourDostLogo from '../assets/YourDost.jpeg';
+import { useCounselorsData } from '../hooks/useCounselorsData';
 
 const Counsellors = () => {
   const [selectedCounsellor, setSelectedCounsellor] = useState(null);
 
-  // Sample counsellor data - replace with your actual data
-  const counsellors = [
+  const FALLBACK_COUNSELLORS = [
     {
-      id: 1,
+      id: 'fallback-1',
       name: "Ms. Pallabita Barooah Chowdhary",
       photo: "https://swc.iitg.ac.in/welfare-board/api/pallabita.jpg",
       mobile: "+91 9864154855",
@@ -29,7 +28,7 @@ const Counsellors = () => {
       location: "New SAC Building, Ground Floor"
     },
     {
-      id: 2,
+      id: 'fallback-2',
       name: "Dr. Nesmita Das",
       photo: "https://swc.iitg.ac.in/welfare-board/api/nesmita.jpg",
       mobile: "+91 8011631110",
@@ -48,7 +47,7 @@ const Counsellors = () => {
       location: "New SAC Building, Ground Floor"
     },
     {
-      id: 3,
+      id: 'fallback-3',
       name: "Mr. Rakesh Kakati",
       photo: "https://swc.iitg.ac.in/welfare-board/api/rakesh.jpg",
       mobile: "+91 9707222941",
@@ -67,6 +66,9 @@ const Counsellors = () => {
       location: "New SAC Building, Ground Floor"
     }
   ];
+
+  const { data: fetchedCounsellors, loading, error } = useCounselorsData();
+  const counsellors = fetchedCounsellors && fetchedCounsellors.length ? fetchedCounsellors : FALLBACK_COUNSELLORS;
 
   const openModal = (counsellor) => {
     setSelectedCounsellor(counsellor);
@@ -131,7 +133,13 @@ const Counsellors = () => {
           <div>
             <h2 className="text-3xl font-bold text-gray-800 text-center mb-12">Meet Our Counsellors</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {counsellors.map((counsellor) => (
+              {loading && (
+                <div className="col-span-full text-center text-gray-600">Loading counsellors...</div>
+              )}
+              {error && (
+                <div className="col-span-full text-center text-red-600">Error loading counsellors — showing fallback data.</div>
+              )}
+              {!loading && counsellors.map((counsellor) => (
                 <div 
                   key={counsellor.id}
                   className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"

@@ -36,45 +36,7 @@ const authenticate = async (email, password) => {
 const adminOptions = {
   resources: [
     AboutUs, 
-    {
-      resource: Contacts,
-      options: {
-        properties: {
-          name: {
-            type: 'string',
-            isTitle: true,
-          },
-          category: {
-            availableValues: [
-              { value: 'Chairpersons', label: 'Chairpersons' },
-              { value: 'Core Team', label: 'Core Team' },
-              { value: 'Department Heads', label: 'Department Heads' },
-              { value: 'Club Secretaries', label: 'Club Secretaries' },
-              { value: 'Hostel Secretaries', label: 'Hostel Secretaries' },
-              { value: 'Emergency', label: 'Emergency Contact' },
-              { value: 'Anti-Ragging', label: 'Anti-Ragging Helpline' },
-            ],
-          },
-          priority: {
-            type: 'number',
-            description: 'Higher numbers appear first within each category',
-          },
-          'socialLinks.phoneNo': {
-            type: 'string',
-          },
-          'socialLinks.mailId': {
-            type: 'string',
-          },
-          'socialLinks.linkedin': {
-            type: 'string',
-          },
-        },
-        listProperties: ['name', 'designation', 'category', 'priority'],
-        filterProperties: ['category', 'name', 'designation'],
-        editProperties: ['name', 'designation', 'department', 'description', 'category', 'priority', 'image', 'socialLinks.phoneNo', 'socialLinks.mailId', 'socialLinks.linkedin'],
-        showProperties: ['name', 'designation', 'department', 'description', 'category', 'priority', 'image', 'socialLinks.phoneNo', 'socialLinks.mailId', 'socialLinks.linkedin', 'createdAt'],
-      },
-    },
+    Contacts,
     {
       resource: Counselor,
       options: {
