@@ -96,16 +96,6 @@ function ContactsPage() {
         linkedin: "https://www.linkedin.com/in/riddha-singh-a07103261/",
         image: "https://swc.iitg.ac.in/welfare-board/api/riddha_pic.jpg",
         description: "Promoting student welfare initiatives and managing communications."
-      },
-      {
-        id: 9,
-        name: "Shlok Pratap Singh",
-        designation: "Media & Branding Head",
-        email: "shlok.singh@iitg.ac.in",
-        phone: "+91 99970 01125",
-        linkedin: "https://www.linkedin.com/in/shlok-pratap-singh-04a26a33a/",
-        image: " https://swc.iitg.ac.in/welfare-board/api/shlok_pic.jpg",
-        description: "Representing and addressing concerns of female students on campus."
       }
     ],
     clubSecretaries: [
@@ -406,7 +396,7 @@ function ContactsPage() {
             {/* Department Heads Section */}
             <section className="mb-20">
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {contactData.departmentHeads.map((contact) => (
                   <ContactCard key={contact.id} contact={contact} />
                 ))}
