@@ -186,6 +186,45 @@ const Counsellors = () => {
           </div>
         </div>
 
+        {/* Weekly Schedule Table */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div>
+            <h2 className="text-3xl font-bold text-gray-800 text-center mb-12">Weekly Counsellor Schedule</h2>
+            <div className="overflow-x-auto bg-white rounded-xl shadow-lg">
+              <table className="min-w-full table-fixed">
+                <thead>
+                  <tr className="bg-[#7BB9C4]">
+                    <th className="px-4 py-4 text-left text-sm font-semibold text-gray-800 border border-gray-300 w-1/4">Day</th>
+                    {counsellors.map((counsellor, index) => (
+                      <th key={counsellor.id} className="px-4 py-4 text-left text-sm font-semibold text-gray-800 border border-gray-300 w-1/4">
+                        {counsellor.name.split(' ').slice(0, 2).join(' ')}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map((day, dayIndex) => (
+                    <tr key={day} className={dayIndex % 2 === 0 ? "bg-blue-50" : "bg-white"}>
+                      <td className="px-4 py-4 font-medium text-gray-800 border border-gray-300 w-1/4">{day}</td>
+                      {counsellors.map((counsellor, counsellorIndex) => (
+                        <td key={counsellor.id} className="px-4 py-4 text-sm text-gray-700 border border-gray-300 w-1/4">
+                          <div>{counsellor.location}</div>
+                          <div className="text-xs text-gray-600">
+                            {counsellor.schedule[day.toLowerCase()] !== 'Closed' 
+                              ? `Time: ${counsellor.schedule[day.toLowerCase()]}` 
+                              : 'Closed'
+                            }
+                          </div>
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
         {/* Modal for Counsellor Details */}
         {selectedCounsellor && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
