@@ -89,7 +89,7 @@ const Counsellors = () => {
                 Counselling Services
               </h1>
               <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-                Professional support for your academic, personal, and career development needs. 
+                Professional support for your academic, personal, and career development needs.
                 Our experienced counsellors are here to help you navigate through challenges and achieve your goals.
               </p>
             </div>
@@ -140,13 +140,13 @@ const Counsellors = () => {
                 <div className="col-span-full text-center text-red-600">Error loading counsellors — showing fallback data.</div>
               )}
               {!loading && counsellors.map((counsellor) => (
-                <div 
+                <div
                   key={counsellor.id}
                   className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
                 >
                   <div className="relative">
-                    <img 
-                      src={counsellor.photo} 
+                    <img
+                      src={counsellor.photo}
                       alt={counsellor.name}
                       className="w-full h-64 object-cover"
                     />
@@ -155,7 +155,7 @@ const Counsellors = () => {
                       <h3 className="text-xl font-semibold">{counsellor.name}</h3>
                     </div>
                   </div>
-                  
+
                   <div className="p-6">
                     <div className="space-y-3 mb-6">
                       <div className="flex items-center gap-3 text-gray-600">
@@ -171,7 +171,7 @@ const Counsellors = () => {
                         <span className="text-sm">landline no. {counsellor.experience}</span>
                       </div>
                     </div>
-                    
+
                     <button
                       onClick={() => openModal(counsellor)}
                       className="w-full bg-[#7BB9C4] hover:bg-[#6ba8b3] text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
@@ -185,11 +185,24 @@ const Counsellors = () => {
             </div>
           </div>
         </div>
-
+        <div className="flex flex-col items-center mb-4">
+          <a
+            href="https://yourdost.com/in-person-counselling/f2f/iitg101"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-[#7BB9C4] hover:bg-[#6ba8b3] text-white font-semibold px-6 py-3 rounded-lg shadow-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#7BB9C4] focus:ring-offset-2"
+          >
+            <FaCalendarAlt className="text-lg" />
+            Book an Appointment
+          </a>
+          <div className="mt-2 text-sm text-gray-600">
+            Powered by <span className="font-semibold">YourDOST</span>
+          </div>
+        </div>
         {/* Weekly Schedule Table */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div>
-            <h2 className="text-3xl font-bold text-gray-800 text-center mb-12">Weekly Counsellor Schedule</h2>
+            <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">Weekly Counsellor Schedule</h2>
             <div className="overflow-x-auto bg-white rounded-xl shadow-lg">
               <table className="min-w-full table-fixed">
                 <thead>
@@ -210,8 +223,8 @@ const Counsellors = () => {
                         <td key={counsellor.id} className="px-4 py-4 text-sm text-gray-700 border border-gray-300 w-1/4">
                           <div>{counsellor.location}</div>
                           <div className="text-xs text-gray-600">
-                            {counsellor.schedule[day.toLowerCase()] !== 'Closed' 
-                              ? `Time: ${counsellor.schedule[day.toLowerCase()]}` 
+                            {counsellor.schedule[day.toLowerCase()] !== 'Closed'
+                              ? `Time: ${counsellor.schedule[day.toLowerCase()]}`
                               : 'Closed'
                             }
                           </div>
@@ -232,8 +245,8 @@ const Counsellors = () => {
               <div className="p-6">
                 <div className="flex justify-between items-start mb-6">
                   <div className="flex items-center gap-4">
-                    <img 
-                      src={selectedCounsellor.photo} 
+                    <img
+                      src={selectedCounsellor.photo}
                       alt={selectedCounsellor.name}
                       className="w-16 h-16 rounded-full object-cover"
                     />
