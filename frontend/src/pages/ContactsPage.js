@@ -75,7 +75,7 @@ function ContactsPage() {
         phone: "+91 88494 76475",
         linkedin: "https://www.linkedin.com/in/diya-agarwal-609005262/",
         image: "https://swc.iitg.ac.in/welfare-board/api/diya_pic.jpg",
-        description: "Leading creative design initiatives for student welfare programs."
+        description: "Representing and addressing concerns of female students on campus."
       },
       {
         id: 7,
@@ -85,7 +85,7 @@ function ContactsPage() {
         phone: "+91 99970 01125",
         linkedin: "https://www.linkedin.com/in/shlok-pratap-singh-04a26a33a/",
         image: " https://swc.iitg.ac.in/welfare-board/api/shlok_pic.jpg",
-        description: "Representing and addressing concerns of students on campus."
+        description: "Promoting student welfare initiatives and managing communications."
       },
       {
         id: 8,
@@ -95,7 +95,7 @@ function ContactsPage() {
         phone: "+91 6294 014 787",
         linkedin: "https://www.linkedin.com/in/riddha-singh-a07103261/",
         image: "https://swc.iitg.ac.in/welfare-board/api/riddha_pic.jpg",
-        description: "Promoting student welfare initiatives and managing communications."
+        description: "Leading creative design initiatives for student welfare programs."
       }
     ],
     clubSecretaries: [
