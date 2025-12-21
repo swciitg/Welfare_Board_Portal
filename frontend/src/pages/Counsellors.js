@@ -17,15 +17,14 @@ const Counsellors = () => {
       specialization: "Academic Stress & Anxiety",
       experience: "03612583989",
       schedule: {
-        monday: "9:00 AM - 5:00 PM",
-        tuesday: "9:00 AM - 5:00 PM",
-        wednesday: "9:00 AM - 5:00 PM",
-        thursday: "9:00 AM - 5:00 PM",
-        friday: "9:00 AM - 5:00 PM",
-        saturday: "Closed",
-        sunday: "Closed"
-      },
-      location: "New SAC Building, Ground Floor"
+        monday: { time: "9:00 AM - 5:00 PM", location: "New SAC Building, Ground Floor" },
+        tuesday: { time: "9:00 AM - 5:00 PM", location: "New SAC Building, Ground Floor" },
+        wednesday: { time: "9:00 AM - 5:00 PM", location: "New SAC Building, Ground Floor" },
+        thursday: { time: "9:00 AM - 5:00 PM", location: "New SAC Building, Ground Floor" },
+        friday: { time: "9:00 AM - 5:00 PM", location: "New SAC Building, Ground Floor" },
+        saturday: { time: "Closed", location: "" },
+        sunday: { time: "Closed", location: "" }
+      }
     },
     {
       id: 'fallback-2',
@@ -36,15 +35,14 @@ const Counsellors = () => {
       specialization: "Career Guidance & Life Skills",
       experience: "03612583984",
       schedule: {
-        monday: "12:00 PM - 8:00 PM",
-        tuesday: "12:00 PM - 8:00 PM",
-        wednesday: "12:00 PM - 8:00 PM",
-        thursday: "12:00 PM - 8:00 PM",
-        friday: "12:00 PM - 8:00 PM",
-        saturday: "Closed",
-        sunday: "Closed"
-      },
-      location: "New SAC Building, Ground Floor"
+        monday: { time: "12:00 PM - 8:00 PM", location: "New SAC Building, Ground Floor" },
+        tuesday: { time: "12:00 PM - 8:00 PM", location: "New SAC Building, Ground Floor" },
+        wednesday: { time: "12:00 PM - 8:00 PM", location: "New SAC Building, Ground Floor" },
+        thursday: { time: "12:00 PM - 8:00 PM", location: "New SAC Building, Ground Floor" },
+        friday: { time: "12:00 PM - 8:00 PM", location: "New SAC Building, Ground Floor" },
+        saturday: { time: "Closed", location: "" },
+        sunday: { time: "Closed", location: "" }
+      }
     },
     {
       id: 'fallback-3',
@@ -55,15 +53,14 @@ const Counsellors = () => {
       specialization: "Mental Health & Wellness",
       experience: "03612583988",
       schedule: {
-        monday: "9:30 AM - 5:30 PM",
-        tuesday: "9:30 AM - 5:30 PM",
-        wednesday: "9:30 AM - 5:30 PM",
-        thursday: "9:30 AM - 5:30 PM",
-        friday: "9:30 AM - 5:30 PM",
-        saturday: "Closed",
-        sunday: "Closed"
-      },
-      location: "New SAC Building, Ground Floor"
+        monday: { time: "9:30 AM - 5:30 PM", location: "New SAC Building, Ground Floor" },
+        tuesday: { time: "9:30 AM - 5:30 PM", location: "New SAC Building, Ground Floor" },
+        wednesday: { time: "9:30 AM - 5:30 PM", location: "New SAC Building, Ground Floor" },
+        thursday: { time: "9:30 AM - 5:30 PM", location: "New SAC Building, Ground Floor" },
+        friday: { time: "9:30 AM - 5:30 PM", location: "New SAC Building, Ground Floor" },
+        saturday: { time: "Closed", location: "" },
+        sunday: { time: "Closed", location: "" }
+      }
     }
   ];
 
@@ -219,17 +216,23 @@ const Counsellors = () => {
                   {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map((day, dayIndex) => (
                     <tr key={day} className={dayIndex % 2 === 0 ? "bg-blue-50" : "bg-white"}>
                       <td className="px-4 py-4 font-medium text-gray-800 border border-gray-300 w-1/4">{day}</td>
-                      {counsellors.map((counsellor, counsellorIndex) => (
-                        <td key={counsellor.id} className="px-4 py-4 text-sm text-gray-700 border border-gray-300 w-1/4">
-                          <div>{counsellor.location}</div>
-                          <div className="text-xs text-gray-600">
-                            {counsellor.schedule[day.toLowerCase()] !== 'Closed'
-                              ? `Time: ${counsellor.schedule[day.toLowerCase()]}`
-                              : 'Closed'
-                            }
-                          </div>
-                        </td>
-                      ))}
+                      {counsellors.map((counsellor, counsellorIndex) => {
+                        const daySchedule = counsellor.schedule[day.toLowerCase()];
+                        return (
+                          <td key={counsellor.id} className="px-4 py-4 text-sm text-gray-700 border border-gray-300 w-1/4">
+                            {daySchedule?.time !== 'Closed' ? (
+                              <>
+                                <div className="font-medium">{daySchedule?.location || 'N/A'}</div>
+                                <div className="text-xs text-gray-600">
+                                  Time: {daySchedule?.time || 'N/A'}
+                                </div>
+                              </>
+                            ) : (
+                              <div className="text-red-500">Closed</div>
+                            )}
+                          </td>
+                        );
+                      })}
                     </tr>
                   ))}
                 </tbody>
@@ -275,10 +278,7 @@ const Counsellors = () => {
                         <FaEnvelope className="text-[#7BB9C4]" />
                         <span>{selectedCounsellor.email}</span>
                       </div>
-                      <div className="flex items-center gap-3">
-                        <MdLocationOn className="text-[#7BB9C4]" />
-                        <span>{selectedCounsellor.location}</span>
-                      </div>
+
                     </div>
                   </div>
 
@@ -288,13 +288,23 @@ const Counsellors = () => {
                       <FaClock className="text-[#7BB9C4]" />
                       Weekly Schedule
                     </h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                      {Object.entries(selectedCounsellor.schedule).map(([day, time]) => (
-                        <div key={day} className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                          <span className="font-medium capitalize">{day}</span>
-                          <span className={`text-sm ${time === 'Closed' ? 'text-red-500' : 'text-green-600'}`}>
-                            {time}
-                          </span>
+                    <div className="grid grid-cols-1 gap-3">
+                      {Object.entries(selectedCounsellor.schedule).map(([day, schedule]) => (
+                        <div key={day} className="p-3 bg-gray-50 rounded-lg">
+                          <div className="flex justify-between items-start">
+                            <span className="font-medium capitalize">{day}</span>
+                            <div className="text-right">
+                              <div className={`text-sm font-semibold ${schedule?.time === 'Closed' ? 'text-red-500' : 'text-green-600'}`}>
+                                {schedule?.time || 'N/A'}
+                              </div>
+                              {schedule?.location && schedule?.time !== 'Closed' && (
+                                <div className="text-xs text-gray-600 mt-1 flex items-center gap-1">
+                                  <MdLocationOn className="text-[#7BB9C4]" />
+                                  {schedule.location}
+                                </div>
+                              )}
+                            </div>
+                          </div>
                         </div>
                       ))}
                     </div>

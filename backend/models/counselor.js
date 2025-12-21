@@ -30,18 +30,35 @@ const counselorSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  location: {
-    type: String,
-    trim: true,
-  },
   schedule: {
-    monday: { type: String, default: 'Closed' },
-    tuesday: { type: String, default: 'Closed' },
-    wednesday: { type: String, default: 'Closed' },
-    thursday: { type: String, default: 'Closed' },
-    friday: { type: String, default: 'Closed' },
-    saturday: { type: String, default: 'Closed' },
-    sunday: { type: String, default: 'Closed' },
+    monday: {
+      time: { type: String, default: 'Closed' },
+      location: { type: String, trim: true },
+    },
+    tuesday: {
+      time: { type: String, default: 'Closed' },
+      location: { type: String, trim: true },
+    },
+    wednesday: {
+      time: { type: String, default: 'Closed' },
+      location: { type: String, trim: true },
+    },
+    thursday: {
+      time: { type: String, default: 'Closed' },
+      location: { type: String, trim: true },
+    },
+    friday: {
+      time: { type: String, default: 'Closed' },
+      location: { type: String, trim: true },
+    },
+    saturday: {
+      time: { type: String, default: 'Closed' },
+      location: { type: String, trim: true },
+    },
+    sunday: {
+      time: { type: String, default: 'Closed' },
+      location: { type: String, trim: true },
+    },
   },
   priority: {
     type: Number,

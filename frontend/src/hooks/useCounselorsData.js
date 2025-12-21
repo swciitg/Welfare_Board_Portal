@@ -23,8 +23,7 @@ export const useCounselorsData = () => {
           email: counselor.email,
           specialization: counselor.specialization,
           experience: counselor.landline || '', // Using landline as experience field
-          schedule: counselor.schedule,
-          location: counselor.location || 'New SAC Building, Ground Floor',
+          schedule: counselor.schedule, // Now contains { time, location } for each day
         }));
 
         setData(mappedCounselors);

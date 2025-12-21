@@ -53,33 +53,61 @@ const adminOptions = {
             type: 'boolean',
             description: 'Only active counselors are shown on the website',
           },
-          'schedule.monday': {
+          'schedule.monday.time': {
             type: 'string',
             description: 'e.g., "9:00 AM - 5:00 PM" or "Closed"',
           },
-          'schedule.tuesday': {
+          'schedule.monday.location': {
+            type: 'string',
+            description: 'Location for Monday',
+          },
+          'schedule.tuesday.time': {
             type: 'string',
             description: 'e.g., "9:00 AM - 5:00 PM" or "Closed"',
           },
-          'schedule.wednesday': {
+          'schedule.tuesday.location': {
+            type: 'string',
+            description: 'Location for Tuesday',
+          },
+          'schedule.wednesday.time': {
             type: 'string',
             description: 'e.g., "9:00 AM - 5:00 PM" or "Closed"',
           },
-          'schedule.thursday': {
+          'schedule.wednesday.location': {
+            type: 'string',
+            description: 'Location for Wednesday',
+          },
+          'schedule.thursday.time': {
             type: 'string',
             description: 'e.g., "9:00 AM - 5:00 PM" or "Closed"',
           },
-          'schedule.friday': {
+          'schedule.thursday.location': {
+            type: 'string',
+            description: 'Location for Thursday',
+          },
+          'schedule.friday.time': {
             type: 'string',
             description: 'e.g., "9:00 AM - 5:00 PM" or "Closed"',
           },
-          'schedule.saturday': {
+          'schedule.friday.location': {
+            type: 'string',
+            description: 'Location for Friday',
+          },
+          'schedule.saturday.time': {
             type: 'string',
             description: 'e.g., "9:00 AM - 5:00 PM" or "Closed"',
           },
-          'schedule.sunday': {
+          'schedule.saturday.location': {
+            type: 'string',
+            description: 'Location for Saturday',
+          },
+          'schedule.sunday.time': {
             type: 'string',
             description: 'e.g., "9:00 AM - 5:00 PM" or "Closed"',
+          },
+          'schedule.sunday.location': {
+            type: 'string',
+            description: 'Location for Sunday',
           },
         },
         listProperties: ['name', 'specialization', 'mobile', 'isActive', 'priority'],
@@ -91,16 +119,22 @@ const adminOptions = {
           'email', 
           'landline', 
           'specialization', 
-          'location', 
           'priority',
           'isActive',
-          'schedule.monday',
-          'schedule.tuesday',
-          'schedule.wednesday',
-          'schedule.thursday',
-          'schedule.friday',
-          'schedule.saturday',
-          'schedule.sunday',
+          'schedule.monday.time',
+          'schedule.monday.location',
+          'schedule.tuesday.time',
+          'schedule.tuesday.location',
+          'schedule.wednesday.time',
+          'schedule.wednesday.location',
+          'schedule.thursday.time',
+          'schedule.thursday.location',
+          'schedule.friday.time',
+          'schedule.friday.location',
+          'schedule.saturday.time',
+          'schedule.saturday.location',
+          'schedule.sunday.time',
+          'schedule.sunday.location',
         ],
         showProperties: [
           'name', 
@@ -109,16 +143,22 @@ const adminOptions = {
           'email', 
           'landline', 
           'specialization', 
-          'location', 
           'priority',
           'isActive',
-          'schedule.monday',
-          'schedule.tuesday',
-          'schedule.wednesday',
-          'schedule.thursday',
-          'schedule.friday',
-          'schedule.saturday',
-          'schedule.sunday',
+          'schedule.monday.time',
+          'schedule.monday.location',
+          'schedule.tuesday.time',
+          'schedule.tuesday.location',
+          'schedule.wednesday.time',
+          'schedule.wednesday.location',
+          'schedule.thursday.time',
+          'schedule.thursday.location',
+          'schedule.friday.time',
+          'schedule.friday.location',
+          'schedule.saturday.time',
+          'schedule.saturday.location',
+          'schedule.sunday.time',
+          'schedule.sunday.location',
           'createdAt'
         ],
       },
