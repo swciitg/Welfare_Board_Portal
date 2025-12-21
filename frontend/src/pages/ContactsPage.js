@@ -79,13 +79,13 @@ function ContactsPage() {
       },
       {
         id: 7,
-        name: "Ayush Mishra",
-        designation: "Marketing Head",
-        email: "ayush.m@iitg.ac.in",
-        phone: "+91 89576 64590",
-        linkedin: "https://www.linkedin.com/in/ayush-mishra-602421281/",
-        image: "https://swc.iitg.ac.in/welfare-board/api/ayush_pic.jpeg",
-        description: "Managing student welfare resources and facilities."
+        name: "Shlok Pratap Singh",
+        designation: "Media & Branding Head",
+        email: "shlok.singh@iitg.ac.in",
+        phone: "+91 99970 01125",
+        linkedin: "https://www.linkedin.com/in/shlok-pratap-singh-04a26a33a/",
+        image: " https://swc.iitg.ac.in/welfare-board/api/shlok_pic.jpg",
+        description: "Representing and addressing concerns of students on campus."
       },
       {
         id: 8,
@@ -251,8 +251,8 @@ function ContactsPage() {
   const ContactCard = ({ contact, isLarge = false }) => (
     <div className={`bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2`}>
       <div className="relative">
-        <img 
-          src={contact.image} 
+        <img
+          src={contact.image}
           alt={contact.name}
           className={`w-full object-cover ${isLarge ? 'h-80' : 'h-64'}`}
         />
@@ -263,14 +263,14 @@ function ContactsPage() {
           <p className={`${isLarge ? 'text-sm' : 'text-xs'} opacity-75`}>{contact.department}</p>
         </div>
       </div>
-      
+
       <div className="p-6">
         {contact.description && (
           <p className="text-gray-600 text-sm mb-4 leading-relaxed">
             {contact.description}
           </p>
         )}
-        
+
         <div className="space-y-3 mb-6">
           <div className="flex items-center gap-3 text-gray-600">
             <FaPhone className="text-[#7BB9C4] flex-shrink-0" />
@@ -287,9 +287,9 @@ function ContactsPage() {
           {contact.linkedin && (
             <div className="flex items-center gap-3 text-gray-600">
               <FaLinkedin className="text-[#7BB9C4] flex-shrink-0" />
-              <a 
-                href={contact.linkedin} 
-                target="_blank" 
+              <a
+                href={contact.linkedin}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm hover:text-[#7BB9C4] transition-colors"
               >
@@ -298,7 +298,7 @@ function ContactsPage() {
             </div>
           )}
         </div>
-        
+
         <div className="flex gap-3">
           <a
             href={`tel:${contact.phone}`}
@@ -355,11 +355,11 @@ function ContactsPage() {
         {/* Main Content */}
         <div className="bg-gradient-to-br from-gray-50 to-blue-50 py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
+
             {/* Chairpersons Section - Side by Side */}
             <section className="mb-20">
-              <SectionHeader 
-                title="Chairpersons" 
+              <SectionHeader
+                title="Chairpersons"
                 icon={FaUsers}
                 description="Meet our distinguished chairpersons who guide the Students' Welfare Board"
               />
@@ -372,8 +372,8 @@ function ContactsPage() {
 
             {/* Core Team Section - GenSec elevated */}
             <section className="mb-20">
-              <SectionHeader 
-                title="Board Members" 
+              <SectionHeader
+                title="Board Members"
                 icon={FaUser}
                 description="The dedicated core team managing student welfare activities"
               />
@@ -384,7 +384,7 @@ function ContactsPage() {
                     <ContactCard contact={contactData.coreTeam[0]} />
                   </div>
                 </div>
-                
+
                 {/* Overall Coordinator and Events Head - Side by Side Below */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
                   <ContactCard contact={contactData.coreTeam[1]} />
@@ -395,7 +395,7 @@ function ContactsPage() {
 
             {/* Department Heads Section */}
             <section className="mb-20">
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {contactData.departmentHeads.map((contact) => (
                   <ContactCard key={contact.id} contact={contact} />
@@ -405,8 +405,8 @@ function ContactsPage() {
 
             {/* Club Secretaries Section */}
             <section className="mb-20">
-              <SectionHeader 
-                title="Club Secretaries" 
+              <SectionHeader
+                title="Club Secretaries"
                 icon={FaUsers}
                 description="Secretaries managing various student clubs and activities"
               />
@@ -419,8 +419,8 @@ function ContactsPage() {
 
             {/* Hostel Welfare Secretaries Section */}
             <section className="mb-20">
-              <SectionHeader 
-                title="Hostel Welfare Secretaries" 
+              <SectionHeader
+                title="Hostel Welfare Secretaries"
                 icon={FaBuilding}
                 description="Dedicated secretaries ensuring welfare in all hostel accommodations"
               />
