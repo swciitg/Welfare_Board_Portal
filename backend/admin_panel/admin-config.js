@@ -35,11 +35,41 @@ const authenticate = async (email, password) => {
 
 const adminOptions = {
   resources: [
-    AboutUs, 
+    AboutUs,
     Contacts,
     {
       resource: Counselor,
       options: {
+        actions: {
+          new: {
+            before: async (request) => {
+              const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+              days.forEach(day => {
+                if (request.payload[`schedule.${day}.time`] === '' || !request.payload[`schedule.${day}.time`]) {
+                  request.payload[`schedule.${day}.time`] = 'Closed';
+                }
+                if (request.payload[`schedule.${day}.location`] === '' || !request.payload[`schedule.${day}.location`]) {
+                  request.payload[`schedule.${day}.location`] = 'New Sac Building';
+                }
+              });
+              return request;
+            },
+          },
+          edit: {
+            before: async (request) => {
+              const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+              days.forEach(day => {
+                if (request.payload[`schedule.${day}.time`] === '' || !request.payload[`schedule.${day}.time`]) {
+                  request.payload[`schedule.${day}.time`] = 'Closed';
+                }
+                if (request.payload[`schedule.${day}.location`] === '' || !request.payload[`schedule.${day}.location`]) {
+                  request.payload[`schedule.${day}.location`] = 'New Sac Building';
+                }
+              });
+              return request;
+            },
+          },
+        },
         properties: {
           name: {
             type: 'string',
@@ -60,6 +90,23 @@ const adminOptions = {
           'schedule.monday.location': {
             type: 'string',
             description: 'Location for Monday',
+            availableValues: [
+              { value: '', label: '-- Select Location --' },
+              { value: 'New Sac Building', label: 'New Sac Building' },
+              { value: 'Lohit Hostel', label: 'Lohit Hostel' },
+              { value: 'Bramhaputra Hostel', label: 'Bramhaputra Hostel' },
+              { value: 'Siang Hostel', label: 'Siang Hostel' },
+              { value: 'Kapili Hostel', label: 'Kapili Hostel' },
+              { value: 'Dihing Hostel', label: 'Dihing Hostel' },
+              { value: 'Manas Hostel', label: 'Manas Hostel' },
+              { value: 'Umaim Hostel', label: 'Umaim Hostel' },
+              { value: 'Barak Hostel', label: 'Barak Hostel' },
+              { value: 'Kameng Hostel', label: 'Kameng Hostel' },
+              { value: 'Gaurang Hostel', label: 'Gaurang Hostel' },
+              { value: 'Dhansiri Hostel', label: 'Dhansiri Hostel' },
+              { value: 'Disang Hostel', label: 'Disang Hostel' },
+              { value: 'Subansiri Hostel', label: 'Subansiri Hostel' },
+            ],
           },
           'schedule.tuesday.time': {
             type: 'string',
@@ -68,6 +115,23 @@ const adminOptions = {
           'schedule.tuesday.location': {
             type: 'string',
             description: 'Location for Tuesday',
+            availableValues: [
+              { value: '', label: '-- Select Location --' },
+              { value: 'New Sac Building', label: 'New Sac Building' },
+              { value: 'Lohit Hostel', label: 'Lohit Hostel' },
+              { value: 'Bramhaputra Hostel', label: 'Bramhaputra Hostel' },
+              { value: 'Siang Hostel', label: 'Siang Hostel' },
+              { value: 'Kapili Hostel', label: 'Kapili Hostel' },
+              { value: 'Dihing Hostel', label: 'Dihing Hostel' },
+              { value: 'Manas Hostel', label: 'Manas Hostel' },
+              { value: 'Umaim Hostel', label: 'Umaim Hostel' },
+              { value: 'Barak Hostel', label: 'Barak Hostel' },
+              { value: 'Kameng Hostel', label: 'Kameng Hostel' },
+              { value: 'Gaurang Hostel', label: 'Gaurang Hostel' },
+              { value: 'Dhansiri Hostel', label: 'Dhansiri Hostel' },
+              { value: 'Disang Hostel', label: 'Disang Hostel' },
+              { value: 'Subansiri Hostel', label: 'Subansiri Hostel' },
+            ],
           },
           'schedule.wednesday.time': {
             type: 'string',
@@ -76,6 +140,23 @@ const adminOptions = {
           'schedule.wednesday.location': {
             type: 'string',
             description: 'Location for Wednesday',
+            availableValues: [
+              { value: '', label: '-- Select Location --' },
+              { value: 'New Sac Building', label: 'New Sac Building' },
+              { value: 'Lohit Hostel', label: 'Lohit Hostel' },
+              { value: 'Bramhaputra Hostel', label: 'Bramhaputra Hostel' },
+              { value: 'Siang Hostel', label: 'Siang Hostel' },
+              { value: 'Kapili Hostel', label: 'Kapili Hostel' },
+              { value: 'Dihing Hostel', label: 'Dihing Hostel' },
+              { value: 'Manas Hostel', label: 'Manas Hostel' },
+              { value: 'Umaim Hostel', label: 'Umaim Hostel' },
+              { value: 'Barak Hostel', label: 'Barak Hostel' },
+              { value: 'Kameng Hostel', label: 'Kameng Hostel' },
+              { value: 'Gaurang Hostel', label: 'Gaurang Hostel' },
+              { value: 'Dhansiri Hostel', label: 'Dhansiri Hostel' },
+              { value: 'Disang Hostel', label: 'Disang Hostel' },
+              { value: 'Subansiri Hostel', label: 'Subansiri Hostel' },
+            ],
           },
           'schedule.thursday.time': {
             type: 'string',
@@ -84,6 +165,23 @@ const adminOptions = {
           'schedule.thursday.location': {
             type: 'string',
             description: 'Location for Thursday',
+            availableValues: [
+              { value: '', label: '-- Select Location --' },
+              { value: 'New Sac Building', label: 'New Sac Building' },
+              { value: 'Lohit Hostel', label: 'Lohit Hostel' },
+              { value: 'Bramhaputra Hostel', label: 'Bramhaputra Hostel' },
+              { value: 'Siang Hostel', label: 'Siang Hostel' },
+              { value: 'Kapili Hostel', label: 'Kapili Hostel' },
+              { value: 'Dihing Hostel', label: 'Dihing Hostel' },
+              { value: 'Manas Hostel', label: 'Manas Hostel' },
+              { value: 'Umaim Hostel', label: 'Umaim Hostel' },
+              { value: 'Barak Hostel', label: 'Barak Hostel' },
+              { value: 'Kameng Hostel', label: 'Kameng Hostel' },
+              { value: 'Gaurang Hostel', label: 'Gaurang Hostel' },
+              { value: 'Dhansiri Hostel', label: 'Dhansiri Hostel' },
+              { value: 'Disang Hostel', label: 'Disang Hostel' },
+              { value: 'Subansiri Hostel', label: 'Subansiri Hostel' },
+            ],
           },
           'schedule.friday.time': {
             type: 'string',
@@ -92,6 +190,23 @@ const adminOptions = {
           'schedule.friday.location': {
             type: 'string',
             description: 'Location for Friday',
+            availableValues: [
+              { value: '', label: '-- Select Location --' },
+              { value: 'New Sac Building', label: 'New Sac Building' },
+              { value: 'Lohit Hostel', label: 'Lohit Hostel' },
+              { value: 'Bramhaputra Hostel', label: 'Bramhaputra Hostel' },
+              { value: 'Siang Hostel', label: 'Siang Hostel' },
+              { value: 'Kapili Hostel', label: 'Kapili Hostel' },
+              { value: 'Dihing Hostel', label: 'Dihing Hostel' },
+              { value: 'Manas Hostel', label: 'Manas Hostel' },
+              { value: 'Umaim Hostel', label: 'Umaim Hostel' },
+              { value: 'Barak Hostel', label: 'Barak Hostel' },
+              { value: 'Kameng Hostel', label: 'Kameng Hostel' },
+              { value: 'Gaurang Hostel', label: 'Gaurang Hostel' },
+              { value: 'Dhansiri Hostel', label: 'Dhansiri Hostel' },
+              { value: 'Disang Hostel', label: 'Disang Hostel' },
+              { value: 'Subansiri Hostel', label: 'Subansiri Hostel' },
+            ],
           },
           'schedule.saturday.time': {
             type: 'string',
@@ -100,6 +215,23 @@ const adminOptions = {
           'schedule.saturday.location': {
             type: 'string',
             description: 'Location for Saturday',
+            availableValues: [
+              { value: '', label: '-- Select Location --' },
+              { value: 'New Sac Building', label: 'New Sac Building' },
+              { value: 'Lohit Hostel', label: 'Lohit Hostel' },
+              { value: 'Bramhaputra Hostel', label: 'Bramhaputra Hostel' },
+              { value: 'Siang Hostel', label: 'Siang Hostel' },
+              { value: 'Kapili Hostel', label: 'Kapili Hostel' },
+              { value: 'Dihing Hostel', label: 'Dihing Hostel' },
+              { value: 'Manas Hostel', label: 'Manas Hostel' },
+              { value: 'Umaim Hostel', label: 'Umaim Hostel' },
+              { value: 'Barak Hostel', label: 'Barak Hostel' },
+              { value: 'Kameng Hostel', label: 'Kameng Hostel' },
+              { value: 'Gaurang Hostel', label: 'Gaurang Hostel' },
+              { value: 'Dhansiri Hostel', label: 'Dhansiri Hostel' },
+              { value: 'Disang Hostel', label: 'Disang Hostel' },
+              { value: 'Subansiri Hostel', label: 'Subansiri Hostel' },
+            ],
           },
           'schedule.sunday.time': {
             type: 'string',
@@ -108,17 +240,34 @@ const adminOptions = {
           'schedule.sunday.location': {
             type: 'string',
             description: 'Location for Sunday',
+            availableValues: [
+              { value: '', label: '-- Select Location --' },
+              { value: 'New Sac Building', label: 'New Sac Building' },
+              { value: 'Lohit Hostel', label: 'Lohit Hostel' },
+              { value: 'Bramhaputra Hostel', label: 'Bramhaputra Hostel' },
+              { value: 'Siang Hostel', label: 'Siang Hostel' },
+              { value: 'Kapili Hostel', label: 'Kapili Hostel' },
+              { value: 'Dihing Hostel', label: 'Dihing Hostel' },
+              { value: 'Manas Hostel', label: 'Manas Hostel' },
+              { value: 'Umaim Hostel', label: 'Umaim Hostel' },
+              { value: 'Barak Hostel', label: 'Barak Hostel' },
+              { value: 'Kameng Hostel', label: 'Kameng Hostel' },
+              { value: 'Gaurang Hostel', label: 'Gaurang Hostel' },
+              { value: 'Dhansiri Hostel', label: 'Dhansiri Hostel' },
+              { value: 'Disang Hostel', label: 'Disang Hostel' },
+              { value: 'Subansiri Hostel', label: 'Subansiri Hostel' },
+            ],
           },
         },
         listProperties: ['name', 'specialization', 'mobile', 'isActive', 'priority'],
         filterProperties: ['name', 'specialization', 'isActive'],
         editProperties: [
-          'name', 
-          'photo', 
-          'mobile', 
-          'email', 
-          'landline', 
-          'specialization', 
+          'name',
+          'photo',
+          'mobile',
+          'email',
+          'landline',
+          'specialization',
           'priority',
           'isActive',
           'schedule.monday.time',
@@ -137,12 +286,12 @@ const adminOptions = {
           'schedule.sunday.location',
         ],
         showProperties: [
-          'name', 
-          'photo', 
-          'mobile', 
-          'email', 
-          'landline', 
-          'specialization', 
+          'name',
+          'photo',
+          'mobile',
+          'email',
+          'landline',
+          'specialization',
           'priority',
           'isActive',
           'schedule.monday.time',
@@ -163,9 +312,9 @@ const adminOptions = {
         ],
       },
     },
-    Event, 
-    Facilities, 
-    TeamMember, 
+    Event,
+    Facilities,
+    TeamMember,
     clubMain,
     homepage
   ],

@@ -33,31 +33,178 @@ const counselorSchema = new mongoose.Schema({
   schedule: {
     monday: {
       time: { type: String, default: 'Closed' },
-      location: { type: String, trim: true },
+      location: { 
+        type: String, 
+        trim: true,
+        default: 'New Sac Building',
+        enum: [
+          'Lohit Hostel',
+          'Bramhaputra Hostel',
+          'Siang Hostel',
+          'Kapili Hostel',
+          'Dihing Hostel',
+          'Manas Hostel',
+          'Umaim Hostel',
+          'Barak Hostel',
+          'Kameng Hostel',
+          'Gaurang Hostel',
+          'Dhansiri Hostel',
+          'Disang Hostel',
+          'Subansiri Hostel',
+          'New Sac Building',
+          ''
+        ]
+      },
     },
     tuesday: {
       time: { type: String, default: 'Closed' },
-      location: { type: String, trim: true },
+      location: { 
+        type: String, 
+        trim: true,
+        default: 'New Sac Building',
+        enum: [
+          'Lohit Hostel',
+          'Bramhaputra Hostel',
+          'Siang Hostel',
+          'Kapili Hostel',
+          'Dihing Hostel',
+          'Manas Hostel',
+          'Umaim Hostel',
+          'Barak Hostel',
+          'Kameng Hostel',
+          'Gaurang Hostel',
+          'Dhansiri Hostel',
+          'Disang Hostel',
+          'Subansiri Hostel',
+          'New Sac Building',
+          ''
+        ]
+      },
     },
     wednesday: {
       time: { type: String, default: 'Closed' },
-      location: { type: String, trim: true },
+      location: { 
+        type: String, 
+        trim: true,
+        default: 'New Sac Building',
+        enum: [
+          'Lohit Hostel',
+          'Bramhaputra Hostel',
+          'Siang Hostel',
+          'Kapili Hostel',
+          'Dihing Hostel',
+          'Manas Hostel',
+          'Umaim Hostel',
+          'Barak Hostel',
+          'Kameng Hostel',
+          'Gaurang Hostel',
+          'Dhansiri Hostel',
+          'Disang Hostel',
+          'Subansiri Hostel',
+          'New Sac Building',
+          ''
+        ]
+      },
     },
     thursday: {
       time: { type: String, default: 'Closed' },
-      location: { type: String, trim: true },
+      location: { 
+        type: String, 
+        trim: true,
+        default: 'New Sac Building',
+        enum: [
+          'Lohit Hostel',
+          'Bramhaputra Hostel',
+          'Siang Hostel',
+          'Kapili Hostel',
+          'Dihing Hostel',
+          'Manas Hostel',
+          'Umaim Hostel',
+          'Barak Hostel',
+          'Kameng Hostel',
+          'Gaurang Hostel',
+          'Dhansiri Hostel',
+          'Disang Hostel',
+          'Subansiri Hostel',
+          'New Sac Building',
+          ''
+        ]
+      },
     },
     friday: {
       time: { type: String, default: 'Closed' },
-      location: { type: String, trim: true },
+      location: { 
+        type: String, 
+        trim: true,
+        default: 'New Sac Building',
+        enum: [
+          'Lohit Hostel',
+          'Bramhaputra Hostel',
+          'Siang Hostel',
+          'Kapili Hostel',
+          'Dihing Hostel',
+          'Manas Hostel',
+          'Umaim Hostel',
+          'Barak Hostel',
+          'Kameng Hostel',
+          'Gaurang Hostel',
+          'Dhansiri Hostel',
+          'Disang Hostel',
+          'Subansiri Hostel',
+          'New Sac Building',
+          ''
+        ]
+      },
     },
     saturday: {
       time: { type: String, default: 'Closed' },
-      location: { type: String, trim: true },
+      location: { 
+        type: String, 
+        trim: true,
+        default: 'New Sac Building',
+        enum: [
+          'Lohit Hostel',
+          'Bramhaputra Hostel',
+          'Siang Hostel',
+          'Kapili Hostel',
+          'Dihing Hostel',
+          'Manas Hostel',
+          'Umaim Hostel',
+          'Barak Hostel',
+          'Kameng Hostel',
+          'Gaurang Hostel',
+          'Dhansiri Hostel',
+          'Disang Hostel',
+          'Subansiri Hostel',
+          'New Sac Building',
+          ''
+        ]
+      },
     },
     sunday: {
       time: { type: String, default: 'Closed' },
-      location: { type: String, trim: true },
+      location: { 
+        type: String, 
+        trim: true,
+        default: 'New Sac Building',
+        enum: [
+          'Lohit Hostel',
+          'Bramhaputra Hostel',
+          'Siang Hostel',
+          'Kapili Hostel',
+          'Dihing Hostel',
+          'Manas Hostel',
+          'Umaim Hostel',
+          'Barak Hostel',
+          'Kameng Hostel',
+          'Gaurang Hostel',
+          'Dhansiri Hostel',
+          'Disang Hostel',
+          'Subansiri Hostel',
+          'New Sac Building',
+          ''
+        ]
+      },
     },
   },
   priority: {
