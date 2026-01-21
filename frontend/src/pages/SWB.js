@@ -35,13 +35,13 @@ const sections = [
     mediaType: "pdf",
     mediaSrc: codeOfConduct,
   },
-  {
-    title: "Process Documentation",
-    description:
-      "A guide for club secretaries detailing procedures for event approvals, venue bookings, finances, and administrative tasks with required templates and processes.",
-    mediaType: "pdf",
-    mediaSrc: processDocumentation,
-  },
+  // {
+  //   title: "Process Documentation",
+  //   description:
+  //     "A guide for club secretaries detailing procedures for event approvals, venue bookings, finances, and administrative tasks with required templates and processes.",
+  //   mediaType: "pdf",
+  //   mediaSrc: processDocumentation,
+  // },
   {
     title: "YourDOST",
     description:
