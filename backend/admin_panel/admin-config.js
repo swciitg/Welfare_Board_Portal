@@ -95,7 +95,7 @@ const adminOptions = {
             description: 'Higher numbers appear first within a category',
           },
           image: {
-            description: 'Paste the full SWC image URL, e.g. https://swc.iitg.ac.in/welfare-board/api/john_doe.png',
+            description: 'Must start with: https://swc.iitg.ac.in/welfare-board/api/ — e.g. https://swc.iitg.ac.in/welfare-board/api/john_doe.png',
           },
           'socialLinks.linkedin': {
             description: "Enter full URL or 'NA' if not available",
@@ -106,6 +106,30 @@ const adminOptions = {
           'socialLinks.phoneNo': {
             description: 'Enter with country code, e.g. +91 9876543210',
           }
+        },
+        actions: {
+          new: {
+            before: async (request) => {
+              if (request.method === 'post') {
+                const imageUrl = request.payload?.image || '';
+                if (imageUrl && !imageUrl.startsWith('https://swc.iitg.ac.in/welfare-board/api/')) {
+                  throw new Error('Image URL must start with https://swc.iitg.ac.in/welfare-board/api/');
+                }
+              }
+              return request;
+            },
+          },
+          edit: {
+            before: async (request) => {
+              if (request.method === 'post') {
+                const imageUrl = request.payload?.image || '';
+                if (imageUrl && !imageUrl.startsWith('https://swc.iitg.ac.in/welfare-board/api/')) {
+                  throw new Error('Image URL must start with https://swc.iitg.ac.in/welfare-board/api/');
+                }
+              }
+              return request;
+            },
+          },
         }
       }
     },
