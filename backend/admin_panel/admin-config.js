@@ -1,4 +1,4 @@
-import AdminJS from "adminjs";
+import AdminJS, { ComponentLoader } from "adminjs";
 import AdminJSExpress from "@adminjs/express";
 import * as AdminJSMongoose from "@adminjs/mongoose";
 import mongoose from "mongoose";
@@ -33,10 +33,82 @@ const authenticate = async (email, password) => {
   return null;
 };
 
+const componentLoader = new ComponentLoader();
+const Components = {
+  ImageManagerLink: componentLoader.add('ImageManagerLink', './components/ImageManagerLink'),
+};
+
 const adminOptions = {
+  componentLoader,
+  pages: {
+    imageManager: {
+      label: 'Image Manager',
+      icon: 'Image',
+      component: Components.ImageManagerLink,
+    },
+  },
   resources: [
     AboutUs,
-    Contacts,
+    {
+      resource: Contacts,
+      options: {
+        listProperties: ['name', 'designation', 'category', 'priority'],
+        filterProperties: ['category', 'name'],
+        editProperties: [
+          'name',
+          'designation',
+          'category',
+          'priority',
+          'image',
+          'description',
+          'department',
+          'socialLinks.linkedin',
+          'socialLinks.mailId',
+          'socialLinks.phoneNo'
+        ],
+        showProperties: [
+          'name',
+          'designation',
+          'category',
+          'priority',
+          'image',
+          'description',
+          'department',
+          'socialLinks.linkedin',
+          'socialLinks.mailId',
+          'socialLinks.phoneNo',
+          'createdAt'
+        ],
+        properties: {
+          category: {
+            availableValues: [
+              { value: 'Chairpersons', label: 'Chairpersons' },
+              { value: 'Core Team', label: 'Core Team' },
+              { value: 'Department Heads', label: 'Department Heads' },
+              { value: 'Club Secretaries', label: 'Club Secretaries' },
+              { value: 'Hostel Secretaries', label: 'Hostel Secretaries' },
+              { value: 'Emergency', label: 'Emergency' },
+              { value: 'Anti-Ragging', label: 'Anti-Ragging' },
+            ]
+          },
+          priority: {
+            description: 'Higher numbers appear first within a category',
+          },
+          image: {
+            description: 'Paste the full SWC image URL, e.g. https://swc.iitg.ac.in/welfare-board/api/john_doe.png',
+          },
+          'socialLinks.linkedin': {
+            description: "Enter full URL or 'NA' if not available",
+          },
+          'socialLinks.mailId': {
+            description: 'Enter full @iitg.ac.in email address',
+          },
+          'socialLinks.phoneNo': {
+            description: 'Enter with country code, e.g. +91 9876543210',
+          }
+        }
+      }
+    },
     {
       resource: Counselor,
       options: {

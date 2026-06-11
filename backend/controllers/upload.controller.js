@@ -3,14 +3,16 @@ import path from 'path';
 
 export const getUploadPage = (req, res) => {
   const uploadedFiles = fs.readdirSync('uploads');
-  res.render('index', { files: uploadedFiles, user: req.session.user });
+  const error = req.query.error || null;
+  const success = req.query.success || null;
+  res.render('index', { files: uploadedFiles, user: req.session.user, error, success });
 };
 
 export const uploadFile = (req, res) => {
   if (!req.file) {
-    return res.status(400).send('No file uploaded.');
+    return res.redirect(`/welfare-board/api/upload?error=${encodeURIComponent('No file uploaded.')}`);
   }
-  res.redirect('/welfare-board/api/upload');
+  res.redirect(`/welfare-board/api/upload?success=${encodeURIComponent(`File "${req.file.filename}" uploaded successfully!`)}`);
 };
 
 export const deleteFile = (req, res) => {

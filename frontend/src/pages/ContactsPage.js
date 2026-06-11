@@ -1,308 +1,13 @@
 import React from "react";
 import { FaPhone, FaEnvelope, FaLinkedin, FaUser, FaUsers, FaBuilding } from "react-icons/fa";
 import { MdLocationOn, MdEmail } from "react-icons/md";
-import { useHomePageData } from "../hooks/useHomePageData";
+import { useContactsData } from "../hooks/useContactsData";
 
 function ContactsPage() {
-  const { data } = useHomePageData();
-  const imgdata = data?.homepage[0]?.contactpageimgurl || "";
+  const { data, loading, error } = useContactsData();
+  const imgdata = data?.homepage?.[0]?.contactpageimgurl || "";
 
-  // Hardcoded contact data organized by hierarchy
-  const contactData = {
-    chairpersons: [
-      {
-        id: 1,
-        name: "Prof. Sayan Chakrabarti",
-        designation: "Chairperson 1",
-        department: "Department of Physics, IIT Guwahati",
-        email: "sayan.chakrabarti@iitg.ac.in",
-        phone: "0361-2583556",
-        image: "https://www.iitg.ac.in/phy/img/faculty_staff/sayan_chakrabarti.jpg",
-        description: "Leading the Students' Welfare Board with dedication to student development and campus life enhancement."
-      },
-      {
-        id: 2,
-        name: "Prof. Bidisha Som",
-        designation: "Chairperson 2",
-        department: "Department of Humanities and Social Sciences, IIT Guwahati",
-        email: "bidisha@iitg.ac.in",
-        phone: "0361-2582568",
-        image: "https://swc.iitg.ac.in/welfare-board/api/bidisha_pic.jpg",
-        description: "Supporting student welfare initiatives and fostering a positive campus environment."
-      }
-    ],
-    coreTeam: [
-      {
-        id: 3,
-        name: "Surbhit Gang",
-        designation: "General Secretary",
-        department: "B.Tech Civil Engineerin, 4th Year",
-        email: "gensec_welfare@iitg.ac.in",
-        phone: "+91 82005 37139",
-        linkedin: "NA",
-        image: "https://swc.iitg.ac.in/welfare-board/api/surbhit_pic_new.jpg",
-        description: "Coordinating all student welfare activities and representing student interests."
-      },
-      {
-        id: 4,
-        name: "Shlok Pratap Singh",
-        designation: "Overall Coordinator",
-        department: "B.Tech Mechanical Engineering, 3rd Year",
-        email: "shlok.singh@iitg.ac.in",
-        phone: "+91 72071 85274",
-        linkedin: "https://www.linkedin.com/in/shlok-pratap-singh-04a26a33a/",
-        image: " https://swc.iitg.ac.in/welfare-board/api/shlok_pic.jpg",
-        description: "Managing overall coordination of student welfare programs and events."
-      },
-      {
-        id: 5,
-        name: "Aryan Srivastava",
-        designation: "Events Head",
-        department: "B.Tech BSBE, 3rd Year",
-        email: "aryan.srivastava@iitg.ac.in",
-        phone: "+91 9839378578",
-        linkedin: "https://www.linkedin.com/in/aryansrivastava11/",
-        image: "https://swc.iitg.ac.in/welfare-board/api/aryan_new.jpeg",
-        description: "Organizing and managing all student welfare events and activities."
-      }
-    ],
-    departmentHeads: [
-      {
-        id: 6,
-        name: "Pallempati Sharvani",
-        designation: "Girl Representative",
-        email: "S.pallempati@iitg.ac.in",
-        phone: "+91 9848973693",
-        linkedin: "https://www.linkedin.com/in/p-sharvani/",
-        image: "https://swc.iitg.ac.in/welfare-board/api/sharvani_pallempati.jpg",
-        description: "Representing and addressing concerns of female students on campus."
-      },
-      {
-        id: 9,
-        name: "Jahnavi Priya",
-        designation: "Marketing Head",
-        email: "p.jahnavi@iitg.ac.in",
-        phone: "+91 9693785594",
-        linkedin: "https://www.linkedin.com/in/jahnavip1006/",
-        image: "https://swc.iitg.ac.in/welfare-board/api/jahnavi_priya.png",
-        description: "Managing strategic partnerships, external communications, and promotional coordination for student welfare programs."
-      },
-      {
-        id: 7,
-        name: "Ashutosh Maurya",
-        designation: "Media & Branding Head",
-        email: "ashutosh.maurya@iitg.ac.in",
-        phone: "+91 8435208455",
-        linkedin: "NA",
-        image: "https://swc.iitg.ac.in/welfare-board/api/ashutosh_maurya.jpg",
-        description: "Promoting student welfare initiatives and managing communications."
-      },
-      {
-        id: 8,
-        name: "Sudhir Ahari",
-        designation: "Design Head",
-        email: "a.sudhir@iitg.ac.in",
-        phone: "+91 6378920114",
-        linkedin: "NA",
-        image: "https://swc.iitg.ac.in/welfare-board/api/sudhir.png",
-        description: "Leading creative design initiatives for student welfare programs."
-      },
-      {
-        id: 10,
-        name: "Nehal Aggarwal",
-        designation: "Content Head",
-        email: "a.nehal@iitg.ac.in",
-        phone: "+91 9354519430",
-        linkedin: "https://www.linkedin.com/in/nehal-aggarwal-910579395/",
-        image: "https://swc.iitg.ac.in/welfare-board/api/nehal_aggarwal.jpeg",
-        description: "Writing Welfare through my pen"
-      },
-      {
-        id: 32,
-        name: "Nitya Gandhi",
-        designation: "PR Head",
-        email: "g.parthivkumar@iitg.ac.in",
-        phone: "+91 8780210778",
-        linkedin: "NA",
-        image: "https://swc.iitg.ac.in/welfare-board/api/nitya_gandhi.jpeg",
-        description: "Managaing Public relation of Students' Welfare board"
-      }
-    ],
-    clubSecretaries: [
-      {
-        id: 11,
-        name: "Pallabi Keot",
-        designation: "Saathi Secretary",
-        email: "k.pallabi@iitg.ac.in",
-        phone: "+91 97061 09569",
-        image: "https://swc.iitg.ac.in/welfare-board/api/pallabi_pic.jpg"
-      },
-      {
-        id: 12,
-        name: "Ravi Shekhar Sharma",
-        designation: "Academic Initiatives Club Secretary",
-        email: "raviss@iitg.ac.in",
-        phone: "+91 8764621501",
-        linkedin: "NA",
-        image: "https://swc.iitg.ac.in/welfare-board/api/ravi_shekhar_sharma.jpg"
-      },
-      {
-        id: 13,
-        name: "Ritik Raj",
-        designation: "Awareness Secretary",
-        email: "ritik.raj@iitg.ac.in",
-        phone: "+91 6200716689",
-        image: "https://swc.iitg.ac.in/welfare-board/api/ritik_raj.jpg"
-      },
-      {
-        id: 14,
-        name: "Deepesh Potharaju",
-        designation: "Tarangini Secretary",
-        email: "p.deepesh@iitg.ac.in",
-        phone: "+91 7207459849",
-        image: "https://swc.iitg.ac.in/welfare-board/api/deepesh_p.jpg"
-      },
-      {
-        id: 15,
-        name: "Shibangi Paul",
-        designation: "Social Service Club Secretary",
-        email: "p.shibangi@iitg.ac.in",
-        phone: "+91 93653 21834",
-        image: "https://swc.iitg.ac.in/welfare-board/api/shibangi_pic.jpeg"
-      },
-      {
-        id: 16,
-        name: "Devyani",
-        designation: "Youth Empowerment Club Secretary",
-        email: "devyani@iitg.ac.in",
-        phone: "+91 9896243279",
-        linkedin: "NA",
-        image: "https://swc.iitg.ac.in/welfare-board/api/devyani.jpg"
-      },
-      {
-        id: 17,
-        name: "Priyanka Yadav",
-        designation: "Lambda Secretary",
-        email: " y.priyanka@iitg.ac.in",
-        phone: "+91 96257 01009",
-        image: " https://swc.iitg.ac.in/welfare-board/api/priyanka_yadav.jpg"
-      }
-    ],
-    hostelSecretaries: [
-      {
-        id: 18,
-        name: "Harsh Hemant Balgude",
-        designation: "Kameng Hostel Secretary",
-        email: "h.balgude@iitg.ac.in",
-        phone: "+91 82373 70601",
-        image: "https://swc.iitg.ac.in/welfare-board/api/kameng_welfy.jpg"
-      },
-      {
-        id: 19,
-        name: "Deeksha Garg",
-        designation: "Subansiri Hostel Secretary",
-        email: "deeksha.garg@iitg.ac.in",
-        phone: "+91 9079873232",
-        image: "https://swc.iitg.ac.in/welfare-board/api/deeksha_garg.png"
-      },
-      {
-        id: 20,
-        name: "Virendra Ghunawat",
-        designation: "Dihing Hostel Secretary",
-        email: "v.ghunawat@iitg.ac.in",
-        phone: "+91 95214 67460",
-        image: "https://swc.iitg.ac.in/welfare-board/api/dihing_welfy.jpeg"
-      },
-      {
-        id: 21,
-        name: "Nimit Maroo",
-        designation: "Lohit Hostel Secretary",
-        email: "m.nimit@iitg.ac.in",
-        phone: "+91 6367795984",
-        image: "https://swc.iitg.ac.in/welfare-board/api/nimit_maroo.png"
-      },
-      {
-        id: 22,
-        name: "Ansh Pal",
-        designation: "Siang Hostel Secretary",
-        email: "ansh.pal@iitg.ac.in",
-        phone: "+91 9696345530",
-        image: " https://swc.iitg.ac.in/welfare-board/api/siang_welfy_.jpg"
-      },
-      {
-        id: 23,
-        name: "Priyanshu Bhardwaj",
-        designation: "Brahmaputra Hostel Secretary",
-        email: "p.bhardwaj@iitg.ac.in",
-        phone: "+91 9142029326",
-        image: "https://swc.iitg.ac.in/welfare-board/api/priyanshu_bhardwaj.png"
-      },
-      {
-        id: 24,
-        name: "Aditya Prabhakar",
-        designation: "Manas Hostel Secretary",
-        email: "aditya.prabhakar@iitg.ac.in",
-        phone: "+91 9211577556",
-        image: "https://swc.iitg.ac.in/welfare-board/api/aditya_prabhakar.png"
-      },
-      {
-        id: 25,
-        name: "Akshada Gokul Bhamare",
-        designation: "Dhansiri Hostel Secretary",
-        email: "g.bhamare@iitg.ac.in",
-        phone: "+91 9823088141",
-        image: "https://swc.iitg.ac.in/welfare-board/api/akshada_bhamare.jpg"
-      },
-      {
-        id: 26,
-        name: "Chitransh Gupta",
-        designation: "Barak Hostel Secretary",
-        email: "g.chitransh@iitg.ac.in",
-        phone: "+91 8226037201",
-        image: "https://swc.iitg.ac.in/welfare-board/api/chitransh_gupta.jpg"
-      },
-      {
-        id: 27,
-        name: "Sundaram Pandey",
-        designation: "Umiam Hostel Secretary",
-        email: "p.sundaram@iitg.ac.in",
-        phone: "+91 89494 90277",
-        image: "https://swc.iitg.ac.in/welfare-board/api/umiam_welfy_.jpeg"
-      },
-      {
-        id: 28,
-        name: "Subhodeep Paul",
-        designation: "Kapili Hostel Secretary",
-        email: "p.subhodeep@iitg.ac.in",
-        phone: "+91 9678495561",
-        image: "https://swc.iitg.ac.in/welfare-board/api/subhodeep_paul.jpeg"
-      },
-      {
-        id: 29,
-        name: "Lashika Goyal",
-        designation: "Disang Hostel Secretary",
-        email: "g.lashika@iitg.ac.in",
-        phone: "+91 8386843761",
-        image: "https://swc.iitg.ac.in/welfare-board/api/lashika_goyal.jpeg"
-      },
-      {
-        id: 30,
-        name: "Amey Rewanwar",
-        designation: "Welfare Secretary",
-        email: "a.rewanwar@iitg.ac.in",
-        phone: "+91 7558689974",
-        image: "https://swc.iitg.ac.in/welfare-board/api/amey_rewanwar.jpeg"
-      },
-      {
-        id: 31,
-        name: "Chitranjan Kumar Yadav",
-        designation: "Welfare Secretary",
-        email: "y.chitranjan@iitg.ac.in",
-        phone: "+91 9142227599",
-        image: "https://swc.iitg.ac.in/welfare-board/api/chitranjan_kumar.jpg"
-      }
-    ]
-  };
+
 
   const ContactCard = ({ contact, isLarge = false }) => (
     <div className={`bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2`}>
@@ -389,6 +94,24 @@ function ContactsPage() {
     </div>
   );
 
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen bg-gray-50">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-[#7BB9C4]"></div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex flex-col justify-center items-center h-screen bg-gray-50 px-4 text-center">
+        <FaUser className="text-gray-300 text-6xl mb-4" />
+        <h2 className="text-2xl font-bold text-gray-800 mb-2">Failed to load contacts</h2>
+        <p className="text-gray-600">Please try refreshing the page or check back later.</p>
+      </div>
+    );
+  }
+
   return (
     <div>
       <div className="overflow-hidden font-poppins flex flex-col">
@@ -413,79 +136,88 @@ function ContactsPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             {/* Chairpersons Section - Side by Side */}
-            <section className="mb-20">
-              <SectionHeader
-                title="Chairpersons"
-                icon={FaUsers}
-                description="Meet our distinguished chairpersons who guide the Students' Welfare Board"
-              />
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                {contactData.chairpersons.map((contact) => (
-                  <ContactCard key={contact.id} contact={contact} isLarge={true} />
-                ))}
-              </div>
-            </section>
+            {data?.chairpersons?.length > 0 && (
+              <section className="mb-20">
+                <SectionHeader
+                  title="Chairpersons"
+                  icon={FaUsers}
+                  description="Meet our distinguished chairpersons who guide the Students' Welfare Board"
+                />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                  {data.chairpersons.map((contact) => (
+                    <ContactCard key={contact.id} contact={contact} isLarge={true} />
+                  ))}
+                </div>
+              </section>
+            )}
 
             {/* Core Team Section - GenSec elevated */}
-            <section className="mb-20">
-              <SectionHeader
-                title="Board Members"
-                icon={FaUser}
-                description="The dedicated core team managing student welfare activities"
-              />
-              <div className="relative max-w-5xl mx-auto">
-                {/* General Secretary - Elevated Position */}
-                <div className="flex justify-center mb-8">
-                  <div className="w-full max-w-sm transform -translate-y-4">
-                    <ContactCard contact={contactData.coreTeam[0]} />
+            {data?.coreTeam?.length > 0 && (
+              <section className="mb-20">
+                <SectionHeader
+                  title="Board Members"
+                  icon={FaUser}
+                  description="The dedicated core team managing student welfare activities"
+                />
+                <div className="relative max-w-5xl mx-auto">
+                  {/* General Secretary - Elevated Position */}
+                  <div className="flex justify-center mb-8">
+                    <div className="w-full max-w-sm transform -translate-y-4">
+                      {data.coreTeam[0] && <ContactCard contact={data.coreTeam[0]} />}
+                    </div>
+                  </div>
+
+                  {/* Overall Coordinator and Events Head - Side by Side Below */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                    {data.coreTeam[1] && <ContactCard contact={data.coreTeam[1]} />}
+                    {data.coreTeam[2] && <ContactCard contact={data.coreTeam[2]} />}
                   </div>
                 </div>
-
-                {/* Overall Coordinator and Events Head - Side by Side Below */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-                  <ContactCard contact={contactData.coreTeam[1]} />
-                  <ContactCard contact={contactData.coreTeam[2]} />
-                </div>
-              </div>
-            </section>
+              </section>
+            )}
 
             {/* Department Heads Section */}
-            <section className="mb-20">
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {contactData.departmentHeads.map((contact) => (
-                  <ContactCard key={contact.id} contact={contact} />
-                ))}
-              </div>
-            </section>
+            {data?.departmentHeads?.length > 0 && (
+              <section className="mb-20">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {data.departmentHeads.map((contact) => (
+                    <ContactCard key={contact.id} contact={contact} />
+                  ))}
+                </div>
+              </section>
+            )}
 
             {/* Club Secretaries Section */}
-            <section className="mb-20">
-              <SectionHeader
-                title="Club Secretaries"
-                icon={FaUsers}
-                description="Secretaries managing various student clubs and activities"
-              />
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {contactData.clubSecretaries.map((contact) => (
-                  <ContactCard key={contact.id} contact={contact} />
-                ))}
-              </div>
-            </section>
+            {data?.clubSecretaries?.length > 0 && (
+              <section className="mb-20">
+                <SectionHeader
+                  title="Club Secretaries"
+                  icon={FaUsers}
+                  description="Secretaries managing various student clubs and activities"
+                />
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                  {data.clubSecretaries.map((contact) => (
+                    <ContactCard key={contact.id} contact={contact} />
+                  ))}
+                </div>
+              </section>
+            )}
 
             {/* Hostel Welfare Secretaries Section */}
-            <section className="mb-20">
-              <SectionHeader
-                title="Hostel Welfare Secretaries"
-                icon={FaBuilding}
-                description="Dedicated secretaries ensuring welfare in all hostel accommodations"
-              />
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                {contactData.hostelSecretaries.map((contact) => (
-                  <ContactCard key={contact.id} contact={contact} />
-                ))}
-              </div>
-            </section>
+            {data?.hostelSecretaries?.length > 0 && (
+              <section className="mb-20">
+                <SectionHeader
+                  title="Hostel Welfare Secretaries"
+                  icon={FaBuilding}
+                  description="Dedicated secretaries ensuring welfare in all hostel accommodations"
+                />
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                  {data.hostelSecretaries.map((contact) => (
+                    <ContactCard key={contact.id} contact={contact} />
+                  ))}
+                </div>
+              </section>
+            )}
 
             {/* Emergency & Ragging Contact Section */}
             <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
