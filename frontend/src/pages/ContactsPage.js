@@ -84,7 +84,8 @@ function ContactsPage() {
         email: "p.jahnavi@iitg.ac.in",
         phone: "+91 9693785594",
         linkedin: "https://www.linkedin.com/in/jahnavip1006/",
-        image: "https://swc.iitg.ac.in/welfare-board/api/jahnavi_priya.png"
+        image: "https://swc.iitg.ac.in/welfare-board/api/jahnavi_priya.png",
+        description: "Managing strategic partnerships, external communications, and promotional coordination for student welfare programs."
       },
       {
         id: 7,
@@ -113,7 +114,18 @@ function ContactsPage() {
         email: "a.nehal@iitg.ac.in",
         phone: "+91 9354519430",
         linkedin: "https://www.linkedin.com/in/nehal-aggarwal-910579395/",
-        image: "https://swc.iitg.ac.in/welfare-board/api/nehal_aggarwal.jpeg"
+        image: "https://swc.iitg.ac.in/welfare-board/api/nehal_aggarwal.jpeg",
+        description: "Writing Welfare through my pen"
+      },
+      {
+        id: 32,
+        name: "Nitya Gandhi",
+        designation: "PR Head",
+        email: "g.parthivkumar@iitg.ac.in",
+        phone: "+91 8780210778",
+        linkedin: "NA",
+        image: "https://swc.iitg.ac.in/welfare-board/api/nitya_gandhi.jpeg",
+        description: "Managaing Public relation of Students' Welfare board"
       }
     ],
     clubSecretaries: [
@@ -127,11 +139,12 @@ function ContactsPage() {
       },
       {
         id: 12,
-        name: "Ravit Chatrath",
+        name: "Ravi Shekhar Sharma",
         designation: "Academic Initiatives Club Secretary",
-        email: "c.ravit@iitg.ac.in",
-        phone: "+91 74540 63847",
-        image: "https://swc.iitg.ac.in/welfare-board/api/ravit_pic.jpeg"
+        email: "raviss@iitg.ac.in",
+        phone: "+91 8764621501",
+        linkedin: "NA",
+        image: "https://swc.iitg.ac.in/welfare-board/api/ravi_shekhar_sharma.jpg"
       },
       {
         id: 13,
@@ -159,11 +172,12 @@ function ContactsPage() {
       },
       {
         id: 16,
-        name: "Sarvagya Tiwari",
+        name: "Devyani",
         designation: "Youth Empowerment Club Secretary",
-        email: "t.sarvagya@iitg.ac.in",
-        phone: "+91 82913 14066",
-        image: "https://swc.iitg.ac.in/welfare-board/api/sarvagya.jpg"
+        email: "devyani@iitg.ac.in",
+        phone: "+91 9896243279",
+        linkedin: "NA",
+        image: "https://swc.iitg.ac.in/welfare-board/api/devyani.jpg"
       },
       {
         id: 17,
