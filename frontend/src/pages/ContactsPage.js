@@ -40,7 +40,7 @@ function ContactsPage() {
         email: "gensec_welfare@iitg.ac.in",
         phone: "+91 82005 37139",
         linkedin: "NA",
-        image: "https://swc.iitg.ac.in/welfare-board/api/surbhit_pic.jpg",
+        image: "https://swc.iitg.ac.in/welfare-board/api/surbhit_pic_new.jpg",
         description: "Coordinating all student welfare activities and representing student interests."
       },
       {
@@ -50,7 +50,7 @@ function ContactsPage() {
         department: "B.Tech Mechanical Engineering, 3rd Year",
         email: "shlok.singh@iitg.ac.in",
         phone: "+91 72071 85274",
-        linkedin: "NA",
+        linkedin: "https://www.linkedin.com/in/shlok-pratap-singh-04a26a33a/",
         image: " https://swc.iitg.ac.in/welfare-board/api/shlok_pic.jpg",
         description: "Managing overall coordination of student welfare programs and events."
       },
@@ -58,11 +58,11 @@ function ContactsPage() {
         id: 5,
         name: "Aryan Srivastava",
         designation: "Events Head",
-        department: "NA",
+        department: "B.Tech BSBE, 3rd Year",
         email: "aryan.srivastava@iitg.ac.in",
         phone: "+91 9839378578",
-        linkedin: "NA",
-        image: "https://swc.iitg.ac.in/welfare-board/api/aryan_srivastava.jpeg",
+        linkedin: "https://www.linkedin.com/in/aryansrivastava11/",
+        image: "https://swc.iitg.ac.in/welfare-board/api/aryan_new.jpeg",
         description: "Organizing and managing all student welfare events and activities."
       }
     ],
@@ -73,9 +73,18 @@ function ContactsPage() {
         designation: "Girl Representative",
         email: "S.pallempati@iitg.ac.in",
         phone: "+91 9848973693",
-        linkedin: "NA",
+        linkedin: "https://www.linkedin.com/in/p-sharvani/",
         image: "https://swc.iitg.ac.in/welfare-board/api/sharvani_pallempati.jpg",
         description: "Representing and addressing concerns of female students on campus."
+      },
+      {
+        id: 9,
+        name: "Jahnavi Priya",
+        designation: "Marketing Head",
+        email: "p.jahnavi@iitg.ac.in",
+        phone: "+91 9693785594",
+        linkedin: "https://www.linkedin.com/in/jahnavip1006/",
+        image: "https://swc.iitg.ac.in/welfare-board/api/jahnavi_priya.png"
       },
       {
         id: 7,
@@ -98,21 +107,12 @@ function ContactsPage() {
         description: "Leading creative design initiatives for student welfare programs."
       },
       {
-        id: 9,
-        name: "Jahnavi Priya",
-        designation: "Marketing Head",
-        email: "p.jahnavi@iitg.ac.in",
-        phone: "+91 9693785594",
-        linkedin: "NA",
-        image: "https://swc.iitg.ac.in/welfare-board/api/jahnavi_priya.png"
-      },
-      {
         id: 10,
         name: "Nehal Aggarwal",
         designation: "Content Head",
         email: "a.nehal@iitg.ac.in",
         phone: "+91 9354519430",
-        linkedin: "NA",
+        linkedin: "https://www.linkedin.com/in/nehal-aggarwal-910579395/",
         image: "https://swc.iitg.ac.in/welfare-board/api/nehal_aggarwal.jpeg"
       }
     ],
