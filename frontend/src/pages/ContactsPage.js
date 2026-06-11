@@ -34,73 +34,91 @@ function ContactsPage() {
     coreTeam: [
       {
         id: 3,
-        name: "N Hemanth Kumar",
+        name: "Surbhit Gang",
         designation: "General Secretary",
-        department: "B.Tech Computer Science, 4th Year",
+        department: "B.Tech Civil Engineerin, 4th Year",
         email: "gensec_welfare@iitg.ac.in",
-        phone: "+91 73967 99357",
-        linkedin: "https://www.linkedin.com/in/hemanth-kumar-n-9bb12a263",
-        image: "https://swc.iitg.ac.in/welfare-board/api/gensec_wel.jpg",
+        phone: "+91 82005 37139",
+        linkedin: "NA",
+        image: "https://swc.iitg.ac.in/welfare-board/api/surbhit_pic.jpg",
         description: "Coordinating all student welfare activities and representing student interests."
       },
       {
         id: 4,
-        name: "Mithil Sandhineni",
+        name: "Shlok Pratap Singh",
         designation: "Overall Coordinator",
         department: "B.Tech Mechanical Engineering, 3rd Year",
-        email: "m.sandhineni@iitg.ac.in",
+        email: "shlok.singh@iitg.ac.in",
         phone: "+91 72071 85274",
-        linkedin: "https://www.linkedin.com/in/mithilsandhineni/",
-        image: "https://swc.iitg.ac.in/welfare-board/api/mithil_picture.jpg",
+        linkedin: "NA",
+        image: " https://swc.iitg.ac.in/welfare-board/api/shlok_pic.jpg",
         description: "Managing overall coordination of student welfare programs and events."
       },
       {
         id: 5,
-        name: "Surbhit Gang",
+        name: "Aryan Srivastava",
         designation: "Events Head",
-        department: "B.Tech Civil Engineering, 3rd Year",
-        email: "surbhitkumar@iitg.ac.in",
-        phone: "+91 82005 37139",
+        department: "NA",
+        email: "aryan.srivastava@iitg.ac.in",
+        phone: "+91 9839378578",
         linkedin: "NA",
-        image: "https://swc.iitg.ac.in/welfare-board/api/surbhit_pic.jpg",
+        image: "https://swc.iitg.ac.in/welfare-board/api/aryan_srivastava.jpeg",
         description: "Organizing and managing all student welfare events and activities."
       }
     ],
     departmentHeads: [
       {
         id: 6,
-        name: "Diya Agarwal",
+        name: "Pallempati Sharvani",
         designation: "Girl Representative",
-        email: "diya.agarwal@iitg.ac.in",
-        phone: "+91 88494 76475",
-        linkedin: "https://www.linkedin.com/in/diya-agarwal-609005262/",
-        image: "https://swc.iitg.ac.in/welfare-board/api/diya_pic.jpg",
+        email: "S.pallempati@iitg.ac.in",
+        phone: "+91 9848973693",
+        linkedin: "NA",
+        image: "https://swc.iitg.ac.in/welfare-board/api/sharvani_pallempati.jpg",
         description: "Representing and addressing concerns of female students on campus."
       },
       {
         id: 7,
-        name: "Shlok Pratap Singh",
+        name: "Ashutosh Maurya",
         designation: "Media & Branding Head",
-        email: "shlok.singh@iitg.ac.in",
-        phone: "+91 99970 01125",
-        linkedin: "https://www.linkedin.com/in/shlok-pratap-singh-04a26a33a/",
-        image: " https://swc.iitg.ac.in/welfare-board/api/shlok_pic.jpg",
+        email: "ashutosh.maurya@iitg.ac.in",
+        phone: "+91 8435208455",
+        linkedin: "NA",
+        image: "https://swc.iitg.ac.in/welfare-board/api/ashutosh_maurya.jpg",
         description: "Promoting student welfare initiatives and managing communications."
       },
       {
         id: 8,
-        name: "Riddha",
-        designation: "Design Coordinator",
-        email: "s.riddha@iitg.ac.in",
-        phone: "+91 6294 014 787",
-        linkedin: "https://www.linkedin.com/in/riddha-singh-a07103261/",
-        image: "https://swc.iitg.ac.in/welfare-board/api/riddha_pic.jpg",
+        name: "Sudhir Ahari",
+        designation: "Design Head",
+        email: "a.sudhir@iitg.ac.in",
+        phone: "+91 6378920114",
+        linkedin: "NA",
+        image: "https://swc.iitg.ac.in/welfare-board/api/sudhir.png",
         description: "Leading creative design initiatives for student welfare programs."
+      },
+      {
+        id: 9,
+        name: "Jahnavi Priya",
+        designation: "Marketing Head",
+        email: "p.jahnavi@iitg.ac.in",
+        phone: "+91 9693785594",
+        linkedin: "NA",
+        image: "https://swc.iitg.ac.in/welfare-board/api/jahnavi_priya.png"
+      },
+      {
+        id: 10,
+        name: "Nehal Aggarwal",
+        designation: "Content Head",
+        email: "a.nehal@iitg.ac.in",
+        phone: "+91 9354519430",
+        linkedin: "NA",
+        image: "https://swc.iitg.ac.in/welfare-board/api/nehal_aggarwal.jpeg"
       }
     ],
     clubSecretaries: [
       {
-        id: 10,
+        id: 11,
         name: "Pallabi Keot",
         designation: "Saathi Secretary",
         email: "k.pallabi@iitg.ac.in",
@@ -108,7 +126,7 @@ function ContactsPage() {
         image: "https://swc.iitg.ac.in/welfare-board/api/pallabi_pic.jpg"
       },
       {
-        id: 11,
+        id: 12,
         name: "Ravit Chatrath",
         designation: "Academic Initiatives Club Secretary",
         email: "c.ravit@iitg.ac.in",
@@ -116,23 +134,23 @@ function ContactsPage() {
         image: "https://swc.iitg.ac.in/welfare-board/api/ravit_pic.jpeg"
       },
       {
-        id: 12,
-        name: "Uthkarsha Srivastava",
-        designation: "Awareness Secretary",
-        email: "u.shrivastava@iitg.ac.in",
-        phone: "+91 73892 47395",
-        image: "https://swc.iitg.ac.in/welfare-board/api/utkarsha.jpg"
-      },
-      {
         id: 13,
-        name: "Vaishnavi Agarwal ",
-        designation: "Tarangini Secretary",
-        email: "a.vaishnavi@iitg.ac.in",
-        phone: "+91 89537 62399",
-        image: " https://swc.iitg.ac.in/welfare-board/api/vaishnavi.jpg"
+        name: "Ritik Raj",
+        designation: "Awareness Secretary",
+        email: "ritik.raj@iitg.ac.in",
+        phone: "+91 6200716689",
+        image: "https://swc.iitg.ac.in/welfare-board/api/ritik_raj.jpg"
       },
       {
         id: 14,
+        name: "Deepesh Potharaju",
+        designation: "Tarangini Secretary",
+        email: "p.deepesh@iitg.ac.in",
+        phone: "+91 7207459849",
+        image: "https://swc.iitg.ac.in/welfare-board/api/deepesh_p.jpg"
+      },
+      {
+        id: 15,
         name: "Shibangi Paul",
         designation: "Social Service Club Secretary",
         email: "p.shibangi@iitg.ac.in",
@@ -140,7 +158,7 @@ function ContactsPage() {
         image: "https://swc.iitg.ac.in/welfare-board/api/shibangi_pic.jpeg"
       },
       {
-        id: 15,
+        id: 16,
         name: "Sarvagya Tiwari",
         designation: "Youth Empowerment Club Secretary",
         email: "t.sarvagya@iitg.ac.in",
@@ -148,13 +166,13 @@ function ContactsPage() {
         image: "https://swc.iitg.ac.in/welfare-board/api/sarvagya.jpg"
       },
       {
-        id: 16,
+        id: 17,
         name: "Priyanka Yadav",
         designation: "Lambda Secretary",
         email: " y.priyanka@iitg.ac.in",
         phone: "+91 96257 01009",
         image: " https://swc.iitg.ac.in/welfare-board/api/priyanka_yadav.jpg"
-      },
+      }
     ],
     hostelSecretaries: [
       {
@@ -167,11 +185,11 @@ function ContactsPage() {
       },
       {
         id: 19,
-        name: "Eena Dodwani",
+        name: "Deeksha Garg",
         designation: "Subansiri Hostel Secretary",
-        email: "eena.dodwani@iitg.ac.in",
-        phone: "+91 88271 18164",
-        image: "https://swc.iitg.ac.in/welfare-board/api/subansiri_welfy.jpg"
+        email: "deeksha.garg@iitg.ac.in",
+        phone: "+91 9079873232",
+        image: "https://swc.iitg.ac.in/welfare-board/api/deeksha_garg.png"
       },
       {
         id: 20,
@@ -182,15 +200,15 @@ function ContactsPage() {
         image: "https://swc.iitg.ac.in/welfare-board/api/dihing_welfy.jpeg"
       },
       {
-        id: 22,
-        name: "Chirag Agarwal",
+        id: 21,
+        name: "Nimit Maroo",
         designation: "Lohit Hostel Secretary",
-        email: "c.agarwal@iitg.ac.in",
-        phone: "+91 70149 62887",
-        image: "https://swc.iitg.ac.in/welfare-board/api/lohiit_welfy.jpg"
+        email: "m.nimit@iitg.ac.in",
+        phone: "+91 6367795984",
+        image: "https://swc.iitg.ac.in/welfare-board/api/nimit_maroo.png"
       },
       {
-        id: 23,
+        id: 22,
         name: "Ansh Pal",
         designation: "Siang Hostel Secretary",
         email: "ansh.pal@iitg.ac.in",
@@ -198,39 +216,39 @@ function ContactsPage() {
         image: " https://swc.iitg.ac.in/welfare-board/api/siang_welfy_.jpg"
       },
       {
-        id: 24,
-        name: "Paras Katiyar",
+        id: 23,
+        name: "Priyanshu Bhardwaj",
         designation: "Brahmaputra Hostel Secretary",
-        email: "paras.katiyar@iitg.ac.in ",
-        phone: "+91 6387 843 598",
-        image: " https://swc.iitg.ac.in/welfare-board/api/bramha_welfy.jpg"
+        email: "p.bhardwaj@iitg.ac.in",
+        phone: "+91 9142029326",
+        image: "https://swc.iitg.ac.in/welfare-board/api/priyanshu_bhardwaj.png"
+      },
+      {
+        id: 24,
+        name: "Aditya Prabhakar",
+        designation: "Manas Hostel Secretary",
+        email: "aditya.prabhakar@iitg.ac.in",
+        phone: "+91 9211577556",
+        image: "https://swc.iitg.ac.in/welfare-board/api/aditya_prabhakar.png"
       },
       {
         id: 25,
-        name: " Yogesh Bhanwaria",
-        designation: "Manas Hostel Secretary",
-        email: "y.bhanwaria@iitg.ac.in",
-        phone: "+91 73576 58751",
-        image: "https://swc.iitg.ac.in/welfare-board/api/manas_welfy.jpg"
+        name: "Akshada Gokul Bhamare",
+        designation: "Dhansiri Hostel Secretary",
+        email: "g.bhamare@iitg.ac.in",
+        phone: "+91 9823088141",
+        image: "https://swc.iitg.ac.in/welfare-board/api/akshada_bhamare.jpg"
+      },
+      {
+        id: 26,
+        name: "Chitransh Gupta",
+        designation: "Barak Hostel Secretary",
+        email: "g.chitransh@iitg.ac.in",
+        phone: "+91 8226037201",
+        image: "https://swc.iitg.ac.in/welfare-board/api/chitransh_gupta.jpg"
       },
       {
         id: 27,
-        name: "Devyani",
-        designation: "Dhansiri Hostel Secretary",
-        email: "devyani@iitg.ac.in",
-        phone: "+91  98962 43279",
-        image: " https://swc.iitg.ac.in/welfare-board/api/dhansiri_welfy_.jpeg"
-      },
-      {
-        id: 28,
-        name: "Deepak",
-        designation: "Barak Hostel Secretary",
-        email: "barak@iitg.ac.in",
-        phone: "+91 96436 53678",
-        image: "https://swc.iitg.ac.in/welfare-board/api/barak_welfy.jpg"
-      },
-      {
-        id: 29,
         name: "Sundaram Pandey",
         designation: "Umiam Hostel Secretary",
         email: "p.sundaram@iitg.ac.in",
@@ -238,12 +256,36 @@ function ContactsPage() {
         image: "https://swc.iitg.ac.in/welfare-board/api/umiam_welfy_.jpeg"
       },
       {
-        id: 30,
-        name: "Sulabh Napit",
+        id: 28,
+        name: "Subhodeep Paul",
         designation: "Kapili Hostel Secretary",
-        email: "n.sulabh@iitg.ac.in",
-        phone: "+91 83198 55908",
-        image: "https://swc.iitg.ac.in/welfare-board/api/kapili_welfy.jpeg"
+        email: "p.subhodeep@iitg.ac.in",
+        phone: "+91 9678495561",
+        image: "https://swc.iitg.ac.in/welfare-board/api/subhodeep_paul.jpeg"
+      },
+      {
+        id: 29,
+        name: "Lashika Goyal",
+        designation: "Disang Hostel Secretary",
+        email: "g.lashika@iitg.ac.in",
+        phone: "+91 8386843761",
+        image: "https://swc.iitg.ac.in/welfare-board/api/lashika_goyal.jpeg"
+      },
+      {
+        id: 30,
+        name: "Amey Rewanwar",
+        designation: "Welfare Secretary",
+        email: "a.rewanwar@iitg.ac.in",
+        phone: "+91 7558689974",
+        image: "https://swc.iitg.ac.in/welfare-board/api/amey_rewanwar.jpeg"
+      },
+      {
+        id: 31,
+        name: "Chitranjan Kumar Yadav",
+        designation: "Welfare Secretary",
+        email: "y.chitranjan@iitg.ac.in",
+        phone: "+91 9142227599",
+        image: "https://swc.iitg.ac.in/welfare-board/api/chitranjan_kumar.jpg"
       }
     ]
   };
