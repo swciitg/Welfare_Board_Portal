@@ -73,12 +73,30 @@ app.use('/', router);
 app.use('/image', authRoutes);
 app.use('/upload', uploadRoutes);
 app.use('/oauth', oauthRouter);
+
+// RFC 9728: Protected Resource Metadata
+// Claude reads this to find the authorization server
 app.get('/.well-known/oauth-protected-resource', (req, res) => {
   res.json({
     resource: OAuthConfig.MCP_URL,
     authorization_servers: [OAuthConfig.ISSUER],
+    bearer_methods_supported: ['header'],
   });
 });
+// Path-suffixed variant per RFC 9728 §3.1 — clients try this first when
+// the resource URL has a path component (/mcp).
+app.get('/.well-known/oauth-protected-resource/mcp', (req, res) => {
+  res.json({
+    resource: OAuthConfig.MCP_URL,
+    authorization_servers: [OAuthConfig.ISSUER],
+    bearer_methods_supported: ['header'],
+  });
+});
+
+// Note: RFC 8414 Authorization Server Metadata is served via an external
+// Cloudflare Worker at swc-mcp-auth.<account>.workers.dev/.well-known/oauth-authorization-server.
+// This is because Claude requires it at the host root, which Nginx does not proxy.
+
 app.all('/mcp', express.json(), requireBearerToken, mcpHandler);
 
 // Start the server

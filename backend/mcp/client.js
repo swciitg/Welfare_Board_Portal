@@ -1,5 +1,7 @@
 export const OAuthConfig = {
-  ISSUER: 'https://swc.iitg.ac.in/welfare-board/api/oauth',
+  // ISSUER must match the base where /.well-known/oauth-authorization-server is served.
+  // We use an external Cloudflare Worker for this. 
+  ISSUER: 'https://swc-mcp-auth.manan-vala.workers.dev',
   MCP_URL: 'https://swc.iitg.ac.in/welfare-board/api/mcp',
   
   JWT_SECRET: 'REPLACE_WITH_A_LONG_RANDOM_SECRET_STRING_2026',
