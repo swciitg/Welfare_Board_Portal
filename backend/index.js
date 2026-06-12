@@ -54,7 +54,9 @@ app.use(session({
 // };
 
 // Apply CORS Middleware
-app.use(cors());
+app.use(cors({
+  exposedHeaders: ['WWW-Authenticate']
+}));
 
 // Use AdminJS first
 
