@@ -6,18 +6,9 @@ import { signAccessToken } from './jwtHelper.js';
 
 const router = express.Router();
 
-// 1. Authorization Server Metadata
-router.get('/.well-known/oauth-authorization-server', (req, res) => {
-  res.json({
-    issuer: OAuthConfig.ISSUER,
-    authorization_endpoint: `${OAuthConfig.ISSUER}/authorize`,
-    token_endpoint: `${OAuthConfig.ISSUER}/token`,
-    registration_endpoint: `${OAuthConfig.ISSUER}/register`,
-    code_challenge_methods_supported: ["S256"],
-    response_types_supported: ["code"],
-    grant_types_supported: ["authorization_code", "refresh_token"]
-  });
-});
+// Note: /.well-known/oauth-authorization-server is served from index.js at the root level
+// so that Claude can discover it at /welfare-board/api/.well-known/oauth-authorization-server
+
 
 // 2. Dynamic Client Registration (DCR)
 router.post('/register', express.json(), (req, res) => {
