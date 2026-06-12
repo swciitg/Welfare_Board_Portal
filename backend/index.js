@@ -10,6 +10,8 @@ import { fileURLToPath } from 'url';
 import path from 'path';
 import uploadRoutes from "./routes/upload.route.js";
 import authRoutes from "./routes/auth.routes.js";
+import { mcpSseHandler, mcpMessageHandler } from './mcp/server.js';
+import { requireApiKey } from './middleware/apiKey.middleware.js';
 // Initialize dotenv to load environment variables
 dotenv.config();
 
@@ -66,6 +68,8 @@ app.use("/test", (req, res) => {
 app.use('/', router);
 app.use('/image', authRoutes);
 app.use('/upload', uploadRoutes);
+app.get('/mcp/sse', requireApiKey, mcpSseHandler);
+app.post('/mcp/messages', requireApiKey, express.json(), mcpMessageHandler);
 
 // Start the server
 app.listen(PORT, () => {
