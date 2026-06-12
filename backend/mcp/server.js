@@ -1,9 +1,9 @@
 // backend/mcp/server.js
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import { SSEServerTransport } from '@modelcontextprotocol/sdk/server/sse.js';
+import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
+import { randomUUID } from 'node:crypto';
 import { registerTools } from './tools.js';
 
-// One McpServer instance, reused across sessions
 const mcpServer = new McpServer({
   name: 'welfare-board-iitg',
   version: '1.0.0',
@@ -11,27 +11,65 @@ const mcpServer = new McpServer({
 
 registerTools(mcpServer);
 
-// Map of sessionId → SSEServerTransport (one per connected client)
+// sessionId → transport
 const transports = new Map();
 
-export const mcpSseHandler = async (req, res) => {
-  const transport = new SSEServerTransport('/welfare-board/api/mcp/messages', res);
-  transports.set(transport.sessionId, transport);
+function isInitializeRequest(body) {
+  return body?.method === 'initialize';
+}
 
-  res.on('close', () => {
-    transports.delete(transport.sessionId);
-  });
+export const mcpHandler = async (req, res) => {
+  try {
+    if (req.method === 'POST') {
+      const sessionId = req.headers['mcp-session-id'];
+      let transport;
 
-  await mcpServer.connect(transport);
-};
+      if (sessionId && transports.has(sessionId)) {
+        // Existing session
+        transport = transports.get(sessionId);
+      } else if (!sessionId && isInitializeRequest(req.body)) {
+        // New session — only allow on initialize
+        transport = new StreamableHTTPServerTransport({
+          sessionIdGenerator: () => randomUUID(),
+          onsessioninitialized: (id) => {
+            transports.set(id, transport);
+          },
+        });
 
-export const mcpMessageHandler = async (req, res) => {
-  const sessionId = req.query.sessionId;
-  const transport = transports.get(sessionId);
+        transport.onclose = () => {
+          const id = transport.sessionId;
+          if (id) transports.delete(id);
+        };
 
-  if (!transport) {
-    return res.status(404).json({ error: 'Session not found or expired' });
+        await mcpServer.connect(transport);
+      } else {
+        return res.status(400).json({ error: 'Bad request: missing or invalid session' });
+      }
+
+      await transport.handleRequest(req, res, req.body);
+
+    } else if (req.method === 'GET') {
+      // SSE stream for server-sent notifications
+      const sessionId = req.headers['mcp-session-id'];
+      if (!sessionId || !transports.has(sessionId)) {
+        return res.status(400).json({ error: 'No active session' });
+      }
+      await transports.get(sessionId).handleRequest(req, res);
+
+    } else if (req.method === 'DELETE') {
+      // Client terminating session
+      const sessionId = req.headers['mcp-session-id'];
+      if (sessionId && transports.has(sessionId)) {
+        await transports.get(sessionId).close();
+        transports.delete(sessionId);
+      }
+      res.status(200).json({ ok: true });
+
+    } else {
+      res.status(405).set('Allow', 'GET, POST, DELETE').json({ error: 'Method not allowed' });
+    }
+  } catch (err) {
+    console.error('MCP handler error:', err);
+    if (!res.headersSent) res.status(500).json({ error: 'Internal server error' });
   }
-
-  await transport.handlePostMessage(req, res, req.body);
 };
