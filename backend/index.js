@@ -69,7 +69,7 @@ app.use('/', router);
 app.use('/image', authRoutes);
 app.use('/upload', uploadRoutes);
 app.get('/mcp/sse', requireApiKey, mcpSseHandler);
-app.post('/mcp/messages', requireApiKey, express.json(), mcpMessageHandler);
+app.post('/mcp/messages', requireApiKey, mcpMessageHandler);
 
 // Start the server
 app.listen(PORT, () => {

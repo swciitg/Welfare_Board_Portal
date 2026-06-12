@@ -5,12 +5,15 @@ import { dirname, join } from 'path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-export const getValidKeys = () => {
+// Read once at startup, not per request
+const raw = (() => {
   try {
-    const keyData = readFileSync(join(__dirname, 'keys.bin'), 'binary');
-    return keyData.split(',').map(k => k.trim()).filter(k => k.length > 0);
-  } catch (error) {
-    console.error('Error reading keys.bin:', error.message);
-    return [];
+    return readFileSync(join(__dirname, 'keys.bin'), 'binary');
+  } catch (err) {
+    console.error('Failed to load keys.bin:', err.message);
+    return '';
   }
-};
+})();
+
+export const getValidKeys = () =>
+  raw.split(',').map(k => k.trim()).filter(k => k.length > 0);

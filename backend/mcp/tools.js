@@ -14,8 +14,12 @@ export const registerTools = (server) => {
     'Get all student clubs at IIT Guwahati with name, image, and URL-safe slug',
     {},
     async () => {
-      const clubs = await clubMain.find({}, 'name img safeName');
-      return { content: [{ type: 'text', text: JSON.stringify(clubs, null, 2) }] };
+      try {
+        const clubs = await clubMain.find({}, 'name img safeName');
+        return { content: [{ type: 'text', text: JSON.stringify(clubs, null, 2) }] };
+      } catch (err) {
+        return { content: [{ type: 'text', text: `Error fetching clubs: ${err.message}` }], isError: true };
+      }
     }
   );
 
@@ -24,9 +28,13 @@ export const registerTools = (server) => {
     'Get full details of a specific club including about, rules, events, achievements, gallery',
     { safeName: z.string().describe('The URL-safe club name, e.g. "saathi" or "social-service-club"') },
     async ({ safeName }) => {
-      const club = await clubMain.findOne({ safeName });
-      if (!club) return { content: [{ type: 'text', text: `Club "${safeName}" not found` }] };
-      return { content: [{ type: 'text', text: JSON.stringify(club, null, 2) }] };
+      try {
+        const club = await clubMain.findOne({ safeName });
+        if (!club) return { content: [{ type: 'text', text: `Club "${safeName}" not found` }] };
+        return { content: [{ type: 'text', text: JSON.stringify(club, null, 2) }] };
+      } catch (err) {
+        return { content: [{ type: 'text', text: `Error fetching club ${safeName}: ${err.message}` }], isError: true };
+      }
     }
   );
 
@@ -36,8 +44,12 @@ export const registerTools = (server) => {
     'Get all welfare board events with names and front images',
     {},
     async () => {
-      const events = await Event.find({}, 'eventName frontImage eventIntroDesc');
-      return { content: [{ type: 'text', text: JSON.stringify(events, null, 2) }] };
+      try {
+        const events = await Event.find({}, 'eventName frontImage eventIntroDesc');
+        return { content: [{ type: 'text', text: JSON.stringify(events, null, 2) }] };
+      } catch (err) {
+        return { content: [{ type: 'text', text: `Error fetching events: ${err.message}` }], isError: true };
+      }
     }
   );
 
@@ -46,9 +58,13 @@ export const registerTools = (server) => {
     'Get full details of an event by its MongoDB ID',
     { id: z.string().describe('MongoDB ObjectId of the event') },
     async ({ id }) => {
-      const event = await Event.findById(id);
-      if (!event) return { content: [{ type: 'text', text: `Event "${id}" not found` }] };
-      return { content: [{ type: 'text', text: JSON.stringify(event, null, 2) }] };
+      try {
+        const event = await Event.findById(id);
+        if (!event) return { content: [{ type: 'text', text: `Event "${id}" not found` }] };
+        return { content: [{ type: 'text', text: JSON.stringify(event, null, 2) }] };
+      } catch (err) {
+        return { content: [{ type: 'text', text: `Error fetching event ${id}: ${err.message}` }], isError: true };
+      }
     }
   );
 
@@ -63,9 +79,13 @@ export const registerTools = (server) => {
       ]).optional().describe('Filter by contact category')
     },
     async ({ category }) => {
-      const query = category ? { category } : {};
-      const contacts = await Contacts.find(query).sort({ category: 1, priority: -1 });
-      return { content: [{ type: 'text', text: JSON.stringify(contacts, null, 2) }] };
+      try {
+        const query = category ? { category } : {};
+        const contacts = await Contacts.find(query).sort({ category: 1, priority: -1 });
+        return { content: [{ type: 'text', text: JSON.stringify(contacts, null, 2) }] };
+      } catch (err) {
+        return { content: [{ type: 'text', text: `Error fetching contacts: ${err.message}` }], isError: true };
+      }
     }
   );
 
@@ -75,8 +95,12 @@ export const registerTools = (server) => {
     'Get all active counselors with their weekly schedules and contact info',
     {},
     async () => {
-      const counselors = await Counselor.find({ isActive: true }).sort({ priority: -1 });
-      return { content: [{ type: 'text', text: JSON.stringify(counselors, null, 2) }] };
+      try {
+        const counselors = await Counselor.find({ isActive: true }).sort({ priority: -1 });
+        return { content: [{ type: 'text', text: JSON.stringify(counselors, null, 2) }] };
+      } catch (err) {
+        return { content: [{ type: 'text', text: `Error fetching counselors: ${err.message}` }], isError: true };
+      }
     }
   );
 
@@ -86,8 +110,12 @@ export const registerTools = (server) => {
     'Get general SWB board information: chairperson names, GenSec, hero images, board name',
     {},
     async () => {
-      const homepage = await Homepage.findOne({});
-      return { content: [{ type: 'text', text: JSON.stringify(homepage, null, 2) }] };
+      try {
+        const homepage = await Homepage.findOne({});
+        return { content: [{ type: 'text', text: JSON.stringify(homepage, null, 2) }] };
+      } catch (err) {
+        return { content: [{ type: 'text', text: `Error fetching board info: ${err.message}` }], isError: true };
+      }
     }
   );
 };
