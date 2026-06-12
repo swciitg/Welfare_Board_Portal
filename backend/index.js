@@ -11,6 +11,9 @@ import path from 'path';
 import uploadRoutes from "./routes/upload.route.js";
 import authRoutes from "./routes/auth.routes.js";
 import { mcpHandler } from './mcp/server.js';
+import oauthRouter from './mcp/oauth/router.js';
+import { OAuthConfig } from './mcp/client.js';
+import { requireBearerToken } from './mcp/oauth/bearerMiddleware.js';
 // Initialize dotenv to load environment variables
 dotenv.config();
 
@@ -67,7 +70,14 @@ app.use("/test", (req, res) => {
 app.use('/', router);
 app.use('/image', authRoutes);
 app.use('/upload', uploadRoutes);
-app.all('/mcp', express.json(), mcpHandler);
+app.use('/welfare-board/api/oauth', oauthRouter);
+app.get('/welfare-board/api/.well-known/oauth-protected-resource', (req, res) => {
+  res.json({
+    resource: OAuthConfig.MCP_URL,
+    authorization_servers: [OAuthConfig.ISSUER],
+  });
+});
+app.all('/mcp', express.json(), requireBearerToken, mcpHandler);
 
 // Start the server
 app.listen(PORT, () => {
