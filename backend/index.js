@@ -70,8 +70,8 @@ app.use("/test", (req, res) => {
 app.use('/', router);
 app.use('/image', authRoutes);
 app.use('/upload', uploadRoutes);
-app.use('/welfare-board/api/oauth', oauthRouter);
-app.get('/welfare-board/api/.well-known/oauth-protected-resource', (req, res) => {
+app.use('/oauth', oauthRouter);
+app.get('/.well-known/oauth-protected-resource', (req, res) => {
   res.json({
     resource: OAuthConfig.MCP_URL,
     authorization_servers: [OAuthConfig.ISSUER],
