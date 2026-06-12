@@ -10,6 +10,7 @@ import { fileURLToPath } from 'url';
 import path from 'path';
 import uploadRoutes from "./routes/upload.route.js";
 import authRoutes from "./routes/auth.routes.js";
+import { mcpHandler } from './mcp/server.js';
 // Initialize dotenv to load environment variables
 dotenv.config();
 
@@ -66,6 +67,7 @@ app.use("/test", (req, res) => {
 app.use('/', router);
 app.use('/image', authRoutes);
 app.use('/upload', uploadRoutes);
+app.all('/mcp', express.json(), mcpHandler);
 
 // Start the server
 app.listen(PORT, () => {
