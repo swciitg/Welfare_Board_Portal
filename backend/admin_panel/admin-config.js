@@ -13,6 +13,7 @@ import Facilities from "../models/facilities.js";
 import TeamMember from "../models/teamMember.js";
 import clubMain from "../models/clubMain.js";
 import homepage from "../models/general.js";
+import FoodOutlet from "../models/foodOutlet.js";
 
 const ADMINPANELROOT = "/welfare-board/api/admin";
 
@@ -412,7 +413,69 @@ const adminOptions = {
     Facilities,
     TeamMember,
     clubMain,
-    homepage
+    homepage,
+    {
+      resource: FoodOutlet,
+      options: {
+        listProperties: ['name', 'category', 'delivery', 'priority'],
+        filterProperties: ['category', 'name', 'delivery'],
+        editProperties: [
+          'name',
+          'category',
+          'image',
+          'description',
+          'specialties',
+          'delivery',
+          'priority'
+        ],
+        properties: {
+          category: {
+            availableValues: [
+              { value: 'pizza', label: 'Pizza' },
+              { value: 'indian', label: 'Indian' },
+              { value: 'cafe', label: 'Cafe' },
+              { value: 'dessert', label: 'Dessert' },
+              { value: 'healthy', label: 'Healthy' },
+              { value: 'momos', label: 'Momos' },
+              { value: 'dairy', label: 'Dairy' },
+              { value: 'bakery', label: 'Bakery' },
+              { value: 'chicken', label: 'Chicken' },
+              { value: 'budget', label: 'Budget' },
+            ]
+          },
+          priority: {
+            description: 'Higher numbers appear first',
+          },
+          image: {
+            description: 'Must start with: https://swc.iitg.ac.in/welfare-board/api/',
+          }
+        },
+        actions: {
+          new: {
+            before: async (request) => {
+              if (request.method === 'post') {
+                const imageUrl = request.payload?.image || '';
+                if (imageUrl && !imageUrl.startsWith('https://swc.iitg.ac.in/welfare-board/api/')) {
+                  throw new Error('Image URL must start with https://swc.iitg.ac.in/welfare-board/api/');
+                }
+              }
+              return request;
+            },
+          },
+          edit: {
+            before: async (request) => {
+              if (request.method === 'post') {
+                const imageUrl = request.payload?.image || '';
+                if (imageUrl && !imageUrl.startsWith('https://swc.iitg.ac.in/welfare-board/api/')) {
+                  throw new Error('Image URL must start with https://swc.iitg.ac.in/welfare-board/api/');
+                }
+              }
+              return request;
+            },
+          },
+        }
+      }
+    }
   ],
   branding: {
       companyName: "SWB IITG",

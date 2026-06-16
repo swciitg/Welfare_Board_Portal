@@ -4,6 +4,7 @@ import { getAllClub, getClubById } from '../controllers/club.controller.js';
 import { getContacts } from '../controllers/contact.controller.js';
 import { getCounselors } from '../controllers/counselor.controller.js';
 import { getAll, getEventById } from '../controllers/event.controller.js';
+import { getFoodOutlets } from '../controllers/foodOutlet.controller.js';
 
 const router = express.Router();
 
@@ -18,5 +19,6 @@ router.get('/contacts', getContacts);
 router.get('/counselors', getCounselors);
 router.get('/allClubs' , getAllClub);
 router.get('/allevents' , getAll);
+router.get('/foodoutlets', getFoodOutlets);
 
 export default router;

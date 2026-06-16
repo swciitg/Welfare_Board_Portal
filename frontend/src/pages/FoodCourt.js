@@ -1,120 +1,11 @@
 import React, { useState } from 'react';
 import { FaMapMarkerAlt, FaClock, FaPhone, FaMotorcycle, FaStar, FaUtensils } from 'react-icons/fa';
 import { MdDeliveryDining, MdRestaurant } from 'react-icons/md';
+import { useFoodOutletsData } from '../hooks/useFoodOutletsData';
 
 const FoodCourt = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
-
-  const foodOutlets = [
-  {
-    id: 1,
-    name: "La Pino'z Pizza",
-    category: "pizza",
-    image: "https://swc.iitg.ac.in/welfare-board/api/la_pinoz.jpg",
-    description: "Say hello to La Pino'z, the newest addition to the IITG food Court! Big pizzas, bigger cravings – whether you're chilling with friends or pulling an all-nighter, this spot has your back with cheesy, delicious comfort.",
-    specialties: ["Big Pizzas", "Cheese Lovers", "Late Night Snacks"],
-    delivery: false
-  },
-  {
-    id: 2,
-    name: "SUBHUB",
-    category: "healthy",
-    image: "https://swc.iitg.ac.in/welfare-board/api/subhub.jpg",
-    description: "Fuel up the smart way at SubHub! With fresh subs, crisp veggies, and flavorful fillings, it's your go-to spot on campus. Perfect for when you want something quick, tasty, and just a little bit healthy.",
-    specialties: ["Fresh Subs", "Crisp Veggies", "Quick Bites"],
-    delivery: true
-  },
-  {
-    id: 3,
-    name: "Urban Tadka",
-    category: "indian",
-    image: "https://swc.iitg.ac.in/welfare-board/api/urban_tadka.jpg",
-    description: "Craving bold desi flavours with a modern twist? Urban Tadka serves up your favourite North Indian dishes with a punch of spice and soul. From buttery naans to spicy curries – it's comfort food, campus-style!",
-    specialties: ["North Indian", "Buttery Naans", "Spicy Curries"],
-    delivery: true
-  },
-  {
-    id: 4,
-    name: "Baskin Robbins",
-    category: "dessert",
-    image: "https://swc.iitg.ac.in/welfare-board/api/baskin_robbins_.JPG",
-    description: "Baskin Robbins is more than just ice cream - it's a place of celebration where moments of joy are celebrated with a scoop or two. Get ready to satisfy your sweet tooth and awaken your sense of wonder. They offer the standard 31 flavours and the standard discount on the 31st of a month.",
-    specialties: ["31 Flavours", "Ice Cream", "Monthly Discounts"],
-    delivery: false
-  },
-  {
-    id: 5,
-    name: "Fat Belly",
-    category: "momos",
-    image: "https://swc.iitg.ac.in/welfare-board/api/fat_belly_.JPG",
-    description: "Fat Belly, famous all over Guwahati, now brings its legendary flavours to IITG. From classic steamed and crispy fried to rich Afghani and smoky tandoori – there's a momo for every mood. Fat Belly is where your momo cravings meet their match!",
-    specialties: ["Steamed Momos", "Afghani", "Tandoori"],
-    delivery: true
-  },
-  {
-    id: 6,
-    name: "Dairy Delight",
-    category: "dairy",
-    image: "https://swc.iitg.ac.in/welfare-board/api/dairy_delight.JPG",
-    description: "Your daily dose of dairy delight! Dairy Delight brings farm fresh milk, creamy curd, lassis, ice creams, and more– right to the heart of the campus. Whether it's a chilled treat on a sunny day or a wholesome glass of milk to recharge, Dairy Delight keeps it pure and tasty.",
-    specialties: ["Fresh Milk", "Lassis", "Dairy Products"],
-    delivery: false
-  },
-  {
-    id: 7,
-    name: "Big Byte Bakery",
-    category: "bakery",
-    image: "https://swc.iitg.ac.in/welfare-board/api/big_byte_bakery_.JPG",
-    description: "Where sweetness meets satisfaction! Big Byte Bakery is your campus stop for freshly baked cakes, cookies, pastries, and more. Perfect for birthdays, late night cravings, or just a sweet pick-me-up between lectures. Freshly baked, every byte counts!",
-    specialties: ["Fresh Cakes", "Cookies", "Pastries"],
-    delivery: true
-  },
-  {
-    id: 8,
-    name: "Nescafé",
-    category: "cafe",
-    image: "https://swc.iitg.ac.in/welfare-board/api/nescafe.jpg",
-    description: "The campus classic you'll keep coming back to! Nescafé serves up hot coffees, cold choco shakes, and it's not just coffee – enjoy hot Maggi, Pazzta, all in one stop. Whether it's a pre-class booster, a study break snack, or just a cozy food fix Nescafé is your everyday comfort corner.",
-    specialties: ["Hot Coffee", "Maggi", "Choco Shakes"],
-    delivery: false
-  },
-  {
-    id: 9,
-    name: "Domino's",
-    category: "pizza",
-    image: "https://swc.iitg.ac.in/welfare-board/api/dominoes.JPG",
-    description: "Hot, cheesy, and straight from the oven – Domino's is now just a short walk away! Whether it's a solo slice or a full pizza party, their irresistible crusts and endless toppings are perfect for every mood. Directly order pizza from Domino's app",
-    specialties: ["Hot Pizza", "Endless Toppings", "App Ordering"],
-    delivery: true
-  },
-  {
-    id: 10,
-    name: "Cafe Coffee Day",
-    category: "cafe",
-    image: "https://swc.iitg.ac.in/welfare-board/api/ccd.jpg",
-    description: "Need a caffeine kick or just a chill spot to hang out? CCD has you covered with its rich brews, creamy frappes, and classic snacks. Perfect for casual chats, assignment marathons, or quiet me-time because a lot can happen over coffee!",
-    specialties: ["Rich Brews", "Creamy Frappes", "Classic Snacks"],
-    delivery: false
-  },
-  {
-    id: 11,
-    name: "Lauriat",
-    category: "chicken",
-    image: "https://swc.iitg.ac.in/welfare-board/api/lauriat.jpg",
-    description: "Craving a fabulous chicken feast? Lauriat is your go-to destination for juicy, flavorful chicken dishes that hit the spot every time. From crispy bites to spicy curries head over without a second thought and let your taste buds celebrate!",
-    specialties: ["Juicy Chicken", "Crispy Bites", "Spicy Curries"],
-    delivery: false
-  },
-  {
-    id: 12,
-    name: "Hashtag Canteen",
-    category: "budget",
-    image: "https://swc.iitg.ac.in/welfare-board/api/hashtag_.jpg",
-    description: "Hungry and on a budget? Hashtag Canteen has you covered with a wide range of food options at prices that won't hurt your wallet. From filling meals to quick snacks it's the perfect everyday stop for tasty, affordable bites.",
-    specialties: ["Budget Friendly", "Filling Meals", "Quick Snacks"],
-    delivery: false
-  }
-];
+  const { data: foodOutlets, loading, error } = useFoodOutletsData();
 
 
   const categories = [
@@ -172,7 +63,26 @@ const FoodCourt = () => {
 
         {/* Food Outlets Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {filteredOutlets.map((outlet) => (
+          {loading && (
+            <div className="col-span-full text-center py-10 text-gray-600">
+              <div className="animate-spin inline-block w-8 h-8 border-[3px] border-current border-t-transparent text-[#7BB9C4] rounded-full mb-4">
+                <span className="sr-only">Loading...</span>
+              </div>
+              <p className="text-lg">Loading food outlets...</p>
+            </div>
+          )}
+          {error && (
+            <div className="col-span-full text-center py-10 text-red-500">
+              <p className="text-lg">Failed to load food outlets. Please try again later.</p>
+              <p className="text-sm mt-2">{error}</p>
+            </div>
+          )}
+          {!loading && !error && filteredOutlets.length === 0 && (
+            <div className="col-span-full text-center py-10 text-gray-600">
+              <p className="text-lg">No outlets found in this category.</p>
+            </div>
+          )}
+          {!loading && !error && filteredOutlets.map((outlet) => (
             <div 
               key={outlet.id}
               className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
