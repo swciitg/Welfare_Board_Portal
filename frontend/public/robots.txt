@@ -1,3 +1,6 @@
 # https://www.robotstxt.org/robotstxt.html
+# Regenerated with the correct Sitemap line by scripts/generate-seo.js at build time.
 User-agent: *
-Disallow:
+Allow: /
+
+Sitemap: https://swc.iitg.ac.in/welfare-board/sitemap.xml
